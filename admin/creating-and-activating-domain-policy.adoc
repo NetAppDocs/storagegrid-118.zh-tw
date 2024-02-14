@@ -1,0 +1,64 @@
+---
+permalink: admin/creating-and-activating-domain-policy.html 
+sidebar: sidebar 
+keywords: domain policy for tsm, tivoli storage manager policy 
+summary: 您必須建立網域原則、然後啟動該原則、以設定TSM伺服器來儲存從歸檔節點傳送的資料。 
+---
+= 建立及啟動網域原則
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您必須建立網域原則、然後啟動該原則、以設定TSM伺服器來儲存從歸檔節點傳送的資料。
+
+.步驟
+. 建立網域原則。
++
+`copy domain standard tsm-domain`
+
+. 如果您不使用現有的管理類別、請輸入下列其中一項：
++
+`define policyset tsm-domain standard`
+
++
+`define mgmtclass tsm-domain standard _default_`
+
++
+`_default_` 為部署的預設管理類別。
+
+. 建立複本群組至適當的儲存資源池。輸入（一行）：
++
+`define copygroup tsm-domain standard _default_ type=archive destination=SGWSDiskPool retinit=event retmin=0 retver=0`
+
++
+`_default_` 為歸檔節點的預設管理類別。的值 `retinit`、 `retmin`和 `retver` 已選擇以反映歸檔節點目前使用的保留行為
+
++
+
+NOTE: 請勿設定 `retinit` 至 `retinit=create`。設定 `retinit=create` 因為保留事件用於從 TSM 伺服器移除內容、所以會阻止保存節點刪除內容。
+
+. 將管理類別指派為預設類別。
++
+`assign defmgmtclass _tsm-domain_ standard _default_`
+
+. 將新原則集設為作用中。
++
+`activate policyset tsm-domain standard`
+
++
+請忽略當您輸入 activate 命令時出現的「 no backup copy group （無備份複本群組）」警告。
+
+. 註冊節點以使用TSM伺服器上的新原則集。在TSM伺服器上、輸入（一行）：
++
+`register node arc-user arc-password passexp=0 domain=tsm-domain MAXNUMMP=number-of-sessions`
+
++
+ARC-使用者和ARC-密碼與您在歸檔節點上定義的用戶端節點名稱和密碼相同、MAXNUMMP的值設定為保留給歸檔節點儲存工作階段的磁帶機數量。
+
++
+
+NOTE: 根據預設、登錄節點會建立用戶端擁有者授權的管理使用者ID、並為節點定義密碼。
+
+

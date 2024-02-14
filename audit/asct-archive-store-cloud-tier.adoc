@@ -1,0 +1,64 @@
+---
+permalink: audit/asct-archive-store-cloud-tier.html 
+sidebar: sidebar 
+keywords: storagegrid, audit, message, ASCT, Archive Store Cloud-Tier 
+summary: 當歸檔的物件資料儲存至外部歸檔儲存系統時、就會產生此訊息StorageGRID 、此儲存系統透過S3 API連線至各處。 
+---
+= ASCT：歸檔儲存雲端層
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+當歸檔的物件資料儲存至外部歸檔儲存系統時、就會產生此訊息StorageGRID 、此儲存系統透過S3 API連線至各處。
+
+[cols="1a,1a,4a"]
+|===
+| 程式碼 | 欄位 | 說明 
+
+
+ a| 
+CBID
+ a| 
+內容區塊ID
+ a| 
+擷取內容區塊的唯一識別碼。
+
+
+
+ a| 
+CSIZ
+ a| 
+內容大小
+ a| 
+物件大小（以位元組為單位）。
+
+
+
+ a| 
+RSRLT
+ a| 
+結果代碼
+ a| 
+傳回成功（SUCS）或後端報告的錯誤。
+
+
+
+ a| 
+SUID
+ a| 
+儲存唯一識別碼
+ a| 
+儲存內容的雲端層唯一識別碼（UUID）。
+
+
+
+ a| 
+時間
+ a| 
+時間
+ a| 
+申請的總處理時間（以微秒為單位）。
+
+|===

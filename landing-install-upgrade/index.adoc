@@ -1,0 +1,13 @@
+---
+layout: landing-page 
+sidebar: sidebar 
+permalink: landing-install-upgrade/index.html 
+summary: StorageGRID 系統由個別的硬體型和軟體型節點所組成。您必須先為每個應用裝置節點安裝硬體、然後設定每個 Linux 或 VMware 主機。然後、在每個應用裝置或軟體主機上安裝 StorageGRID 軟體、並將節點連接至網格。 
+---
+= 安裝、升級及 Hotfix StorageGRID
+:hardbreaks:
+:allow-uri-read: 
+:linkattrs: 
+:imagesdir: ./media/
+
+

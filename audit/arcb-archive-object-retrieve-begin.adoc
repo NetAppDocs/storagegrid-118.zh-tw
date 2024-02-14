@@ -1,0 +1,38 @@
+---
+permalink: audit/arcb-archive-object-retrieve-begin.html 
+sidebar: sidebar 
+keywords: storagegrid, audit, message, ARCB, Archive Object Retrieve Begin 
+summary: 當要求擷取歸檔物件資料並開始擷取程序時、就會產生此訊息。擷取要求會立即處理、但可重新排序、以提升從線性媒體（例如磁帶）擷取的效率。 
+---
+= ARCB：歸檔物件擷取開始
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+當要求擷取歸檔物件資料並開始擷取程序時、就會產生此訊息。擷取要求會立即處理、但可重新排序、以提升從線性媒體（例如磁帶）擷取的效率。
+
+[cols="1a,1a,4a"]
+|===
+| 程式碼 | 欄位 | 說明 
+
+
+ a| 
+CBID
+ a| 
+內容區塊ID
+ a| 
+要從外部歸檔儲存系統擷取之內容區塊的唯一識別碼。
+
+
+
+ a| 
+RSRLT
+ a| 
+結果
+ a| 
+表示開始歸檔擷取程序的結果。目前定義的值為：SUCS：內容要求已接收並排入佇列以供擷取。
+
+|===
+此稽核訊息會標示歸檔擷取的時間。它可讓您將訊息與對應的Arce結束訊息配對、以判斷歸檔擷取的持續時間、以及作業是否成功。

@@ -1,0 +1,57 @@
+---
+permalink: audit/audit-messages-and-object-lifecycle.html 
+sidebar: sidebar 
+keywords: storagegrid, audit, message, log, object lifecycle, ingest, retrieve, delete, s3, swift, timing, ILM, Information lifecycle management, archive node, archive nodes 
+summary: 每次擷取、擷取或刪除物件時、都會產生稽核訊息。您可以在稽核記錄中找出API專屬（S3或Swift）稽核訊息、以識別這些交易。 
+---
+= 何時產生稽核訊息？
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+每次擷取、擷取或刪除物件時、都會產生稽核訊息。您可以在稽核記錄中找出API專屬（S3或Swift）稽核訊息、以識別這些交易。
+
+稽核訊息是透過每個傳輸協定的特定識別碼來連結。
+
+[cols="1a,1a"]
+|===
+| 傳輸協定 | 程式碼 
+
+
+ a| 
+連結S3作業
+ a| 
+S3BK （貯體）、 S3KY （鑰匙）或兩者
+
+
+
+ a| 
+連結Swift作業
+ a| 
+WTOO （容器）、 WOBJ （物件）或兩者
+
+
+
+ a| 
+連結內部營運
+ a| 
+CBID （物件的內部識別碼）
+
+|===
+
+
+== 稽核訊息的時間
+
+由於網格節點之間的時間差異、物件大小和網路延遲等因素、不同服務所產生的稽核訊息順序可能與本節範例所示的順序不同。
+
+
+
+== 歸檔節點
+
+歸檔節點將物件資料傳送至外部歸檔儲存系統時所產生的一系列稽核訊息、與儲存節點類似、只是沒有SCMT（儲存物件提交）訊息、 而且會針對物件資料的每個歸檔複本、產生ATCE（歸檔物件存放區開始）和ASCE（歸檔物件存放區結束）訊息。
+
+歸檔節點從外部歸檔儲存系統擷取物件資料時所產生的一系列稽核訊息、與儲存節點類似、但會針對每個擷取的物件資料複本產生ARCB（歸檔物件擷取開始）和Arce（歸檔物件擷取結束）訊息。
+
+歸檔節點從外部歸檔儲存系統刪除物件資料時所產生的一系列稽核訊息、與儲存節點類似、除了沒有Srem（物件存放區移除）訊息、而且每個刪除要求都會顯示AREM（歸檔物件移除）訊息。

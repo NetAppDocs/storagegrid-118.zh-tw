@@ -1,0 +1,37 @@
+---
+permalink: upgrade/changes-to-grid-management-api.html 
+sidebar: sidebar 
+keywords: grid management api, api, api version, swagger, rest api 
+summary: StorageGRID 11.8 使用網格管理 API 的第 4 版。第 4 版取代第 3 版、但仍支援第 1 、 2 和 3 版。 
+---
+= 網格管理API的變更
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+StorageGRID 11.8 使用網格管理 API 的第 4 版。第 4 版取代第 3 版、但仍支援第 1 、 2 和 3 版。
+
+
+NOTE: 您可以繼續在 StorageGRID 11.8 中使用已過時的管理 API 版本、但在未來的 StorageGRID 版本中、將會移除對這些 API 版本的支援。升級至 StorageGRID 11.8 之後、可以使用停用已過時的 API `PUT /grid/config/management` API：
+
+若要深入瞭解、請前往 link:../admin/using-grid-management-api.html["使用Grid Management API"]。
+
+
+
+== 的變更 `ilm-policies` API v4
+
+從 StorageGRID 11.8 第 4 版開始生效 `ilm-policies` API 包含與版本 3 的下列差異：
+
+* 不再傳回歷史原則。新增了一個獨立的 API 、用於取得歷史原則和標記資料 `/grid/ilm-history`。
+* 已移除的內容： `proposed`、 `historical`、 `historicalRules`、 `activationTime`。
+* 新增的內容： `active` （布林值）、 `activatedBy` （原則指派給的標籤 UUID 陣列）。
+* 的選用類型查詢參數 `GET ilm-policies` 現在採用這些值 `inactive` 和 `active.` 以前的值是 `proposed`、 `active`和 `historical`。
+
+
+
+
+== 用於磁碟機管理的新端點
+
+您可以使用 * / 網格 / 磁碟機詳細資料 / ｛ nodeId ｝ * API 端點、在裝置儲存節點的特定機型中、對磁碟機執行作業。

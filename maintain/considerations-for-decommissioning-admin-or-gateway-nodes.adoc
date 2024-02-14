@@ -1,0 +1,64 @@
+---
+permalink: maintain/considerations-for-decommissioning-admin-or-gateway-nodes.html 
+sidebar: sidebar 
+keywords: storagegrid, decommission admin node, gateway node, archive node 
+summary: 檢閱解除委任管理節點、閘道節點或歸檔節點的考量事項。 
+---
+= 解除委任管理、閘道或歸檔節點的考量事項
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+檢閱解除委任管理節點、閘道節點或歸檔節點的考量事項。
+
+
+
+== 管理節點的考量事項
+
+* 您無法取消委任主要管理節點。
+* 如果管理節點的其中一個網路介面是高可用度（ HA ）群組的一部分、則無法取消委任管理節點。您必須先從HA群組移除網路介面。請參閱的說明 link:../admin/managing-high-availability-groups.html["管理 HA 群組"]。
+* 視需要、您可以在解除委任管理節點的同時、安全地變更 ILM 原則。
+* 如果您取消委任管理節點、並啟用StorageGRID 單一登入（SSO）來啟用您的支援、您必須記得從Active Directory Federation Services（AD FS）移除節點的信賴方信任。
+* 如果您使用 link:../admin/grid-federation-overview.html["網格同盟"]、請確定您要停用之節點的 IP 位址未指定給網格同盟連線。
+* 當您取消委任已中斷連線的管理節點時、將會遺失該節點的稽核記錄；不過、這些記錄也應該存在於主要管理節點上。
+
+
+
+
+== 閘道節點的考量事項
+
+* 如果閘道節點的其中一個網路介面是高可用度（ HA ）群組的一部分、您就無法取消委任該節點。您必須先從HA群組移除網路介面。請參閱的說明 link:../admin/managing-high-availability-groups.html["管理 HA 群組"]。
+* 視需要、您可以在解除委任閘道節點的同時、安全地變更 ILM 原則。
+* 如果您使用 link:../admin/grid-federation-overview.html["網格同盟"]、請確定您要停用之節點的 IP 位址未指定給網格同盟連線。
+* 您可以在閘道節點中斷連線時安全地取消委任。
+
+
+
+
+== [[Considerations for archive-node] 保存節點的考量事項
+
+
+NOTE: 已不再支援歸檔節點和雲端分層 - 簡易儲存服務（ S3 ）選項。未來版本將完全移除「歸檔節點」支援。
+
+* 如果歸檔節點仍連線至網格、則無法取消委任該節點。若要移除歸檔節點、請確認節點已不再使用、資料已移轉至其他位置、且節點已關閉。然後、請針對中斷連線的節點、使用取消委任程序。
+* 如果歸檔節點仍在使用中、請確保您的排程中有足夠的時間將任何現有資料移至儲存節點或雲端儲存池。從歸檔節點移轉資料可能需要數天或數週的時間。
+
+
+.步驟
+. 如果您目前使用的歸檔節點搭配雲端分層 - 簡易儲存服務（ S3 ）選項、 link:../admin/migrating-objects-from-cloud-tiering-s3-to-cloud-storage-pool.html["將物件移轉至雲端儲存池"]。
+. 確認使用中 ILM 原則中的任何 ILM 規則都不再使用歸檔節點。
++
+.. 移至 * ILM * > * 儲存資源池 * 頁面。
+.. 從儲存資源池清單中、選取僅包含歸檔節點的任何儲存資源池。
+.. 選擇 *ILM usage* 選項卡。
+.. 如果列出任何 ILM 規則、請查看「 * 用於作用中原則 * 」欄、以判斷作用中原則中是否正在使用「保存節點」儲存池。
+.. 如果正在使用儲存池、 link:../ilm/creating-ilm-policy.html["建立新的 ILM 原則"] 不再使用歸檔節點。
+.. 啟動新原則。
+.. 等待所有物件從保存檔節點儲存池中移出。這可能需要數天或數週的時間。
+
+
+. 確定所有物件都已從歸檔節點移出之後、請關閉節點電源。
+. 執行 link:decommissioning-disconnected-grid-nodes.html["中斷連線節點的取消委任程序"]。
+

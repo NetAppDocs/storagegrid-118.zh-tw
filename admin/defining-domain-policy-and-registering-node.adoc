@@ -1,0 +1,26 @@
+---
+permalink: admin/defining-domain-policy-and-registering-node.html 
+sidebar: sidebar 
+keywords: domain policy, tsm, tivoli storage manager 
+summary: 您需要針對從歸檔節點儲存的資料、定義使用TSM管理類別的網域原則、然後登錄節點以使用此網域原則。 
+---
+= 定義網域原則並登錄節點
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您需要針對從歸檔節點儲存的資料、定義使用TSM管理類別的網域原則、然後登錄節點以使用此網域原則。
+
+
+NOTE: 如果Tivoli Storage Manager（TSM）中歸檔節點的用戶端密碼過期、歸檔節點程序可能會洩漏記憶體。請確定已設定TSM伺服器、使歸檔節點的用戶端使用者名稱/密碼永不過期。
+
+在TSM伺服器上登錄節點以使用歸檔節點（或更新現有節點）時、您必須在登錄節點命令中指定MAXNUMMP參數、以指定節點可用於寫入作業的掛載點數目。掛載點的數量通常相當於分配給歸檔節點的磁帶機磁頭數量。TSM 伺服器上針對 MAXNUMMP 指定的數字必須至少與下列項目設定的值相同： * ARC* > * Target * > * Configuration* > * Main* > * Maximum Store SESSESSESS* for the Archive Node 、 此值設為 0 或 1 、因為歸檔節點不支援並行儲存區工作階段。
+
+TSM伺服器的MAXSESSIONS設定值、可控制所有用戶端應用程式可開啟至TSM伺服器的工作階段數目上限。TSM上指定的MAXSESSIONS值必須至少大到在Grid Manager中為歸檔節點指定的* ARC/>* Target *>* Configuration *>* Main*>*工作階段數目*值。歸檔節點會同時建立每個掛載點最多一個工作階段、再加上少量（< 5）的額外工作階段。
+
+指派給歸檔節點的TSM節點使用自訂網域原則 `tsm-domain`。。 `tsm-domain` 網域原則是「標準」網域原則的修改版本、設定為寫入磁帶、並將歸檔目的地設為 StorageGRID 系統的儲存集區 (`_SGWSDiskPool_`）。
+
+
+NOTE: 您必須以系統管理權限登入TSM伺服器、然後使用dsmadmc工具來建立及啟動網域原則。

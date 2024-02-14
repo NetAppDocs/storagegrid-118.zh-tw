@@ -1,0 +1,8 @@
+---
+permalink: ilm/creating-proposed-ilm-policy.html 
+redirect: storagegrid-118/ilm/creating-ilm-policy.html 
+---
+= 
+:allow-uri-read: 
+
+

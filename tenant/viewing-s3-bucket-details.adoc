@@ -1,0 +1,113 @@
+---
+permalink: tenant/viewing-s3-bucket-details.html 
+sidebar: sidebar 
+keywords: how to view bucket details 
+summary: 您可以檢視租戶帳戶中的貯體。 
+---
+= 檢視貯體詳細資料
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以檢視租戶帳戶中的貯體。
+
+.開始之前
+* 您將使用登入租戶管理程式 link:../admin/web-browser-requirements.html["支援的網頁瀏覽器"]。
+* 您屬於具有的使用者群組 link:tenant-management-permissions.html["root 存取權、管理所有貯體、或檢視所有貯體權限"]。這些權限會覆寫群組或儲存區原則中的權限設定。
+
+
+.步驟
+. 從儀表板選取 * 檢視貯體 * 、或選取 * 儲存空間（ S3 ） * > * 鏟斗 * 。
++
+此時會出現「鏟斗」頁面。
+
+. 檢閱每個貯體的摘要資訊。
++
+視需要、您可以依任何欄排序資訊、也可以在清單中前後翻頁。
+
++
+
+NOTE: 所顯示的「物件數」和「已用空間」值為預估值。這些預估值會受到擷取時間、網路連線能力和節點狀態的影響。如果儲存區已啟用版本管理、則刪除的物件版本會包含在物件數中。
+
++
+[cols="1a,3a"]
+|===
+| 欄位 | 說明 
+
+
+ a| 
+名稱
+ a| 
+貯體的獨特名稱、無法變更。
+
+
+
+ a| 
+啟用的功能
+ a| 
+已啟用貯體功能的清單。
+
+
+
+ a| 
+S3物件鎖定
+ a| 
+儲存區是否啟用 S3 物件鎖定。
+
+只有在網格啟用 S3 物件鎖定時、才會顯示此欄。此欄也會顯示任何舊版相容桶的資訊。
+
+
+
+ a| 
+區域
+ a| 
+庫位的區域、無法變更。
+
+
+
+ a| 
+物件數
+ a| 
+此貯體中的物件數目。新增或刪除物件時、此值可能不會立即更新。如果已啟用版本設定功能、則此值會包含非目前物件版本。
+
+
+
+ a| 
+已用空間
+ a| 
+貯體中所有物件的邏輯大小。邏輯大小不包含複寫或銷毀編碼複本或物件中繼資料所需的實際空間。
+
+
+
+ a| 
+建立日期
+ a| 
+建立庫位的日期與時間。
+
+|===
+. 若要檢視特定貯體的詳細資料、請從表格中選取貯體名稱。
++
+此時會顯示「庫位詳細資料」頁面。如果您擁有所需的權限、您可以在此頁面執行下列工作：
+
++
+** 設定及管理貯體選項：
++
+*** link:ilm-policy-tags.html["ILM 原則標籤"]
+*** link:manage-bucket-consistency.html["管理貯體一致性"]
+*** link:enabling-or-disabling-last-access-time-updates.html["上次存取時間更新"]
+*** link:changing-bucket-versioning.html["物件版本管理"]
+*** link:using-s3-object-lock.html["S3物件鎖定"]
+*** link:update-default-retention-settings.html["預設貯體保留"]
+
+
+** 設定貯體存取、例如 link:configuring-cross-origin-resource-sharing-cors.html["跨來源資源共享（ CORS ）"]
+** link:what-platform-services-are.html["管理平台服務"] （如果租戶允許）、包括 CloudMirror 複寫、事件通知和搜尋整合
+** 啟用和 link:grid-federation-manage-cross-grid-replication.html["管理跨網格複寫"] （如果租戶允許）將擷取至此貯體的物件複寫到另一個 StorageGRID 系統
+** 存取 link:use-s3-console.html["S3 主控台"] 管理貯體中的物件
+** link:deleting-s3-bucket-objects.html["刪除貯體中的所有物件"]
+** link:deleting-s3-bucket.html["刪除貯體"] 那已經是空的
+
+
+

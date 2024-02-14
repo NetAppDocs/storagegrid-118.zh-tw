@@ -1,0 +1,75 @@
+---
+permalink: tenant/object-metadata-included-in-metadata-notifications.html 
+sidebar: sidebar 
+keywords: object metadata notification 
+summary: 此表格列出JSON文件中所有欄位、這些欄位會在啟用搜尋整合時傳送至目的地端點。 
+---
+= 中繼資料通知中包含的物件中繼資料
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+此表格列出JSON文件中所有欄位、這些欄位會在啟用搜尋整合時傳送至目的地端點。
+
+文件名稱包含儲存區名稱、物件名稱及版本ID（若有）。
+
+[cols="1a,2a"]
+|===
+| 類型 | 項目名稱與說明 
+
+
+ a| 
+儲存區和物件資訊
+ a| 
+`bucket`：桶的名稱
+
+
+
+ a| 
+`key`：物件金鑰名稱
+
+
+
+ a| 
+`versionID`：對象版本，用於版本控制桶中的對象
+
+
+
+ a| 
+`region`例如：Bucket區域 `us-east-1`
+
+
+
+ a| 
+系統中繼資料
+ a| 
+`size`：HTTP用戶端可見的物件大小（以位元組為單位）
+
+
+
+ a| 
+`md5`：物件雜湊
+
+
+
+ a| 
+使用者中繼資料
+ a| 
+`metadata`：對象的所有用戶元數據（作爲鍵值對）
+
+`key:value`
+
+
+
+ a| 
+標記
+ a| 
+`tags`：所有為物件定義的物件標記、做為金鑰值配對
+
+`key:value`
+
+|===
+
+NOTE: 針對標記和使用者中繼資料StorageGRID 、將日期和數字以字串或S3事件通知的形式傳送至Elasticsearch。若要設定Elasticsearch將這些字串解譯為日期或數字、請遵循Elasticsearch指示進行動態欄位對應、以及對應日期格式。您必須先在索引上啟用動態欄位對應、才能設定搜尋整合服務。建立文件索引後、您就無法編輯索引中文件的欄位類型。

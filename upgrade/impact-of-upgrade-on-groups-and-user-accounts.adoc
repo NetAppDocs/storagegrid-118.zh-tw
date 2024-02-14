@@ -1,0 +1,35 @@
+---
+permalink: upgrade/impact-of-upgrade-on-groups-and-user-accounts.html 
+sidebar: sidebar 
+keywords: upgrade, permissions 
+summary: 升級完成後、您可能必須適當地更新群組和使用者帳戶。 
+---
+= 升級對群組和使用者帳戶的影響
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+升級完成後、您可能必須適當地更新群組和使用者帳戶。
+
+
+
+== 群組權限和選項的變更
+
+升級至 StorageGRID 11.8 後、可選擇性地將下列新權限指派給租戶使用者群組。
+
+[cols="1a,2a,2a"]
+|===
+| 權限 | 說明 | 詳細資料 
+
+
+ a| 
+檢視所有貯體
+ a| 
+可讓使用者檢視所有貯體和貯體組態。
+ a| 
+「管理所有貯體」權限取代「檢視所有貯體」權限。
+
+|===
+請參閱 link:../tenant/tenant-management-permissions.html["租戶管理權限"]。

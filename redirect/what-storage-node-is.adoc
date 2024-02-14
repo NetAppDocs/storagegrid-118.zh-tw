@@ -1,0 +1,8 @@
+---
+permalink: admin/what-storage-node-is.html 
+redirect: storagegrid-118/primer/what-storage-node-is.html 
+---
+= 
+:allow-uri-read: 
+
+

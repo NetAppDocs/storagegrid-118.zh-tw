@@ -1,0 +1,111 @@
+---
+permalink: swift/error-responses-to-swift-api-operations.html 
+sidebar: sidebar 
+keywords: swift api error responses 
+summary: 瞭解可能的錯誤回應有助於疑難排解作業。 
+---
+= Swift API作業的錯誤回應
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+瞭解可能的錯誤回應有助於疑難排解作業。
+
+當作業期間發生錯誤時、可能會傳回下列HTTP狀態代碼：
+
+|===
+| Swift錯誤名稱 | HTTP 狀態 
+
+
+ a| 
+AccountNameTooLong、ContainerNameTooLong、HeaderTooBig、InvalidContainerName、InvalidRequest、 InvalidURI、Metadata NameTooLong、Metadata ValueTooBig、MISingSecurityHeader、ObjectNameTooLong、 TooManyContainers,TooManyMetadata項目,TotalMetadata TooLarg
+ a| 
+400個錯誤要求
+
+
+
+ a| 
+ACCESSDENIED
+ a| 
+403禁止
+
+
+
+ a| 
+ContainerNotEmpty、ContainerAlreadyExiss
+ a| 
+衝突
+
+
+
+ a| 
+內部錯誤
+ a| 
+500內部伺服器錯誤
+
+
+
+ a| 
+InvalidRang
+ a| 
+無法滿足416個要求的範圍
+
+
+
+ a| 
+方法未允許
+ a| 
+不允許使用405方法
+
+
+
+ a| 
+內容長度
+ a| 
+需要411長度
+
+
+
+ a| 
+NotFound
+ a| 
+找不到404
+
+
+
+ a| 
+未實作
+ a| 
+501未實作
+
+
+
+ a| 
+預先條件失敗
+ a| 
+412先決條件失敗
+
+
+
+ a| 
+資源NotFound
+ a| 
+找不到404
+
+
+
+ a| 
+未獲授權
+ a| 
+401未獲授權
+
+
+
+ a| 
+UnprocessableEntity
+ a| 
+無法處理的實體
+
+|===

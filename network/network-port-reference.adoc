@@ -1,0 +1,16 @@
+---
+permalink: network/network-port-reference.html 
+sidebar: sidebar 
+keywords: network port reference 
+summary: 您必須確保網路基礎架構能夠在網格內的節點之間、以及外部用戶端和服務之間、提供內部和外部通訊。您可能需要跨內部和外部防火牆、交換系統和路由系統進行存取。 
+---
+= 網路連接埠參考
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您必須確保網路基礎架構能夠在網格內的節點之間、以及外部用戶端和服務之間、提供內部和外部通訊。您可能需要跨內部和外部防火牆、交換系統和路由系統進行存取。
+
+請使用提供的詳細資料 link:internal-grid-node-communications.html["內部網格節點通訊"] 和 link:external-communications.html["外部通訊"] 決定如何設定每個必要的連接埠。

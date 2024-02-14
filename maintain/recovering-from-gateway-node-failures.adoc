@@ -1,0 +1,16 @@
+---
+permalink: maintain/recovering-from-gateway-node-failures.html 
+sidebar: sidebar 
+keywords: recover, gateway node failure, workflow 
+summary: 您必須準確完成一系列工作、才能從閘道節點故障中恢復。 
+---
+= 從閘道節點故障中恢復：工作流程
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您必須準確完成一系列工作、才能從閘道節點故障中恢復。
+
+image::../media/overview_api_gateway_node_recovery.png[閘道節點還原流程圖總覽]

@@ -1,0 +1,76 @@
+---
+permalink: audit/asce-archive-object-store-end.html 
+sidebar: sidebar 
+keywords: storagegrid, audit, message, ASCE, Archive Object Store End 
+summary: 此訊息表示已結束將內容區塊寫入外部歸檔儲存系統。 
+---
+= ASCE：歸檔物件存放區結束
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+此訊息表示已結束將內容區塊寫入外部歸檔儲存系統。
+
+[cols="1a,1a,4a"]
+|===
+| 程式碼 | 欄位 | 說明 
+
+
+ a| 
+CBID
+ a| 
+內容區塊識別碼
+ a| 
+儲存在外部歸檔儲存系統上之內容區塊的識別碼。
+
+
+
+ a| 
+VLID
+ a| 
+Volume識別碼
+ a| 
+寫入物件資料之歸檔Volume的唯一識別碼。
+
+
+
+ a| 
+VREN
+ a| 
+驗證已啟用
+ a| 
+表示是否對內容區塊執行驗證。目前定義的值包括：
+
+* vena：驗證已啟用
+* VDSA：驗證已停用
+
+
+
+
+ a| 
+MCLS
+ a| 
+管理等級
+ a| 
+識別內容區塊指派至之TSM管理類別（若適用）的字串。
+
+
+
+ a| 
+RSRLT
+ a| 
+結果
+ a| 
+表示歸檔程序的結果。目前定義的值包括：
+
+* SUCS：成功（歸檔程序成功）
+* OFFL：失敗（歸檔為離線）
+* VRFL：失敗（物件驗證失敗）
+* Arun：故障（外部歸檔儲存系統無法使用）
+* GERR:故障（一般錯誤）
+
+
+|===
+此稽核訊息表示指定的內容區塊已寫入外部歸檔儲存系統。如果寫入失敗、結果會提供故障發生地點的基本疑難排解資訊。如需歸檔失敗的詳細資訊、請參閱StorageGRID 《關於歸檔故障的資訊、請參閱《關於歸檔節點的屬性（in the介紹）：

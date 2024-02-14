@@ -1,0 +1,54 @@
+---
+permalink: audit/atce-archive-object-store-begin.html 
+sidebar: sidebar 
+keywords: storagegrid, audit, message, ATCE, Archive Object Store Begin 
+summary: 此訊息表示已開始將內容區塊寫入外部歸檔儲存設備。 
+---
+= ATCE：歸檔物件存放區開始
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+此訊息表示已開始將內容區塊寫入外部歸檔儲存設備。
+
+[cols="1a,1a,4a"]
+|===
+| 程式碼 | 欄位 | 說明 
+
+
+ a| 
+CBID
+ a| 
+內容區塊ID
+ a| 
+要歸檔之內容區塊的唯一識別碼。
+
+
+
+ a| 
+VLID
+ a| 
+Volume識別碼
+ a| 
+寫入內容區塊之磁碟區的唯一識別碼。如果作業失敗、則會傳回0的Volume ID。
+
+
+
+ a| 
+RSRLT
+ a| 
+結果
+ a| 
+指出內容區塊傳輸的結果。目前定義的值包括：
+
+* SUCS：成功（成功儲存內容區塊）
+* exis：忽略（內容區塊已儲存）
+* ISFD：故障（磁碟空間不足）
+* ster：失敗（儲存CBID時發生錯誤）
+* OFFL：失敗（歸檔為離線）
+* GERR:故障（一般錯誤）
+
+
+|===

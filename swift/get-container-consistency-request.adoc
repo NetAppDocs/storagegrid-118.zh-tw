@@ -1,0 +1,105 @@
+---
+permalink: swift/get-container-consistency-request.html 
+sidebar: sidebar 
+keywords: get container consistency request 
+summary: 一致性值可在物件的可用度與這些物件在不同儲存節點和站台之間的一致性之間取得平衡。「取得容器一致性」要求可讓您判斷套用至特定容器的一致性。 
+---
+= 取得Container一致性要求
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+一致性值可在物件的可用度與這些物件在不同儲存節點和站台之間的一致性之間取得平衡。「取得容器一致性」要求可讓您判斷套用至特定容器的一致性。
+
+
+
+== 申請
+
+[cols="2a,4a"]
+|===
+| 要求HTTP標頭 | 說明 
+
+
+| X-AUTH-Token  a| 
+指定要用於要求的帳戶Swift驗證權杖。
+
+
+
+| X-ntap-sg- 一致性  a| 
+指定要求類型、其中 `true` =取得容器一致性、以及 `false` =取得容器。
+
+
+
+| 主機  a| 
+要求導向的主機名稱。
+
+|===
+
+
+== 申請範例
+
+[listing]
+----
+GET /v1/28544923908243208806/Swift container
+X-Auth-Token: SGRD_3a877009a2d24cb1801587bfa9050f29
+x-ntap-sg-consistency: true
+Host: test.com
+----
+
+
+== 回應
+
+[cols="2a,4a"]
+|===
+| 回應HTTP標頭 | 說明 
+
+
+| 日期  a| 
+回應的日期和時間。
+
+
+
+| 連線  a| 
+是否開啟或關閉與伺服器的連線。
+
+
+
+| X-trans-ID  a| 
+要求的唯一交易識別碼。
+
+
+
+| 內容長度  a| 
+回應本文的長度。
+
+
+
+| X-ntap-sg- 一致性  a| 
+套用至容器的一致性。支援下列值：
+
+* 全部 * ：所有節點都會立即接收資料、否則要求將會失敗。
+
+*Strong-globall* ：保證所有網站上所有用戶端要求的寫入後讀取一致性。
+
+*Strong-site* ：保證網站內所有用戶端要求的寫入後讀取一致性。
+
+* 新寫入後讀取 * ：（預設）提供新物件的寫入後讀取一致性、以及物件更新的最終一致性。提供高可用度與資料保護保證。建議大多數情況下使用。
+
+* 可用 * ：提供新物件和物件更新的最終一致性。對於 S3 貯體、請僅視需要使用（例如、包含很少讀取的記錄值之貯體、或用於對不存在的金鑰執行 head 或 Get 作業）。S3 FabricPool 儲存區不支援。
+
+|===
+
+
+== 回應範例
+
+[listing]
+----
+HTTP/1.1 204 No Content
+Date: Sat, 29 Nov 2015 01:02:18 GMT
+Connection: CLOSE
+X-Trans-Id: 1936575373
+Content-Length: 0
+x-ntap-sg-consistency: strong-site
+----

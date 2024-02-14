@@ -1,0 +1,13 @@
+---
+layout: landing-page 
+sidebar: sidebar 
+permalink: landing-maintain/index.html 
+summary: 您可以新增節點或站台來擴充系統的容量或功能。您也可以執行各種維護程序、以從故障中恢復、或讓 StorageGRID 系統保持最新狀態並有效率地執行。 
+---
+= 維護 StorageGRID 系統
+:hardbreaks:
+:allow-uri-read: 
+:linkattrs: 
+:imagesdir: ./media/
+
+

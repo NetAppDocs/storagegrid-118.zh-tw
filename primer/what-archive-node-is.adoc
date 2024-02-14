@@ -1,0 +1,48 @@
+---
+permalink: primer/what-archive-node-is.html 
+sidebar: sidebar 
+keywords: archive node 
+summary: 對歸檔節點的支援已過時、將於未來版本中移除。 
+---
+= 什麼是歸檔節點？
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+對歸檔節點的支援已過時、將於未來版本中移除。
+
+[CAUTION]
+====
+對歸檔節點的支援已過時、將於未來版本中移除。透過S3 API將物件從歸檔節點移至外部歸檔儲存系統、已由ILM Cloud Storage Pool取代、提供更多功能。
+
+Cloud Tiering - Simple Storage Service （ S3 ）選項也已過時。如果您目前正在使用具有此選項的歸檔節點、 link:../admin/migrating-objects-from-cloud-tiering-s3-to-cloud-storage-pool.html["將物件移轉至雲端儲存池"] 而是。
+
+此外、您應該從 StorageGRID 11.7 或更早版本的主動式 ILM 原則中移除歸檔節點。移除儲存在保存節點上的物件資料、可簡化未來的升級作業。請參閱 link:../ilm/working-with-ilm-rules-and-ilm-policies.html["使用ILM規則和ILM原則"]。
+
+====
+
+
+== 歸檔節點的主要服務
+
+下表顯示歸檔節點的主要服務、但此表並未列出所有節點服務。
+
+[cols="1a,2a"]
+|===
+| 服務 | 按鍵功能 
+
+
+ a| 
+歸檔（ARC）
+ a| 
+與Tivoli Storage Manager（TSM）外部磁帶儲存系統通訊。
+
+
+
+ a| 
+伺服器狀態監視器（SSM）
+ a| 
+監控作業系統和基礎硬體。
+
+|===

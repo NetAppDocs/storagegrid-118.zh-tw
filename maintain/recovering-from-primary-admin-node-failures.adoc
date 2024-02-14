@@ -1,0 +1,19 @@
+---
+permalink: maintain/recovering-from-primary-admin-node-failures.html 
+sidebar: sidebar 
+keywords: storagegrid, recover, primary admin node failure 
+summary: 您必須完成一組特定的工作、才能從主要管理節點故障中恢復。主管理節點裝載網格的組態管理節點（CMN\）服務。 
+---
+= 從主要管理節點故障中恢復：概述
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您必須完成一組特定的工作、才能從主要管理節點故障中恢復。主管理節點裝載網格的組態管理節點（CMN）服務。
+
+應立即更換故障的主要管理節點。主管理節點上的組態管理節點（CMN）服務負責為網格發出物件識別碼區塊。這些識別碼會在擷取時指派給物件。除非有可用的識別碼、否則無法擷取新物件。當CMN無法使用時、物件擷取功能仍可繼續進行、因為網格中快取了約一個月的識別碼。不過、快取識別碼用盡之後、就無法新增任何物件。
+
+
+CAUTION: 您必須在大約一個月內修復或更換故障的主要管理節點、否則網格可能無法擷取新物件。確切的時間週期取決於您的物件擷取速度：如果您需要更準確地評估網格的時間範圍、請聯絡技術支援部門。

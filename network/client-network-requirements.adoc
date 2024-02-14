@@ -1,0 +1,18 @@
+---
+permalink: network/client-network-requirements.html 
+sidebar: sidebar 
+keywords: client network 
+summary: 用戶端網路為選用項目。如果您打算設定用戶端網路、請注意下列考量事項。 
+---
+= 用戶端網路需求
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+用戶端網路為選用項目。如果您打算設定用戶端網路、請注意下列考量事項。
+
+用戶端網路的設計可支援來自S3和Swift用戶端的流量。如果已設定、用戶端網路閘道會成為節點的預設閘道。
+
+如果您使用用戶端網路、StorageGRID 只有在明確設定的負載平衡器端點上接受傳入用戶端流量、才能保護不受惡意攻擊的可靠性。請參閱 link:../admin/manage-firewall-controls.html["管理防火牆控制"] 和 link:../admin/configuring-load-balancer-endpoints.html["設定負載平衡器端點"]。

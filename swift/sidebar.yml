@@ -1,0 +1,35 @@
+---
+section: swift
+title: 使用 Swift REST API （已過時）
+entries:
+- title: 總覽
+  pdf-filename: 使用Swift StorageGRID 搭配功能
+  url: "/swift/index.html"
+  entries:
+  - title: Swift API支援的歷史StorageGRID 記錄
+    url: "/swift/history-of-swift-api-support-in-storagegrid.html"
+  - title: 如何實作Swift REST API StorageGRID
+    url: "/swift/how-storagegrid-implements-swift-rest-api.html"
+  - title: 實作Swift REST API的建議
+    url: "/swift/recommendations-for-implementing-swift-rest-api.html"
+- title: 測試 Swift REST API 連線
+  url: "/swift/configuring-tenant-accounts-and-connections.html"
+- title: Swift REST API支援的作業
+  url: "/swift/swift-rest-api-supported-operations.html"
+  entries:
+  - title: 支援的Swift API端點
+    url: "/swift/supported-swift-api-endpoints.html"
+  - title: 帳戶營運
+    url: "/swift/account-operations.html"
+  - title: 容器作業
+    url: "/swift/container-operations.html"
+  - title: 物件作業
+    url: "/swift/object-operations.html"
+  - title: 選項要求
+    url: "/swift/options-request.html"
+  - title: Swift API作業的錯誤回應
+    url: "/swift/error-responses-to-swift-api-operations.html"
+- title: Swift REST API作業StorageGRID
+  url: "/swift/storagegrid-swift-rest-api-operations.html"
+- title: 在稽核記錄中追蹤的Swift作業
+  url: "/swift/swift-operations-tracked-in-audit-logs.html"

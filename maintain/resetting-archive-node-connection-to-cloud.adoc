@@ -1,0 +1,27 @@
+---
+permalink: maintain/resetting-archive-node-connection-to-cloud.html 
+sidebar: sidebar 
+keywords: storagegrid, recover, archive node connection, reset archive node connection, resetting archive node connection, reset cloud connection, resetting cloud connections 
+summary: 透過S3 API還原以雲端為目標的歸檔節點之後、您需要修改組態設定以重設連線。如果歸檔節點無法擷取物件資料、則會觸發「Outbound Replication Status（ORSU）（傳出複寫狀態）」警示。 
+---
+= 重設歸檔節點與雲端的連線
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+透過S3 API還原以雲端為目標的歸檔節點之後、您需要修改組態設定以重設連線。如果歸檔節點無法擷取物件資料、則會觸發傳出複寫狀態（ORSU）警示。
+
+
+NOTE: 如果您的歸檔節點透過 TSM 中介軟體連線至外部儲存設備、則節點會自動重設、您不需要重新設定。
+
+.開始之前
+您將使用登入Grid Manager link:../admin/web-browser-requirements.html["支援的網頁瀏覽器"]。
+
+.步驟
+. 選取*支援*>*工具*>*網格拓撲*。
+. 選擇*歸檔節點*>* ARC/>*目標*。
+. 輸入不正確的值來編輯*存取金鑰*欄位、然後按一下*套用變更*。
+. 輸入正確的值來編輯*存取金鑰*欄位、然後按一下*套用變更*。
+

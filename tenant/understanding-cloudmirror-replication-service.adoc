@@ -1,0 +1,39 @@
+---
+permalink: tenant/understanding-cloudmirror-replication-service.html 
+sidebar: sidebar 
+keywords: cloudmirror replication 
+summary: 如果您想StorageGRID 要將新增至儲存區的指定物件複寫到一或多個目的地儲存區、則可以針對S3儲存區啟用CloudMirror複寫。 
+---
+= CloudMirror複寫服務
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+如果您想StorageGRID 要將新增至儲存區的指定物件複寫到一或多個目的地儲存區、則可以針對S3儲存區啟用CloudMirror複寫。
+
+CloudMirror 複寫作業不受網格的主動式 ILM 原則所影響。CloudMirror服務會在物件儲存到來源儲存區時複寫物件、並盡快將物件傳送到目的地儲存區。物件擷取成功時、會觸發複寫物件的交付。
+
+
+NOTE: CloudMirror 複寫與跨網格複寫功能有重要的相似之處和差異。若要深入瞭解、請參閱 link:../admin/grid-federation-compare-cgr-to-cloudmirror.html["比較跨網格複寫和 CloudMirror 複寫"]。
+
+如果您為現有的儲存區啟用CloudMirror複寫、則只會複寫新增至該儲存區的新物件。貯體中的任何現有物件都不會複寫。若要強制複寫現有物件、您可以執行物件複本來更新現有物件的中繼資料。
+
+
+NOTE: 如果您使用 CloudMirror 複寫功能將物件複製到 Amazon S3 目的地、請注意 Amazon S3 會將每個 Put 要求標頭內使用者定義的中繼資料大小限制在 2 KB 。如果物件的使用者定義中繼資料大於2 KB、則不會複寫該物件。
+
+在這個功能中、您可以將單一儲存區中的物件複寫到多個目的地儲存區。StorageGRID若要這麼做、請在複寫組態XML中指定每個規則的目的地。您無法同時將物件複寫到多個儲存庫。
+
+此外、您可以在版本控制或未版本控制的儲存區上設定CloudMirror複寫、也可以將版本控制或未版本控制的儲存區指定為目的地。您可以使用任何版本控制和未版本控制的儲存區組合。例如、您可以將版本控制的儲存區指定為未版本化來源儲存區的目的地、反之亦然。您也可以在未版本化的儲存區之間進行複寫。
+
+CloudMirror複寫服務的刪除行為與Amazon S3提供的跨區域複寫（CRR）服務的刪除行為相同、刪除來源儲存區中的物件時、永遠不會刪除目的地中的複寫物件。如果來源和目的地儲存區都有版本、則會複寫刪除標記。如果目的地庫位沒有版本化、刪除來源庫位中的物件不會將刪除標記複寫到目的地庫位、也不會刪除目的地物件。
+
+當物件複寫到目的地儲存區時、 StorageGRID 會將其標示為「複本」。 目的地 StorageGRID 貯體不會再次複寫標記為複本的物件、以保護您免於意外複寫迴圈。此複本標記為StorageGRID 內部的物件、並不妨礙您在使用Amazon S3儲存區作為目的地時、運用AWS CRR。
+
+
+NOTE: 用於標記複本的自訂標頭為 `x-ntap-sg-replica`。此標記可防止串聯鏡射。StorageGRID 確實支援兩個網格之間的雙向 CloudMirror 。
+
+目的地貯體中事件的獨特性和順序不受保證。為了保證交付成功、可能會將多個相同的來源物件複本傳送至目的地。在極少數情況下、當同一個物件同時從兩StorageGRID 個或更多不同的站台更新時、目的地庫位上的作業順序可能與來源庫位上的事件順序不符。
+
+CloudMirror複寫通常設定為使用外部S3儲存區作為目的地。不過、您也可以將複寫設定為使用其他StorageGRID 的支援功能或任何S3相容服務。

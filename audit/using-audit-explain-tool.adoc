@@ -1,0 +1,98 @@
+---
+permalink: audit/using-audit-explain-tool.html 
+sidebar: sidebar 
+keywords: storagegrid, audit, tool, audit-explain, audit explain, translate audit messages, translate messages, translate audit message, translate message 
+summary: 您可以使用稽核說明工具、將稽核記錄中的稽核訊息轉譯為易讀格式。 
+---
+= 使用稽核說明工具
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以使用 `audit-explain` 將稽核記錄中的稽核訊息轉譯為易讀格式的工具。
+
+.開始之前
+* 您有 link:../admin/admin-group-permissions.html["特定存取權限"]。
+* 您必須擁有 `Passwords.txt` 檔案：
+* 您必須知道主管理節點的IP位址。
+
+
+.關於這項工作
+。 `audit-explain` 此工具可在主要管理節點上使用、可在稽核記錄中提供稽核訊息的簡化摘要。
+
+
+NOTE: 。 `audit-explain` 此工具主要供疑難排解作業期間的技術支援人員使用。處理中 `audit-explain` 查詢可能會耗用大量的CPU電力、這可能會影響StorageGRID 到整個過程。
+
+此範例顯示的一般輸出 `audit-explain` 工具：這四項 link:sput-s3-put.html["SPUT"] 當帳戶 ID 為 92484777680322627870 的 S3 租戶使用 S3 提交要求建立名為「 Bucket1 」的貯體、並將三個物件新增至該貯體時、就會產生稽核訊息。
+
+[listing]
+----
+SPUT S3 PUT bucket bucket1 account:92484777680322627870 usec:124673
+SPUT S3 PUT object bucket1/part1.txt tenant:92484777680322627870  cbid:9DCB157394F99FE5 usec:101485
+SPUT S3 PUT object bucket1/part2.txt tenant:92484777680322627870  cbid:3CFBB07AB3D32CA9 usec:102804
+SPUT S3 PUT object bucket1/part3.txt tenant:92484777680322627870  cbid:5373D73831ECC743 usec:93874
+----
+。 `audit-explain` 工具可以執行下列動作：
+
+* 處理純或壓縮的稽核記錄。例如：
++
+`audit-explain audit.log`
+
++
+`audit-explain 2019-08-12.txt.gz`
+
+* 同時處理多個檔案。例如：
++
+`audit-explain audit.log 2019-08-12.txt.gz 2019-08-13.txt.gz`
+
++
+`audit-explain /var/local/log/*`
+
+* 接受來自管道的輸入、可讓您使用篩選和預先處理輸入 `grep` 命令或其他方法。例如：
++
+`grep SPUT audit.log | audit-explain`
+
++
+`grep bucket-name audit.log | audit-explain`
+
+
+
+由於稽核記錄可能非常大且剖析速度緩慢、因此您可以篩選要查看並執行的部分、以節省時間 `audit-explain` 在零件上、而非整個檔案。
+
+[NOTE]
+====
+。 `audit-explain` 工具不接受壓縮檔案做為管道輸入。若要處理壓縮檔案、請將檔案名稱提供為命令列引數、或使用 `zcat` 先解壓縮檔案的工具。例如：
+
+`zcat audit.log.gz | audit-explain`
+
+====
+使用 `help (-h)` 選項以查看可用的選項。例如：
+
+`$ audit-explain -h`
+
+.步驟
+. 登入主要管理節點：
++
+.. 輸入下列命令： `ssh admin@_primary_Admin_Node_IP_`
+.. 輸入中所列的密碼 `Passwords.txt` 檔案：
+.. 輸入下列命令以切換至root： `su -`
+.. 輸入中所列的密碼 `Passwords.txt` 檔案：
++
+當您以root登入時、提示會從變更 `$` 至 `#`。
+
+
+
+. 輸入下列命令、其中 `/var/local/log/audit.log` 代表您要分析的檔案名稱和位置：
++
+`$ audit-explain /var/local/log/audit.log`
+
++
+。 `audit-explain` 工具會針對指定檔案或檔案中的所有訊息、列印人類可讀的解析。
+
++
+
+NOTE: 為了減少線條長度並協助閱讀、預設不會顯示時間戳記。如果您想要查看時間戳記、請使用時間戳記 (`-t`）選項。
+
+

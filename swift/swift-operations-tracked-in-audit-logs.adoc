@@ -1,0 +1,48 @@
+---
+permalink: swift/swift-operations-tracked-in-audit-logs.html 
+sidebar: sidebar 
+keywords: swift options request 
+summary: 所有成功的儲存刪除、取得、顯示、張貼及放置作業、都會記錄在StorageGRID 「停止稽核」記錄中。不會記錄失敗和資訊、驗證或選項要求。 
+---
+= 在稽核記錄中追蹤的Swift作業
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+所有成功的儲存刪除、取得、顯示、張貼及放置作業、都會記錄在StorageGRID 「停止稽核」記錄中。不會記錄失敗和資訊、驗證或選項要求。
+
+
+
+== 帳戶營運
+
+* link:account-operations.html["取得帳戶"]
+* link:account-operations.html["總公司帳戶"]
+
+
+
+
+== 容器作業
+
+* link:container-operations.html["刪除容器"]
+* link:container-operations.html["取得Container"]
+* link:container-operations.html["頭端容器"]
+* link:container-operations.html["放入容器"]
+
+
+
+
+== 物件作業
+
+* link:object-operations.html["刪除物件"]
+* link:object-operations.html["Get物件"]
+* link:object-operations.html["標頭物件"]
+* link:object-operations.html["放置物件"]
+
+
+.相關資訊
+* link:../audit/accessing-audit-log-file.html["存取稽核記錄檔"]
+* link:../audit/client-write-audit-messages.html["用戶端寫入稽核訊息"]
+* link:../audit/client-read-audit-messages.html["用戶端讀取稽核訊息"]
+

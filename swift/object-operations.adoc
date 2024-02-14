@@ -1,0 +1,211 @@
+---
+permalink: swift/object-operations.html 
+sidebar: sidebar 
+keywords: swift object operations 
+summary: 下列Swift API作業會在物件上執行。 
+---
+= 物件作業
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+下列Swift API作業會在物件上執行。您可以在中追蹤這些作業 link:monitoring-and-auditing-operations.html["StorageGRID 稽核記錄"]。
+
+
+
+== 刪除物件
+
+此作業會從StorageGRID 作業系統刪除物件的內容和中繼資料。
+
+需要下列要求參數：
+
+* `Account`
+* `Container`
+* `Object`
+
+
+需要下列要求標頭：
+
+* `X-Auth-Token`
+
+
+成功執行會傳回下列回應標頭與 `HTTP/1.1 204 No Content` 回應：
+
+* `Content-Length`
+* `Content-Type`
+* `Date`
+* `X-Trans-Id`
+
+
+處理刪除物件要求時StorageGRID 、功能區會嘗試立即從所有儲存位置移除物件的所有複本。如果成功、StorageGRID 則會立即將回應傳回給用戶端。如果無法在 30 秒內移除所有複本（例如、因為某個位置暫時無法使用）、 StorageGRID 會將複本排入佇列以供移除、然後表示用戶端成功。
+
+如需詳細資訊、請參閱 link:../ilm/how-objects-are-deleted.html["如何刪除物件"]。
+
+
+
+== Get物件
+
+此作業會擷取物件內容、並從StorageGRID 一套系統取得物件中繼資料。
+
+需要下列要求參數：
+
+* `Account`
+* `Container`
+* `Object`
+
+
+需要下列要求標頭：
+
+* `X-Auth-Token`
+
+
+以下是選用的要求標頭：
+
+* `Accept-Encoding`
+* `If-Match`
+* `If-Modified-Since`
+* `If-None-Match`
+* `If-Unmodified-Since`
+* `Range`
+
+
+成功執行會傳回下列標頭與 `HTTP/1.1 200 OK` 回應：
+
+* `Accept-Ranges`
+*  `Content-Disposition`、僅在發生時傳回 `Content-Disposition` 已設定中繼資料
+*  `Content-Encoding`、僅在發生時傳回 `Content-Encoding` 已設定中繼資料
+* `Content-Length`
+* `Content-Type`
+* `Date`
+* `ETag`
+* `Last-Modified`
+* `X-Timestamp`
+* `X-Trans-Id`
+
+
+
+
+== 標頭物件
+
+此作業會從StorageGRID 作業系統擷取擷取物件的中繼資料和屬性。
+
+需要下列要求參數：
+
+* `Account`
+* `Container`
+* `Object`
+
+
+需要下列要求標頭：
+
+* `X-Auth-Token`
+
+
+成功執行會傳回下列標頭、並顯示「HTTP / 1.1 200 OK」回應：
+
+* `Accept-Ranges`
+*  `Content-Disposition`、僅在發生時傳回 `Content-Disposition` 已設定中繼資料
+*  `Content-Encoding`、僅在發生時傳回 `Content-Encoding` 已設定中繼資料
+* `Content-Length`
+* `Content-Type`
+* `Date`
+* `ETag`
+* `Last-Modified`
+* `X-Timestamp`
+* `X-Trans-Id`
+
+
+
+
+== 放置物件
+
+此作業會以資料和中繼資料建立新物件、或以StorageGRID 資料和中繼資料取代現有物件。
+
+支援最多5 TiB（5、497、558、13880位元組）的物件。StorageGRID
+
+
+NOTE: 衝突的用戶端要求（例如兩個寫入同一個金鑰的用戶端）會以「最新致勝」的方式解決。「最新致勝」評估的時間取決於StorageGRID VMware系統何時完成指定的要求、而非Swift用戶端何時開始作業。
+
+需要下列要求參數：
+
+* `Account`
+* `Container`
+* `Object`
+
+
+需要下列要求標頭：
+
+* `X-Auth-Token`
+
+
+以下是選用的要求標頭：
+
+* `Content-Disposition`
+* `Content-Encoding`
++
+請勿使用分塊 `Content-Encoding` 如果套用至物件的ILM規則會根據大小來篩選物件、並在擷取時使用同步放置（擷取行為的平衡或嚴格選項）。
+
+* `Transfer-Encoding`
++
+請勿使用壓縮或分塊的方式 `Transfer-Encoding` 如果套用至物件的ILM規則會根據大小來篩選物件、並在擷取時使用同步放置（擷取行為的平衡或嚴格選項）。
+
+* `Content-Length`
++
+如果ILM規則會根據大小篩選物件、並在擷取時使用同步位置、則必須指定 `Content-Length`。
+
++
+
+NOTE: 如果您未遵循下列準則 `Content-Encoding`、 `Transfer-Encoding`和 `Content-Length`、StorageGRID 必須先儲存物件、才能判斷物件大小並套用ILM規則。換句話說StorageGRID 、在擷取時、必須預設使用功能來建立物件的過渡複本。也就是StorageGRID 、對於內嵌行為、必須使用雙重認可選項。
+
++
+如需同步放置和 ILM 規則的詳細資訊、請參閱 link:../ilm/data-protection-options-for-ingest.html["用於擷取的資料保護選項"]。
+
+* `Content-Type`
+* `ETag`
+* `X-Object-Meta-<name\>` （物件相關中繼資料）
++
+如果您要使用 * 使用者定義的建立時間 * 選項做為 ILM 規則的參考時間、則必須將該值儲存在名為的使用者定義標頭中 `X-Object-Meta-Creation-Time`。例如：
+
++
+[listing]
+----
+X-Object-Meta-Creation-Time: 1443399726
+----
++
+此欄位自1970年1月1日起計算為秒數。
+
+* `X-Storage-Class: reduced_redundancy`
++
+如果符合擷取物件的ILM規則指定「雙重認可」或「平衡」的擷取行為、則此標頭會影響StorageGRID 到所建立的物件複本數量。
+
++
+** *雙重提交*：如果ILM規則指定擷取行為的雙重提交選項、StorageGRID 則會在擷取物件時建立單一的過渡複本（單一提交）。
+** *Balanced * ：如果 ILM 規則指定 Balanced 選項、則 StorageGRID 只會在系統無法立即製作規則中指定的所有複本時、才製作單一的臨時複本。如果能夠執行同步放置、則此標頭不會有任何影響。StorageGRID
++
+。 `reduced_redundancy` 當符合物件的ILM規則建立單一複寫複本時、最好使用標頭。在此案例中、請使用 `reduced_redundancy` 免除在每次擷取作業中不必要地建立和刪除額外的物件複本。
+
++
+使用 `reduced_redundancy` 在其他情況下不建議使用標頭、因為它會增加擷取期間物件資料遺失的風險。例如、如果單一複本一開始儲存在無法進行ILM評估的儲存節點上、則可能會遺失資料。
+
++
+
+CAUTION: 在任何時間段只複寫一個複本、會使資料面臨永久遺失的風險。如果只有一個物件複寫複本存在、則當儲存節點故障或發生重大錯誤時、該物件就會遺失。在升級等維護程序期間、您也會暫時失去物件的存取權。
+
+
+
++
+請注意、指定 `reduced_redundancy` 只會影響第一次擷取物件時所建立的複本數量。它不會影響使用中 ILM 原則評估物件時所製作的物件複本數量、也不會導致資料儲存在 StorageGRID 系統中較低的備援層級。
+
+
+
+成功執行會傳回下列標頭、並顯示「已建立的HTTP/1.1 201」回應：
+
+* `Content-Length`
+* `Content-Type`
+* `Date`
+* `ETag`
+* `Last-Modified`
+* `X-Trans-Id`
+

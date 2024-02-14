@@ -1,0 +1,101 @@
+---
+permalink: monitor/viewing-legacy-alarms.html 
+sidebar: sidebar 
+keywords: legacy alarms 
+summary: 當系統屬性達到警示臨界值時、會觸發警示（舊系統）。您可以從「目前警示」頁面檢視目前作用中的警示。 
+---
+= 檢視舊警報
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+當系統屬性達到警示臨界值時、就會觸發警示（舊系統）。您可以從「目前警示」頁面檢視目前作用中的警示。
+
+
+NOTE: 雖然舊版警示系統仍持續受到支援、但警示系統可提供顯著效益、而且使用起來更輕鬆。
+
+.開始之前
+* 您必須使用登入Grid Manager link:../admin/web-browser-requirements.html["支援的網頁瀏覽器"]。
+
+
+.步驟
+. 選取*支援*>*警示（舊版）*>*目前警示*。
++
+image::../media/current_alarms_page.png[目前警示頁面]
+
++
+警示圖示會指出每個警示的嚴重性、如下所示：
+
++
+[cols="1a,1a,1a,3a"]
+|===
+| 圖示 | 色彩 | 警示嚴重性 | 意義 
+
+
+ a| 
+image:../media/icon_alarm_yellow_notice.gif["黃色方塊圖示"]
+ a| 
+黃色
+ a| 
+注意
+ a| 
+節點已連線至網格、但存在不尋常的情況、不會影響正常作業。
+
+
+
+ a| 
+image:../media/icon_alert_yellow_minor.png["淺橘鑽石圖示"]
+ a| 
+淡橘色
+ a| 
+次要
+ a| 
+節點已連線至網格、但存在異常狀況、可能會影響未來的作業。您應該調查以防止提報。
+
+
+
+ a| 
+image:../media/icon_alert_orange_major.png["暗橘鑽石圖示"]
+ a| 
+暗橘色
+ a| 
+主要
+ a| 
+節點已連線至網格、但存在目前影響作業的異常狀況。這需要立即注意、以避免提報。
+
+
+
+ a| 
+image:../media/icon_alert_red_critical.png["紅色x圖示"]
+ a| 
+紅色
+ a| 
+關鍵
+ a| 
+節點已連線至網格、但存在異常狀況、已停止正常作業。您應該立即解決此問題。
+
+|===
+. 若要瞭解導致觸發警示的屬性、請在表格中的屬性名稱上按一下滑鼠右鍵。
+. 若要檢視警示的其他詳細資料、請按一下表格中的服務名稱。
++
+此時將顯示所選服務的「警示」索引標籤（*支援*>*工具*>*網格拓撲*>*網格節點*>**服務_*>*警示*）。
+
++
+image::../media/alarms_acknowledging.png[警示確認]
+
+. 如果您想清除目前警示的計數、您可以選擇執行下列動作：
++
+** 確認警報。除非在下一個嚴重性層級觸發已確認的警示、或已解決並再次發生、否則已確認的警示不再包含在舊有警示的計數中。
+** 針對整個系統停用特定的預設警示或全域自訂警示、以避免再次觸發。
+
+
+
+
+.相關資訊
+link:alarms-reference.html["警示參考（舊系統）"]
+
+link:managing-alarms.html["認可目前的警示（舊系統）"]
+
+link:managing-alarms.html["停用警示（舊系統）"]

@@ -1,0 +1,86 @@
+---
+permalink: swift/configuring-tenant-accounts-and-connections.html 
+sidebar: sidebar 
+keywords: swift test connection, cli, python-swiftclient 
+summary: 您可以使用 Swift CLI 測試與 StorageGRID 系統的連線、並確認您可以讀寫物件。 
+---
+= 測試 Swift REST API 組態
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以使用 Swift CLI 測試與 StorageGRID 系統的連線、並確認您可以讀寫物件。
+
+.開始之前
+* 您已下載並安裝 Swift 命令列用戶端： https://platform.swiftstack.com/docs/integration/python-swiftclient.html["SwiftStack：Python-swiftClient"^]
+* 您也可以選擇 link:../admin/configuring-load-balancer-endpoints.html["已建立負載平衡器端點"]。否則、您就知道要連線的儲存節點 IP 位址、以及要使用的連接埠號碼。請參閱 link:../admin/summary-ip-addresses-and-ports-for-client-connections.html["用戶端連線的 IP 位址和連接埠"]。
+* 您有 link:../admin/creating-tenant-account.html["已建立 Swift 租戶帳戶"]。
+* 您已登入租戶帳戶、並建立至少一個群組和使用者。請參閱 link:../tenant/creating-groups-for-swift-tenant.html["為Swift租戶建立群組"]。
++
+
+NOTE: Swift 租戶使用者必須具有「管理員」群組權限、才能驗證至 Swift REST API 。
+
+
+
+.關於這項工作
+如果您尚未設定安全性、則必須新增 `--insecure` 標記至每個命令。
+
+.步驟
+. 查詢StorageGRID 資訊URL以進行您的NetApp Swift部署：
++
+[listing]
+----
+swift
+-U <Tenant_Account_ID:Account_User_Name>
+-K <User_Password>
+-A https://<FQDN | IP>:<Port>/info
+capabilities
+----
++
+這足以測試您的Swift部署是否正常運作。若要儲存物件以進一步測試帳戶組態、請繼續執行其他步驟。
+
+. 將物件放入容器：
++
+[listing]
+----
+touch test_object
+swift
+-U <Tenant_Account_ID:Account_User_Name>
+-K <User_Password>
+-A https://<FQDN | IP>:<Port>/auth/v1.0
+upload test_container test_object
+--object-name test_object
+----
+. 取得容器以驗證物件：
++
+[listing]
+----
+swift
+-U <Tenant_Account_ID:Account_User_Name>
+-K <User_Password>
+-A https://<FQDN | IP>:<Port>/auth/v1.0
+list test_container
+----
+. 刪除物件：
++
+[listing]
+----
+swift
+-U <Tenant_Account_ID:Account_User_Name>
+-K <User_Password>
+-A https://<FQDN | IP>:<Port>/auth/v1.0
+delete test_container test_object
+----
+. 刪除容器：
++
+[listing]
+----
+swift
+-U `<_Tenant_Account_ID:Account_User_Name_>`
+-K `<_User_Password_>`
+-A `\https://<_FQDN_ | _IP_>:<_Port_>/auth/v1.0'
+delete test_container
+----
+

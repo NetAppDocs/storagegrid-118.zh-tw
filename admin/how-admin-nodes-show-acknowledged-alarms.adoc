@@ -1,0 +1,20 @@
+---
+permalink: admin/how-admin-nodes-show-acknowledged-alarms.html 
+sidebar: sidebar 
+keywords: admin node, acknowledge alarm 
+summary: 當您在一個管理節點上確認警示時、確認的警示不會複製到任何其他管理節點。由於不會將確認複製到其他管理節點、因此每個管理節點的Grid拓撲樹狀結構可能看起來不一樣。 
+---
+= 管理節點如何顯示已確認的警示（舊系統）
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+當您在一個管理節點上確認警示時、確認的警示不會複製到任何其他管理節點。由於確認不會複製到其他管理節點、因此每個管理節點的 Grid 拓撲樹狀結構看起來可能不同。
+
+這種差異在連接Web用戶端時很有用。Web用戶端可以根據StorageGRID 管理員的需求、擁有不同的視野來檢視整個系統。
+
+image::../media/grid_topology_with_differing_alarm_acknowledgments.gif[多個管理節點和警示確認]
+
+請注意、通知會從發生確認的管理節點傳送。

@@ -1,0 +1,22 @@
+---
+permalink: admin/setting-custom-alarms-for-archive-node.html 
+sidebar: sidebar 
+keywords: archive node, custom alarm, arql, arrl 
+summary: 您應針對ARQL和ARRL屬性建立自訂警示、以監控歸檔節點從歸檔儲存系統擷取物件資料的速度和效率。 
+---
+= 設定歸檔節點的自訂警示
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您應針對ARQL和ARRL屬性建立自訂警示、以監控歸檔節點從歸檔儲存系統擷取物件資料的速度和效率。
+
+* ARQL：平均佇列長度。物件資料從歸檔儲存系統中佇列以供擷取的平均時間（以微秒為單位）。
+* ARRL：平均要求延遲。歸檔節點從歸檔儲存系統擷取物件資料所需的平均時間（以微秒為單位）。
+
+
+這些屬性的可接受值取決於歸檔儲存系統的設定與使用方式。（請前往* ARC/>* Retrieve *>* Overview *>* Main*。） 針對要求逾時所設定的值、以及可用於擷取要求的工作階段數量、尤其具有影響力。
+
+整合完成後、請監控歸檔節點的物件資料擷取、以建立正常擷取時間和佇列長度的值。然後、針對ARQL和ARRL建立自訂警示、以便在發生異常作業情況時觸發。請參閱的說明 link:../monitor/managing-alarms.html["管理警示（舊系統）"]。

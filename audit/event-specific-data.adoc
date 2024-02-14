@@ -1,0 +1,31 @@
+---
+permalink: audit/event-specific-data.html 
+sidebar: sidebar 
+keywords: audit message, event, shea, s3 head 
+summary: 稽核日誌中的每個稽核訊息都會記錄特定於系統事件的資料。 
+---
+= 事件特定資料
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+稽核日誌中的每個稽核訊息都會記錄特定於系統事件的資料。
+
+開啟後 `[AUDT:` 識別訊息本身的容器、下一組屬性會提供稽核訊息所述事件或動作的相關資訊。這些屬性會在下列範例中反白顯示：
+
+[]
+====
+2018 年 12 月 05 日 8 ： 24 ： 45.921845 [AUDT:*\[RSLT\（ FC32\ ）： SUCS\]*
+*\[Time\(UI64\):11454\][SAIP\(iipad):"10.224.0.100"\][S3AI\(CStr\):"60025621595611246499"\]*
+*\[SACC\(CStr\):"account"\][S3AK\(CStr\):"SGKH4_NC8SO1H6w3w0nCOFCGk__EedYzKlumRsKJA="\]*
+*\[SUSR\(CStr\) ： "urn:sgws:identity:::60025621595611246499:root"\]*
+*\[SBAI\(CStr\) ： "60025621595611246499"\][SBAC\(CStr\):"account"\]\[S3BK\(CStr\):"Bucket"\]*
+*\[S3KY （ CStr\ ）： "object"\][CBID\（ UI64\ ）： 0xCC128B9B9E428347\]*
+*\[UUUID\(CStr\):" B975D2CE-E4DA-4D14-8A23-1CB4B83F2CD8"\]\[CSIZ\(UI64\):30720\]*[Aim(UI32):10]
+\[ATIM(UI64):1543998285921845]\[ATYP\(FC32\):Shea \][ANID(UI32):12281045][AIM(FC32):S3RQ]
+\[ATID(UI64):15552417629170647261]
+
+====
+。 `ATYP` 元素（在範例中加上底線）可識別產生訊息的事件。此範例訊息包括 link:shea-s3-head.html["Shea"] 訊息代碼（ [ATYP（ FC32 ）： Shea ）、表示它是由成功的 S3 標頭要求所產生。

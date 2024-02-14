@@ -1,0 +1,107 @@
+---
+permalink: swift/supported-swift-api-endpoints.html 
+sidebar: sidebar 
+keywords: swift api endpoint support 
+summary: 支援下列Swift API端點：資訊URL、驗證URL及儲存URL。StorageGRID 
+---
+= 支援的Swift API端點
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+支援下列Swift API端點：資訊URL、驗證URL及儲存URL。StorageGRID
+
+
+
+== 資訊URL
+
+您可以StorageGRID 使用/info路徑、向Swift基礎URL發出Get要求、藉此判斷執行過程的功能和限制。
+
+`https://_FQDN_ | _Node IP:Swift Port_/info/`
+
+在要求中：
+
+* `_FQDN_` 為完整網域名稱。
+* `_Node IP_` 是StorageGRID 指儲存節點的IP位址、或是指位於該網路上的閘道節點。
+* `_Swift Port_` 是儲存節點或閘道節點上用於Swift API連線的連接埠編號。
+
+
+例如、下列資訊URL會向IP位址為10.99.106.103且使用連接埠18083的儲存節點要求資訊。
+
+`\https://10.99.106.103:18083/info/`
+
+回應內容包括Swift實作的功能、即Json字典。用戶端工具可剖析Json回應、判斷實作的功能、並將其作為後續儲存作業的限制。
+
+Swift的支援功能可未經驗證存取資訊URL。StorageGRID
+
+
+
+== 驗證URL
+
+用戶端可以使用Swift驗證URL來驗證租戶帳戶使用者身分。
+
+`https://_FQDN_ | _Node IP:Swift Port_/auth/v1.0/`
+
+您必須在中提供租戶帳戶ID、使用者名稱和密碼作為參數 `X-Auth-User` 和 `X-Auth-Key` 要求標頭、如下所示：
+
+`X-Auth-User: _Tenant_Account_ID:Username_`
+
+`X-Auth-Key: _Password_`
+
+在要求標頭中：
+
+* `_Tenant_Account_ID_` 是StorageGRID 建立Swift租戶時由支援人員指派的帳戶ID。這是租戶管理員登入頁面上使用的相同租戶帳戶ID。
+* `_Username_` 是租戶管理程式中建立的租戶使用者名稱。此使用者必須屬於具有Swift Administrator權限的群組。租戶的根使用者無法設定為使用 Swift REST API 。
++
+如果租戶帳戶已啟用Identity Federation、請提供LDAP伺服器的聯盟使用者名稱和密碼。或者、提供LDAP使用者的網域名稱。例如：
+
++
+`X-Auth-User: _Tenant_Account_ID:Username@Domain_Name_`
+
+* `_Password_` 是租戶使用者的密碼。使用者密碼是在租戶管理程式中建立及管理的。
+
+
+成功驗證要求的回應會傳回儲存URL和驗證權杖、如下所示：
+
+`X-Storage-Url: https://_FQDN_ | _Node_IP:Swift_Port_/v1/_Tenant_Account_ID_`
+
+`X-Auth-Token: _token_`
+
+`X-Storage-Token: _token_`
+
+根據預設、權杖自產生時間起24小時內有效。
+
+會針對特定租戶帳戶產生權杖。一個帳戶的有效權杖並未授權使用者存取另一個帳戶。
+
+
+
+== 儲存URL
+
+用戶端應用程式可以發出Swift REST API呼叫、以便針對閘道節點或儲存節點執行支援的帳戶、容器和物件作業。儲存要求會被定址至驗證回應中傳回的儲存URL。要求也必須包含從驗證要求傳回的X-auth-Token標頭和值。
+
+`\https://FQDN | _IP:Swift_Port_/v1/_Tenant_Account_ID_`
+
+`[_/container_][_/object_]`
+
+`X-Auth-Token: _token_`
+
+有些儲存回應標頭包含使用量統計資料、可能無法反映最近修改物件的準確數字。這些標頭可能需要幾分鐘的時間才能顯示準確的數字。
+
+下列帳戶和容器作業的回應標頭是包含使用統計資料的範例：
+
+* `X-Account-Bytes-Used`
+* `X-Account-Object-Count`
+* `X-Container-Bytes-Used`
+* `X-Container-Object-Count`
+
+
+.相關資訊
+link:configuring-tenant-accounts-and-connections.html["設定租戶帳戶和連線"]
+
+link:account-operations.html["帳戶營運"]
+
+link:container-operations.html["容器作業"]
+
+link:object-operations.html["物件作業"]

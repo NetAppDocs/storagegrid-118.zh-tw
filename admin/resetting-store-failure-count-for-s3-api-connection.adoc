@@ -1,0 +1,33 @@
+---
+permalink: admin/resetting-store-failure-count-for-s3-api-connection.html 
+sidebar: sidebar 
+keywords: archive node, store failure count 
+summary: 如果您的歸檔節點透過S3 API連線至歸檔儲存系統、您可以重設儲存失敗計數、以清除ARVf（儲存故障）警示。 
+---
+= 重設S3 API連線的儲存失敗計數
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+如果您的歸檔節點透過S3 API連線至歸檔儲存系統、您可以重設儲存失敗計數、以清除ARVf（儲存故障）警示。
+
+.開始之前
+* 您將使用登入Grid Manager link:../admin/web-browser-requirements.html["支援的網頁瀏覽器"]。
+* 您有 link:admin-group-permissions.html["特定存取權限"]。
+
+
+.步驟
+. 選取*支援*>*工具*>*網格拓撲*。
+. 選擇「*歸檔節點_*>* ARC*>*儲存*」。
+. 選擇*組態*>*主要*。
++
+image::../media/archive_store_s3.gif[設定S3 API連線的儲存區設定]
+
+. 選取*重設儲存失敗計數*。
+. 選取*套用變更*。
++
+Store Failures屬性會重設為零。
+
+

@@ -1,0 +1,28 @@
+---
+permalink: monitor/viewing-manage-drives-tab.html 
+sidebar: sidebar 
+keywords: Manage drives tab, hardware diagnostics, fail drive, logically replace drive 
+summary: 「管理磁碟機」標籤可讓您存取詳細資料、並在 SGF6112 應用裝置中執行磁碟機的疑難排解和維護工作。 
+---
+= 檢視管理磁碟機索引標籤（僅限 SGF6112 ）
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+「管理磁碟機」標籤可讓您存取詳細資料、並在 SGF6112 應用裝置中執行磁碟機的疑難排解和維護工作。
+
+
+NOTE: 只有 SGF6112 儲存設備節點才會顯示「管理磁碟機」索引標籤。
+
+使用「管理磁碟機」索引標籤、您可以執行下列動作：
+
+* 檢視應用裝置中資料儲存磁碟機的配置
+* 檢視列出每個磁碟機位置、類型、狀態、韌體版本和序號的表格
+* 在每個磁碟機上執行疑難排解和維護功能
+
+
+若要存取「管理磁碟機」索引標籤、您必須擁有 link:../admin/admin-group-permissions.html["儲存設備管理員或根存取權限"]。
+
+如需使用「管理磁碟機」標籤的相關資訊、請參閱 https://docs.netapp.com/us-en/storagegrid-appliances/sg6100/manage-drives-tab.html["使用管理磁碟機索引標籤"^]。

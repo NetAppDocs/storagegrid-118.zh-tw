@@ -1,0 +1,34 @@
+---
+permalink: swift/swift-rest-api-supported-operations.html 
+sidebar: sidebar 
+keywords: OpenStack, Swift API, REST API 
+summary: 此系統支援OpenStack Swift API的大部分作業。StorageGRID在將Swift REST API用戶端與StorageGRID NetApp整合之前、請先檢閱帳戶、容器和物件作業的實作詳細資料。 
+---
+= Swift REST API支援的作業
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+此系統支援OpenStack Swift API的大部分作業。StorageGRID在將Swift REST API用戶端與StorageGRID NetApp整合之前、請先檢閱帳戶、容器和物件作業的實作詳細資料。
+
+
+
+== 支援的作業StorageGRID
+
+支援下列Swift API作業：
+
+* link:account-operations.html["帳戶營運"]
+* link:container-operations.html["容器作業"]
+* link:object-operations.html["物件作業"]
+
+
+
+
+== 所有作業的通用回應標頭
+
+根據OpenStack Swift Object Storage API v1的定義、此系統可實作所有支援作業的通用標頭。StorageGRID
+
+.相關資訊
+http://docs.openstack.org/developer/swift/api/object_api_v1_overview.html["OpenStack：物件儲存API"^]

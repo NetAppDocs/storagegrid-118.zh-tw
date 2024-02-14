@@ -1,0 +1,13 @@
+---
+layout: landing-page 
+sidebar: sidebar 
+permalink: landing-get-started/index.html 
+summary: 在安裝和使用 StorageGRID 系統之前、請先花點時間瞭解 StorageGRID 是什麼。 
+---
+= 開始使用 StorageGRID 系統
+:hardbreaks:
+:allow-uri-read: 
+:linkattrs: 
+:imagesdir: ./media/
+
+

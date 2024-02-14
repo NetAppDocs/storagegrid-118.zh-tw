@@ -1,0 +1,36 @@
+---
+permalink: swift/how-storagegrid-implements-swift-rest-api.html 
+sidebar: sidebar 
+keywords: implement swift rest api 
+summary: 用戶端應用程式可以使用Swift REST API呼叫來連線至儲存節點和閘道節點、以建立容器、以及儲存和擷取物件。如此一來、專為OpenStack Swift開發的服務導向應用程式就能與StorageGRID 由該系統提供的內部部署物件儲存設備連線。 
+---
+= 如何實作Swift REST API StorageGRID
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+用戶端應用程式可以使用Swift REST API呼叫來連線至儲存節點和閘道節點、以建立容器、以及儲存和擷取物件。如此一來、專為OpenStack Swift開發的服務導向應用程式就能與StorageGRID 由該系統提供的內部部署物件儲存設備連線。
+
+
+
+== Swift物件管理
+
+在 StorageGRID 系統中擷取 Swift 物件之後、這些物件會由作用中 ILM 原則中的資訊生命週期管理（ ILM ）規則進行管理。 link:../ilm/what-ilm-rule-is.html["ILM規則"] 和 link:../ilm/creating-ilm-policy.html["ILM原則"] 判斷 StorageGRID 如何建立及散佈物件資料複本、以及如何隨著時間管理這些複本。例如、ILM規則可能會套用至特定Swift容器中的物件、並可能指定將多個物件複本儲存至數個資料中心、保留一段時間。
+
+如果您需要瞭解網格的 ILM 規則和原則如何影響 Swift 租戶帳戶中的物件、請聯絡您的 NetApp 專業服務顧問或 StorageGRID 管理員。
+
+
+
+== 衝突的用戶端要求
+
+衝突的用戶端要求（例如兩個寫入同一個金鑰的用戶端）會以「最新致勝」的方式解決。「最新致勝」評估的時間取決於StorageGRID VMware系統何時完成指定的要求、而非Swift用戶端何時開始作業。
+
+
+
+== 一致性保證與控管
+
+根據預設、StorageGRID 針對新建立的物件、提供寫入後讀取一致性、並在物件更新和執行前置作業時提供最終一致性。任何 link:get-container-consistency-request.html["取得"] 在成功完成之後 link:put-container-consistency-request.html["放入"] 將能夠讀取新寫入的資料。覆寫現有物件、更新中繼資料及刪除的動作最終一致。覆寫通常需要幾秒鐘或幾分鐘才能傳播、但可能需要15天的時間。
+
+利用此功能、您也可以控制每個容器的一致性。StorageGRID一致性值可根據應用程式的需求、在物件的可用度與不同儲存節點和站台之間的物件一致性之間取得平衡。

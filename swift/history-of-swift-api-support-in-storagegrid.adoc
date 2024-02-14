@@ -1,0 +1,95 @@
+---
+permalink: swift/history-of-swift-api-support-in-storagegrid.html 
+sidebar: sidebar 
+keywords: swift api support history 
+summary: 您應該注意StorageGRID 到支援Swift REST API的功能有所變更。 
+---
+= Swift API支援的歷史StorageGRID 記錄
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您應該注意StorageGRID 到支援Swift REST API的功能有所變更。
+
+[cols="1a,3a"]
+|===
+| 版本 | 註解 
+
+
+ a| 
+11.8
+ a| 
+
+
+
+ a| 
+11.7
+ a| 
+Swift 用戶端應用程式的支援已過時、未來版本將會移除。
+
+
+
+ a| 
+11.6%
+ a| 
+略有編輯變更。
+
+
+
+ a| 
+11.5
+ a| 
+消除了弱一致性。將改用可用的一致性。
+
+
+
+ a| 
+11.4.11.4
+ a| 
+新增 TLS 1.3 支援。新增 ILM 與一致性之間相互關係的說明。
+
+
+
+ a| 
+11.3%
+ a| 
+更新的「放置物件」作業、說明ILM規則在擷取時使用同步放置的影響（擷取行為的平衡和嚴格選項）。新增使用負載平衡器端點或高可用度群組的用戶端連線說明。不再支援TLS 1.1密碼。
+
+
+
+ a| 
+11.2.11.2.
+ a| 
+文件的編輯略有變更。
+
+
+
+ a| 
+11.1.
+ a| 
+新增使用HTTP的支援、可將Swift用戶端連線至網格節點。更新一致性值的定義。
+
+
+
+ a| 
+11.0%
+ a| 
+新增每個租戶帳戶的1、000個容器支援。
+
+
+
+ a| 
+10.3.1
+ a| 
+文件的管理更新與修正。移除設定自訂伺服器憑證的區段。
+
+
+
+ a| 
+10.2%
+ a| 
+Swift API的初始支援StorageGRID 、由整個系統提供。目前支援的版本為OpenStack Swift Object Storage API v1。
+
+|===

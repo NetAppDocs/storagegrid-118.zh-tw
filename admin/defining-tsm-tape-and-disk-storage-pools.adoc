@@ -1,0 +1,135 @@
+---
+permalink: admin/defining-tsm-tape-and-disk-storage-pools.html 
+sidebar: sidebar 
+keywords: archive node, tsm, tape storage pool, tivoli storage manager 
+summary: 歸檔節點會寫入磁碟儲存池。若要將內容歸檔至磁帶、您必須設定磁碟儲存資源池、將內容移至磁帶儲存資源池。 
+---
+= 定義TSM磁帶與磁碟儲存資源池
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+歸檔節點會寫入磁碟儲存池。若要將內容歸檔至磁帶、您必須設定磁碟儲存資源池、將內容移至磁帶儲存資源池。
+
+.關於這項工作
+對於TSM伺服器、您必須在Tivoli Storage Manager中定義磁帶儲存資源池和磁碟儲存資源池。定義磁碟集區之後、請建立磁碟磁碟區並將其指派給磁碟集區。如果TSM伺服器使用純磁碟儲存設備、則不需要磁帶集區。
+
+您必須先在 TSM 伺服器上完成數個步驟、才能建立磁帶儲存池。（在磁帶庫中建立磁帶庫和至少一個磁碟機。定義從伺服器到程式庫、從伺服器到磁碟機的路徑、然後定義磁碟機的裝置類別。） 這些步驟的詳細資料可能會因站台的硬體組態和儲存需求而有所不同。如需詳細資訊、請參閱TSM文件。
+
+下列一組指示說明此程序。您應該注意、站台的需求可能會因部署需求而異。如需組態詳細資料和說明、請參閱TSM文件。
+
+
+NOTE: 您必須以管理權限登入伺服器、並使用 dsmadmc 工具執行下列命令。
+
+.步驟
+. 建立磁帶庫。
++
+`define library _tapelibrary_ libtype=_scsi_`
+
++
+其中 `_tapelibrary_` 是為磁帶庫選擇的任意名稱、以及的值 `libtype` 視磁帶庫類型而定。
+
+. 定義從伺服器到磁帶庫的路徑。
++
+`define path _servername tapelibrary_ srctype=server desttype=library device=_lib-devicename_`
+
++
+** `_servername_` 是TSM伺服器的名稱
+** `_tapelibrary_` 是您定義的磁帶庫名稱
+** `_lib-devicename_` 為磁帶庫的裝置名稱
+
+
+. 定義程式庫的磁碟機。
++
+`define drive _tapelibrary_ _drivename_`
+
++
+** `_drivename_` 是您要指定給磁碟機的名稱
+** `_tapelibrary_` 是您定義的磁帶庫名稱
++
+視硬體組態而定、您可能需要設定其他磁碟機。（例如、如果TSM伺服器連接至光纖通道交換器、且該交換器具有磁帶庫的兩個輸入、您可能會想要為每個輸入定義一個磁碟機。）
+
+
+
+. 定義從伺服器到所定義磁碟機的路徑。
++
+`define path _servername_ drivename srctype=server desttype=drive library=_tapelibrary_ device=_drive-dname_`
+
++
+** `_drive-dname_` 為磁碟機的裝置名稱
+** `_tapelibrary_` 是您定義的磁帶庫名稱
++
+針對您為磁帶庫定義的每個磁碟機、使用不同的磁碟機重複上述步驟 `_drivename_` 和 `_drive-dname_` 每個磁碟機。
+
+
+
+. 定義磁碟機的裝置類別。
++
+`define devclass _DeviceClassName_ devtype=_lto_ library=_tapelibrary_ format=_tapetype_`
+
++
+** `_DeviceClassName_` 為裝置類別的名稱
+** `_lto_` 是連接至伺服器的磁碟機類型
+** `_tapelibrary_` 是您定義的磁帶庫名稱
+** `_tapetype_` 是磁帶類型、例如ultum3
+
+
+. 將磁帶磁碟區新增至磁帶庫的庫存。
++
+`checkin libvolume _tapelibrary_`
+
++
+`_tapelibrary_` 是您定義的磁帶庫名稱。
+
+. 建立主要磁帶儲存資源池。
++
+`define stgpool _SGWSTapePool_ _DeviceClassName_ description=_description_ _collocate=filespace_ maxscratch=_XX_`
+
++
+** `_SGWSTapePool_` 為歸檔節點的磁帶儲存池名稱。您可以為磁帶儲存資源池選取任何名稱（只要名稱使用TSM伺服器所預期的語法慣例）。
+** `_DeviceClassName_` 為磁帶庫的裝置類別名稱。
+** `_description_` 是可在TSM伺服器上使用顯示之儲存資源池的說明 `query stgpool` 命令。例如：「保存節點的磁帶儲存池」。
+** `_collocate=filespace_` 指定TSM伺服器應將相同檔案空間的物件寫入單一磁帶。
+** `XX` 是下列其中一項：
++
+*** 磁帶庫中的空白磁帶數（如果歸檔節點是唯一使用磁帶庫的應用程式）。
+*** 分配給StorageGRID 由該系統使用的磁帶數量（在共享磁帶庫的情況下）。
+
+
+
+
+. 在TSM伺服器上、建立磁碟儲存資源池。在TSM伺服器的管理主控台輸入
++
+`define stgpool _SGWSDiskPool_ disk description=_description_ maxsize=_maximum_file_size nextstgpool=SGWSTapePool_ highmig=_percent_high_ lowmig=_percent_low_`
+
++
+** `_SGWSDiskPool_` 為歸檔節點磁碟集區的名稱。您可以為磁碟儲存資源池選取任何名稱（只要名稱使用TSM預期的語法慣例）。
+** `_description_` 是可在TSM伺服器上使用顯示之儲存資源池的說明 `query stgpool` 命令。例如、「歸檔節點的磁碟儲存池」。
+**  `_maximum_file_size_` 強制將大於此大小的物件直接寫入磁帶、而非快取到磁碟集區。建議您設定 `_maximum_file_size_` 至10 GB。
+** `_nextstgpool=SGWSTapePool_` 將磁碟儲存資源池指向為歸檔節點定義的磁帶儲存資源池。
+**  `_percent_high_` 設定磁碟集區開始將其內容移轉到磁帶集區的值。建議您設定 `_percent_high_` 至0、以便立即開始資料移轉
+**  `_percent_low_` 設定移轉至磁帶集區的停止值。建議您設定 `_percent_low_` 至0以清除磁碟集區。
+
+
+. 在TSM伺服器上、建立磁碟磁碟區（或磁碟區）並將其指派給磁碟集區。
++
+`define volume _SGWSDiskPool_ _volume_name_ formatsize=_size_`
+
++
+** `_SGWSDiskPool_` 為磁碟集區名稱。
+** `_volume_name_` 是磁碟區位置的完整路徑（例如、 `/var/local/arc/stage6.dsm`）在TSM伺服器上寫入磁碟集區的內容、以準備傳輸至磁帶。
+** `_size_` 是磁碟區的大小（以MB為單位）。
++
+例如、若要建立單一磁碟區、使磁碟集區的內容填滿單一磁帶、請在磁帶磁碟區的容量為200 GB時、將大小值設為200000。
+
++
+不過、可能需要建立大小較小的多個磁碟區、因為TSM伺服器可以寫入磁碟集區中的每個磁碟區。例如、如果磁帶大小為250 GB、請建立25個磁碟區、每個磁碟區大小為10 GB（10000）。
+
++
+TSM伺服器會預先配置磁碟區目錄中的空間。這可能需要一段時間才能完成（200 GB磁碟區的時間超過三小時）。
+
+
+
+

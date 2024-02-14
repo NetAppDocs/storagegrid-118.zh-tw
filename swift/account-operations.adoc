@@ -1,0 +1,84 @@
+---
+permalink: swift/account-operations.html 
+sidebar: sidebar 
+keywords: swift account operations 
+summary: 下列Swift API作業會在帳戶上執行。 
+---
+= 帳戶營運
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+下列Swift API作業會在帳戶上執行。
+
+
+
+== 取得帳戶
+
+此作業會擷取與帳戶和帳戶使用量統計資料相關的容器清單。
+
+需要下列要求參數：
+
+* `Account`
+
+
+需要下列要求標頭：
+
+* `X-Auth-Token`
+
+
+下列支援的要求查詢參數為選用項目：
+
+* `Delimiter`
+* `End_marker`
+* `Format`
+* `Limit`
+* `Marker`
+* `Prefix`
+
+
+如果找到帳戶且沒有容器或容器清單是空的、成功執行會傳回下列標頭及「 HTTP/1.1 204 無內容」回應；如果找到帳戶且容器清單不是空的、則傳回「 HTTP/1.1 200 確定」回應：
+
+* `Accept-Ranges`
+* `Content-Length`
+* `Content-Type`
+* `Date`
+* `X-Account-Bytes-Used`
+* `X-Account-Container-Count`
+* `X-Account-Object-Count`
+* `X-Timestamp`
+* `X-Trans-Id`
+
+
+
+
+== 總公司帳戶
+
+此作業會從Swift帳戶擷取帳戶資訊和統計資料。
+
+需要下列要求參數：
+
+* `Account`
+
+
+需要下列要求標頭：
+
+* `X-Auth-Token`
+
+
+成功執行會傳回下列標頭、並顯示「HTTP / 1.1 204無內容」回應：
+
+* `Accept-Ranges`
+* `Content-Length`
+* `Date`
+* `X-Account-Bytes-Used`
+* `X-Account-Container-Count`
+* `X-Account-Object-Count`
+* `X-Timestamp`
+* `X-Trans-Id`
+
+
+.相關資訊
+link:swift-operations-tracked-in-audit-logs.html["在稽核記錄中追蹤的Swift作業"]

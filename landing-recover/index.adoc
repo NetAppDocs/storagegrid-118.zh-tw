@@ -1,0 +1,13 @@
+---
+layout: landing-page 
+sidebar: sidebar 
+permalink: landing-recover/index.html 
+summary: 如果網格節點發生故障、您可以更換故障的實體或虛擬伺服器、重新安裝StorageGRID 還原軟體、以及還原可恢復的資料、來還原節點。 
+---
+= 恢復或更換節點
+:hardbreaks:
+:allow-uri-read: 
+:linkattrs: 
+:imagesdir: ./media/
+
+

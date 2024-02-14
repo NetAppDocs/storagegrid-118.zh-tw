@@ -1,0 +1,172 @@
+---
+permalink: audit/object-storage-audit-messages.html 
+sidebar: sidebar 
+keywords: audit, object storage, object management, object retrieval, node transfer, verification, APCT, ARCB, ARCE, ARCT, AREM, ASCE, ASCT, ATCE, AVCC, BROR, CBSE, CBRE, CGRR, EBDL, EBKR, SCMT, SREM 
+summary: 您應該熟悉屬於物件儲存稽核類別的稽核訊息。這些是StorageGRID 與儲存及管理等物件相關的事件、這些事件都在整個系統的範圍內。包括物件儲存與擷取、網格節點對網格節點傳輸及驗證。 
+---
+= 物件儲存稽核訊息
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+屬於物件儲存稽核類別的稽核訊息、用於與 StorageGRID 系統內物件的儲存和管理相關的事件。包括物件儲存與擷取、網格節點對網格節點傳輸及驗證。
+
+[cols="1a,2a,1a"]
+|===
+| 程式碼 | 說明 | 請參閱 
+
+
+ a| 
+APCT
+ a| 
+歸檔從雲端清除：已歸檔的物件資料會從外部歸檔儲存系統中刪除、StorageGRID 此儲存系統透過S3 API連線至支援中心。
+ a| 
+link:apct-archive-purge-from-cloud-tier.html["APCT：從雲端層進行歸檔清除"]
+
+
+
+ a| 
+ARCB
+ a| 
+歸檔物件擷取開始：ARC服務會從外部歸檔儲存系統開始擷取物件資料。
+ a| 
+link:arcb-archive-object-retrieve-begin.html["ARCB：歸檔物件擷取開始"]
+
+
+
+ a| 
+Arce
+ a| 
+歸檔物件擷取結束：已從外部歸檔儲存系統擷取物件資料、且ARC服務會報告擷取作業的狀態。
+ a| 
+link:arce-archive-object-retrieve-end.html["Arce：歸檔物件擷取結束"]
+
+
+
+ a| 
+ARCT
+ a| 
+歸檔擷取自雲端層：歸檔的物件資料是從外部歸檔儲存系統擷取、此儲存系統StorageGRID 透過S3 API連線至支援中心。
+ a| 
+link:arct-archive-retrieve-from-cloud-tier.html["ARCT：歸檔從雲端層擷取"]
+
+
+
+ a| 
+AREM
+ a| 
+歸檔物件移除：內容區塊已從外部歸檔儲存系統成功或未成功刪除。
+ a| 
+link:arem-archive-object-remove.html["AREM：歸檔物件移除"]
+
+
+
+ a| 
+ASCE
+ a| 
+歸檔物件存放區端點：內容區塊已寫入外部歸檔儲存系統、且ARC服務會報告寫入作業的狀態。
+ a| 
+link:asce-archive-object-store-end.html["ASCE：歸檔物件存放區結束"]
+
+
+
+ a| 
+ASCT
+ a| 
+歸檔儲存雲端層：物件資料會儲存至外部歸檔儲存系統、StorageGRID 透過S3 API連線至該系統。
+ a| 
+link:asct-archive-store-cloud-tier.html["ASCT：歸檔儲存雲端層"]
+
+
+
+ a| 
+ATCE
+ a| 
+歸檔物件存放區開始：已開始將內容區塊寫入外部歸檔儲存區。
+ a| 
+link:atce-archive-object-store-begin.html["ATCE：歸檔物件存放區開始"]
+
+
+
+ a| 
+AVCC
+ a| 
+歸檔驗證雲端層組態：提供的帳戶和儲存庫設定已成功或未成功驗證。
+ a| 
+link:avcc-archive-validate-cloud-tier-configuration.html["AVCC：歸檔驗證雲端層組態"]
+
+
+
+ a| 
+BROR
+ a| 
+貯體唯讀要求：已進入或退出唯讀模式的貯體。
+ a| 
+link:bror-bucket-read-only-request.html["BROR ：貯體唯讀要求"]
+
+
+
+ a| 
+CBSE
+ a| 
+物件傳送結束：來源實體已完成網格節點對網格節點的資料傳輸作業。
+ a| 
+link:cbse-object-send-end.html["CBSE：物件傳送結束"]
+
+
+
+ a| 
+CBRE
+ a| 
+物件接收結束：目的地實體完成了網格節點對網格節點的資料傳輸作業。
+ a| 
+link:cbre-object-receive-end.html["CBRE：物件接收結束"]
+
+
+
+ a| 
+CGRR
+ a| 
+跨網格複寫要求： StorageGRID 嘗試跨網格複寫作業、以在網格同盟連線中的儲存區之間複寫物件。
+ a| 
+link:cgrr-cross-grid-replication-request.html["CGRR ：跨網格複寫要求"]
+
+
+
+ a| 
+EBDL
+ a| 
+清空貯體刪除： ILM 掃描器刪除了某個貯體中正在刪除所有物件的物件（執行清空貯體作業）。
+ a| 
+link:ebdl-empty-bucket-delete.html["EBDL ：清空庫位刪除"]
+
+
+
+ a| 
+EBKR
+ a| 
+清空貯體申請：使用者傳送要求、要求開啟或關閉清空貯體（即刪除貯體物件或停止刪除物件）。
+ a| 
+link:ebkr-empty-bucket-request.html["EBKR ：清空庫位要求"]
+
+
+
+ a| 
+SCMT
+ a| 
+物件存放區提交：內容區塊已完全儲存並驗證、現在可以申請。
+ a| 
+link:scmt-object-store-commit.html["SCMT ：物件存放區提交要求"]
+
+
+
+ a| 
+Srem
+ a| 
+物件存放區移除：內容區塊已從網格節點刪除、無法再直接要求。
+ a| 
+link:srem-object-store-remove.html["Srem：物件存放區移除"]
+
+|===

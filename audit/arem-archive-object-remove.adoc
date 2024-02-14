@@ -1,0 +1,51 @@
+---
+permalink: audit/arem-archive-object-remove.html 
+sidebar: sidebar 
+keywords: storagegrid, audit, message, AREM, Archive Object Remove 
+summary: 「歸檔物件移除」稽核訊息表示已從歸檔節點成功或未成功刪除內容區塊。如果結果成功、歸檔節點已成功通知外部歸檔儲存系統StorageGRID 、表示該系統已釋出物件位置。物件是否從外部歸檔儲存系統中移除取決於系統類型及其組態。 
+---
+= AREM：歸檔物件移除
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+「歸檔物件移除」稽核訊息表示已從歸檔節點成功或未成功刪除內容區塊。如果結果成功、歸檔節點已成功通知外部歸檔儲存系統StorageGRID 、表示該系統已釋出物件位置。物件是否從外部歸檔儲存系統中移除取決於系統類型及其組態。
+
+[cols="1a,1a,4a"]
+|===
+| 程式碼 | 欄位 | 說明 
+
+
+ a| 
+CBID
+ a| 
+內容區塊ID
+ a| 
+要從外部歸檔媒體系統擷取之內容區塊的唯一識別碼。
+
+
+
+ a| 
+VLID
+ a| 
+Volume識別碼
+ a| 
+物件資料歸檔所在之磁碟區的識別碼。
+
+
+
+ a| 
+RSRLT
+ a| 
+結果
+ a| 
+歸檔移除程序的完成狀態：
+
+* SUCS：成功
+* Arun：故障（外部歸檔儲存系統無法使用）
+* GERR:故障（一般錯誤）
+
+
+|===

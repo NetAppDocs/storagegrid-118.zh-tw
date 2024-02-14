@@ -1,0 +1,107 @@
+---
+permalink: upgrade/whats-new.html 
+sidebar: sidebar 
+keywords: what is new in StorageGRID 11.8 
+summary: 本版StorageGRID 的《產品介紹》介紹下列功能。 
+---
+= StorageGRID 11.8 的新功能
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+此 StorageGRID 版本引進下列功能和功能變更。
+
+
+
+== 安裝、升級、 Hotfix
+
+暫時安裝密碼:: 當您 link:../vmware/deploying-storagegrid-node-as-virtual-machine.html["將 StorageGRID 節點部署為虛擬機器"] 或是使用 VMware vSphere 執行 link:../vmware/automating-grid-node-deployment-in-vmware-vsphere.html["自動化網格節點部署"]，系統現在會提示您設定暫存安裝密碼。只有在新節點加入網格之前、您需要存取 VM 主控台或使用 SSH 時、才會使用此密碼。
+
+
+
+
+== 應用裝置
+
+設備文件網站:: StorageGRID 應用裝置的文件已移至新的 link:https://docs.netapp.com/us-en/storagegrid-appliances/["應用裝置文件網站"^]。
+FIPS 支援:: 支援 FIPS 140-2 驗證的密碼編譯。
+SGF6112 改善功能:: StorageGRID 11.8 和 StorageGRID 應用裝置安裝程式韌體 3.8.0 版支援：
++
+--
+* 大幅改善新 SGF6112 安裝的效能。
+* 在升級的和新的 SGF6112 節點上、都能安全開機。
+* DAS NVMe SSD 磁碟機密碼的本機金鑰管理程式。
+
+
+--
+
+
+
+
+== 設定與管理
+
+一致性網格範圍的預設值:: 您可以變更 link:../s3/consistency-controls.html["全網格的預設一致性"] 使用的 Grid Manager 或 GRid-config 端點 link:../admin/using-grid-management-api.html["Grid Management 私有 API"]。新的預設值將套用至變更後建立的貯體。
+ILM 原則標籤:: 允許使用貯體標籤控制每一貯體的 ILM 原則。多個作用中和非作用中的 ILM 原則可以同時存在。請參閱 link:../ilm/ilm-policy-overview.html["ILM 原則：概觀"]。
+Kafka 端點:: 支援的 Kafka 端點 link:../tenant/understanding-notifications-for-buckets.html["貯體事件通知"]。
+用於管理介面流量的負載平衡器:: 建立負載平衡器端點、以管理管理節點上的管理介面工作負載。請參閱 link:../admin/managing-load-balancing.html["負載平衡考量"]。在這項變更中、您現在可以在建立用於 S3 或 Swift 用戶端存取的 HTTPS 負載平衡器端點時、使用 Grid Manager 和 Tenant Manager 連接埠 443 、 8443 和 9443 。
+管理磁碟機索引標籤:: 新增 link:../monitor/viewing-manage-drives-tab.html["管理磁碟機索引標籤"] 適用於 SGF6112 應用裝置。
+純中繼資料儲存節點:: 您現在可以指定新的 link:../primer/what-storage-node-is.html#types-of-storage-nodes["軟體型儲存節點"] 將僅用於儲存中繼資料、而非同時儲存物件和中繼資料。
+SSO 支援使用者主體名稱:: 何時 link:../admin/configuring-sso.html["設定單一登入（ SSO ）"] 對於 Active Directory Federation Service （ AD FS ）或 PingFederate 、您現在可以將使用者主體名稱對應至 `Name ID` 在請款規則或 `sAMAccountName=${username}` 在介面卡執行個體中。
+TLS 原則組態和 KMIP 支援::
++
+--
+* StorageGRID 現在支援用於 KMIP 連線的 TLS 1.2 或 TLS 1.3 傳輸協定。請參閱 link:../admin/kms-considerations-and-requirements.html["使用金鑰管理伺服器的考量與要求"]。
+* link:../admin/kms-configuring-storagegrid-as-client.html["現在、 KMIP 完全支援 Hashicorp"]。
+* 已對進行了增強 link:../admin/manage-tls-ssh-policy.html["TLS 原則組態"]。
+
+
+--
+
+
+
+
+== 展開網格、維護網格、恢復或更換節點
+
+改善帳戶複製:: 現有帳戶可以複製到遠端網格。請參閱 link:../admin/grid-federation-what-is-account-clone.html["什麼是帳戶複製"]。
+歸檔節點可以停用:: 您現在可以使用「取消配置節點」程序、移除任何未使用的歸檔節點、這些節點已從網格中斷連線。請參閱 link:../maintain/decommissioning-disconnected-grid-nodes.html["取消委任中斷連線的網格節點"]。
++
+--
+
+NOTE: 歸檔節點在 StorageGRID 11.7 中已過時。
+
+--
+自動磁碟區還原:: 新增磁碟區還原功能的切換功能、以自動進行磁碟區還原。請參閱 link:../maintain/restoring-volume.html["使用 Grid Manager 還原物件資料"]。
+銷毀編碼、組態變更及重新平衡程序:: 刪除編碼組態的改善。
++
+--
+在現有和新的儲存節點之間重新分配銷毀編碼的片段。在維護工作期間重新計算餘額、以便在工作完成時提供更好的分配。請參閱 link:../expand/rebalancing-erasure-coded-data-after-adding-storage-nodes.html["銷毀編碼重新平衡程序"]。
+
+--
+管理 API 堆疊追蹤:: 「 * 管理 API 堆疊追蹤 * 」安全性設定可讓您控制是否在 Grid Manager 和 Tenant Manager API 錯誤回應中傳回堆疊追蹤。請參閱 link:../admin/changing-browser-session-timeout-interface.html["變更介面安全性設定"]。
+循環重新開機程序:: 您現在可以使用 link:../maintain/rolling-reboot-procedure.html["循環重新開機程序"] 重新啟動多個網格節點、而不會造成服務中斷。
+
+
+
+
+== 網格管理程式
+
+不受信任的用戶端網路、其他連接埠的相關資訊:: 開放給不受信任用戶端網路的 Grid Manager 連接埠清單現在位於名稱為「開放給不受信任的用戶端網路」的欄位中： * 組態 * > * 網路 * > * 負載平衡器端點 * > * 管理介面 * （先前位於防火牆控制頁面）。請參閱 link:../admin/configuring-load-balancer-endpoints.html["設定負載平衡器端點"]。
+
+
+
+
+== 租戶管理程式
+
+S3 Console 不再處於實驗階段:: 中所述的其他功能 link:../tenant/use-s3-console.html["使用 S3 Console"]。
+租戶權限:: 。 link:../tenant/tenant-management-permissions.html["租戶管理權限"]、檢視所有貯體、已新增。
+
+
+
+
+== S3 REST API
+
+* link:../s3/changes-to-s3-rest-api-support.html["S3 REST API支援變更"]。
+* S3 刪除含 UUID 的標記。請參閱 link:../ilm/how-objects-are-deleted.html#delete-s3-versioned-objects["如何刪除物件"] 和 link:../audit/sdel-s3-delete.html["SDEL：S3刪除"]。
+* link:../s3/select-object-content.html["S3 選取 ScanRange"] 在申請 CSV 和 Parquet 檔案時使用。
+

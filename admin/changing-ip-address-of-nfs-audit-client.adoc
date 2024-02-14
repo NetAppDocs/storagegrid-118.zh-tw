@@ -1,0 +1,24 @@
+---
+permalink: admin/changing-ip-address-of-nfs-audit-client.html 
+sidebar: sidebar 
+keywords: NFS audit client, change IP address 
+summary: 如果您需要變更NFS稽核用戶端的IP位址、請完成下列步驟。 
+---
+= 變更NFS稽核用戶端的IP位址
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+如果您需要變更NFS稽核用戶端的IP位址、請完成下列步驟。
+
+.步驟
+. 將新的IP位址新增至現有的NFS稽核共用區。
+. 移除原始IP位址。
+
+
+.相關資訊
+* link:adding-nfs-audit-client-to-audit-share.html["將NFS稽核用戶端新增至稽核共用區"]
+* link:removing-nfs-audit-client-from-audit-share.html["從稽核共用區移除NFS稽核用戶端"]
+

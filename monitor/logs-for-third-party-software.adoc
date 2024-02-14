@@ -1,0 +1,69 @@
+---
+permalink: monitor/logs-for-third-party-software.html 
+sidebar: sidebar 
+keywords: troubleshooting, logs 
+summary: 您可以使用協力廠商軟體記錄來疑難排解問題。 
+---
+= 協力廠商軟體的記錄
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以使用協力廠商軟體記錄來疑難排解問題。
+
+[cols="1a,2a,3a,1a"]
+|===
+| 類別 | 檔案名稱 | 附註 | 找到 
+
+
+ a| 
+歸檔
+| /var/local/log/dsierror.log  a| 
+TSM用戶端API的錯誤資訊。
+ a| 
+歸檔節點
+
+
+
+ a| 
+MySQL
+| /var/local/log/mysql.err
+
+/var/local/log/mysql-slow.log  a| 
+MySQL產生的記錄檔。
+
+`mysql.err` 擷取資料庫錯誤和事件、例如啟動和關機。
+
+`mysql-slow.log` （慢速查詢記錄）會擷取執行時間超過 10 秒的 SQL 陳述式。
+ a| 
+管理節點
+
+
+
+ a| 
+作業系統
+| /var/local/log/Messages  a| 
+此目錄包含作業系統的記錄檔。網格管理器中也會顯示這些記錄中包含的錯誤。選取*支援*>*工具*>*網格拓撲*。然後選擇*拓撲*>*站台_*>*節點_*>* SUS*>*事件*。
+ a| 
+所有節點
+
+
+
+ a| 
+NTP
+| /var/local/log/ntp.log
+
+/var/lib/ntp/var/log/ntpstats/  a| 
+`/var/local/log/ntp.log` 包含NTP錯誤訊息的記錄檔。
+
+`/var/lib/ntp/var/log/ntpstats/` 目錄包含NTP時間統計資料。
+
+`loopstats` 記錄迴圈篩選統計資訊。
+
+`peerstats` 記錄對等統計資料資訊。
+ a| 
+所有節點
+
+|===

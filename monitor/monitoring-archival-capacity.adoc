@@ -1,0 +1,29 @@
+---
+permalink: monitor/monitoring-archival-capacity.html 
+sidebar: sidebar 
+keywords: archive, monitor, monitoring, monitoring archival capacity 
+summary: 您無法透過 StorageGRID 系統直接監控外部歸檔儲存系統容量。不過、您可以監控歸檔節點是否仍可將物件資料傳送至歸檔目的地、這可能表示需要擴充歸檔媒體。 
+---
+= 監控歸檔容量
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您無法透過 StorageGRID 系統直接監控外部歸檔儲存系統的容量。不過、您可以監控歸檔節點是否仍可將物件資料傳送至歸檔目的地、這可能表示需要擴充歸檔媒體。
+
+.關於這項工作
+您可以監控Store元件、檢查歸檔節點是否仍可將物件資料傳送至目標歸檔儲存系統。儲存故障（ARVf）警示也可能表示目標歸檔儲存系統已達到容量、無法再接受物件資料。
+
+.步驟
+. 選取*支援*>*工具*>*網格拓撲*。
+. 選擇「*歸檔節點_*>* ARC**>總覽*」>「主要*」。
+. 請檢查「儲存狀態」和「儲存狀態」屬性、確認「儲存元件」為「線上」且無錯誤。
++
+image::../media/store_status_attribute.gif[顯示「ARC >總覽>主要」的快照]
+
++
+離線儲存區元件或有錯誤的元件、可能表示目標歸檔儲存系統已達到容量、因此無法再接受物件資料。
+
+

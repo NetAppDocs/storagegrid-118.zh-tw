@@ -1,0 +1,35 @@
+---
+permalink: admin/verifying-nfs-audit-integration.html 
+sidebar: sidebar 
+keywords: nfs, audit share, audit client 
+summary: 設定稽核共用區並新增NFS稽核用戶端之後、您可以掛載稽核用戶端共用區、並驗證這些檔案是否可從稽核共用區取得。 
+---
+= 驗證NFS稽核整合
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+設定稽核共用區並新增NFS稽核用戶端之後、您可以掛載稽核用戶端共用區、並驗證這些檔案是否可從稽核共用區取得。
+
+
+NOTE: NFS 支援已過時、將於未來版本中移除。
+
+.步驟
+. 使用主控AMS服務之管理節點的用戶端IP位址、驗證連線能力（或用戶端系統的變體）。輸入： `ping IP_address`
++
+確認伺服器回應、表示連線能力。
+
+. 使用適用於用戶端作業系統的命令掛載稽核唯讀共用。Linux 命令範例為（一行輸入）：
++
+`mount -t nfs -o hard,intr _Admin_Node_IP_address_:/var/local/log _myAudit_`
+
++
+使用管理節點的IP位址來裝載AMS服務、以及稽核系統的預先定義共用名稱。掛載點可以是用戶端選取的任何名稱（例如、 `_myAudit_` 上一個命令中）。
+
+. 確認檔案可從稽核共用區取得。輸入： `ls _myAudit_ /*`
++
+其中 `_myAudit_` 是稽核共用的掛載點。至少應列出一個記錄檔。
+
+

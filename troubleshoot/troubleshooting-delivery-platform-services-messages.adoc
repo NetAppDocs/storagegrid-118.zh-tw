@@ -1,0 +1,35 @@
+---
+permalink: troubleshoot/troubleshooting-delivery-platform-services-messages.html 
+sidebar: sidebar 
+keywords: how to troubleshoot delivery of platform services message, how to troubleshoot smtt alarm 
+summary: 如果平台服務訊息傳送至無法接受資料的目的地、則會在 Grid Manager 中觸發事件總數（ SMTT ）警報。 
+---
+= 疑難排解平台服務訊息（SMtT警示）的交付
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+如果平台服務訊息傳送至無法接受資料的目的地、則會在 Grid Manager 中觸發 Total Events （ SMTT ）警報。
+
+.關於這項工作
+例如、即使無法將相關的複寫或通知訊息傳送至設定的端點、 S3 多部分上傳仍可能成功。或者、如果中繼資料太長、CloudMirror複寫的訊息可能無法傳送。
+
+SMT警示包含最後一則事件訊息、指出： `Failed to publish notifications for _bucket-name object key_` 通知失敗的最後一個物件。
+
+中也會列出事件訊息 `/var/local/log/bycast-err.log` 記錄檔。請參閱 link:../monitor/logs-files-reference.html["記錄檔參考"]。
+
+如需其他資訊、請參閱 link:../admin/troubleshooting-platform-services.html["疑難排解平台服務"]。您可能需要 link:../tenant/signing-in-to-tenant-manager.html["從租戶管理程式存取租戶"] 偵錯平台服務錯誤。
+
+.步驟
+. 若要檢視警示、請選取*節點*>*站台_*>*網格節點_*>*事件*。
+. 檢視表格頂端的「上次事件」。
++
+中也會列出事件訊息 `/var/local/log/bycast-err.log`。
+
+. 請遵循SMTT警示內容中提供的指引來修正問題。
+. 選取*重設事件計數*。
+. 通知租戶其平台服務訊息尚未傳送的物件。
+. 指示租戶透過更新物件的中繼資料或標記來觸發失敗的複寫或通知。
+

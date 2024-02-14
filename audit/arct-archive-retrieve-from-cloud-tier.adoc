@@ -1,0 +1,64 @@
+---
+permalink: audit/arct-archive-retrieve-from-cloud-tier.html 
+sidebar: sidebar 
+keywords: storagegrid, audit, message, ARCT, Archive Retrieve from Cloud-Tier 
+summary: 此訊息是在從外部歸檔儲存系統擷取歸檔物件資料時產生、此儲存系統透過StorageGRID S3 API連線至the S時 產生。 
+---
+= ARCT：歸檔從雲端層擷取
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+此訊息是在從外部歸檔儲存系統擷取歸檔物件資料時產生、此儲存系統透過StorageGRID S3 API連線至the S時 產生。
+
+[cols="1a,1a,4a"]
+|===
+| 程式碼 | 欄位 | 說明 
+
+
+ a| 
+CBID
+ a| 
+內容區塊ID
+ a| 
+擷取內容區塊的唯一識別碼。
+
+
+
+ a| 
+CSIZ
+ a| 
+內容大小
+ a| 
+物件大小（以位元組為單位）。此值只有在成功擷取時才會準確。
+
+
+
+ a| 
+RSRLT
+ a| 
+結果代碼
+ a| 
+傳回成功（SUCS）或後端報告的錯誤。
+
+
+
+ a| 
+SUID
+ a| 
+儲存唯一識別碼
+ a| 
+外部歸檔儲存系統的唯一識別碼（UUID）。
+
+
+
+ a| 
+時間
+ a| 
+時間
+ a| 
+申請的總處理時間（以微秒為單位）。
+
+|===

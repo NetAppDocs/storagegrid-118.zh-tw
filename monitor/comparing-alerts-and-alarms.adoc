@@ -1,0 +1,241 @@
+---
+permalink: monitor/comparing-alerts-and-alarms.html 
+sidebar: sidebar 
+keywords: how to compare alerts and alarms 
+summary: 警示系統與舊版警示系統之間有幾個相似之處、但警示系統有顯著的優點、而且更易於使用。 
+---
+= 比較警示與警示
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+警示系統與舊版警示系統之間有幾個相似之處、但警示系統有顯著的優點、而且更易於使用。
+
+請參閱下表、瞭解如何執行類似作業。
+
+[cols="1a,1a,1a"]
+|===
+|  | 警示 | 警示（舊系統） 
+
+
+ a| 
+如何查看哪些警示或警示處於作用中狀態？
+ a| 
+* 選取儀表板上的 * 目前警示 * 連結。
+* 在「*節點*>*總覽*」頁面上選取警示。
+* 選取*警示*>*目前*。
+
+
+link:monitoring-system-health.html#view-current-and-resolved-alerts["檢視目前的警示"]
+ a| 
+選取*支援*>*警示（舊版）*>*目前警示*。
+
+link:managing-alarms.html["管理警示（舊系統）"]
+
+
+
+ a| 
+觸發警示或警示的原因為何？
+ a| 
+警示會在警示規則中的Prometheus運算式針對特定觸發條件和持續時間評估為true時觸發警示。
+
+link:view-alert-rules.html["檢視警示規則"]
+ a| 
+當某個屬性達到臨界值時、就會觸發警示StorageGRID 。
+
+link:managing-alarms.html["管理警示（舊系統）"]
+
+
+
+ a| 
+如果觸發警示或警示、我該如何解決基礎問題？
+ a| 
+建議的警示動作會包含在電子郵件通知中、您可以從Grid Manager的「警示」頁面取得。
+
+如有需要、StorageGRID 更多資訊請參閱《知識》文件。
+
+link:alerts-reference.html["警示參考資料"]
+ a| 
+您可以選取屬性名稱來瞭解警示、或在StorageGRID 《》文件中搜尋警示代碼。
+
+link:alarms-reference.html["警示參考（舊系統）"]
+
+
+
+ a| 
+何處可以看到已解決的警示或警示清單？
+ a| 
+選擇* alerts *>* resolved *。
+
+link:monitoring-system-health.html#view-current-and-resolved-alerts["檢視目前和已解決的警示"]
+ a| 
+選取*支援*>*警告（舊版）*>*歷史警報*。
+
+link:managing-alarms.html["管理警示（舊系統）"]
+
+
+
+ a| 
+我該在哪裡管理設定？
+ a| 
+選取*警示*>*規則*。
+
+link:managing-alerts.html["管理警示"]
+ a| 
+選擇*支援*。然後、使用功能表*警示（舊版）*區段中的選項。
+
+link:managing-alarms.html["管理警示（舊系統）"]
+
+
+
+ a| 
+我需要哪些使用者群組權限？
+ a| 
+* 任何可以登入Grid Manager的人都可以檢視目前和已解決的警示。
+* 您必須具有「管理警示」權限、才能管理靜音、警示通知和警示規則。
+
+
+link:../admin/index.html["管理StorageGRID"]
+ a| 
+* 任何可以登入Grid Manager的人都可以檢視舊版警示。
+* 您必須具有「認可警告」權限、才能確認警告。
+* 您必須同時擁有 Grid 拓撲頁面組態和其他網格組態權限、才能管理全域警示和電子郵件通知。
+
+
+link:../admin/index.html["管理StorageGRID"]
+
+
+
+ a| 
+如何管理電子郵件通知？
+ a| 
+選擇* alerts *>*電子郵件設定*。
+
+*附註：*由於警示和警示是獨立的系統、因此用於警示和AutoSupport 回報通知的電子郵件設定不會用於警示通知。不過、您可以使用相同的郵件伺服器來處理所有通知。
+
+link:email-alert-notifications.html["設定警示的電子郵件通知"]
+ a| 
+選擇* support*>*警示（舊版）*>*舊版電子郵件設定*。
+
+link:managing-alarms.html["管理警示（舊系統）"]
+
+
+
+ a| 
+如何管理SNMP通知？
+ a| 
+選擇*組態*>*監控*>* SNMP代理程式*。
+
+link:using-snmp-monitoring.html["使用SNMP監控"]
+ a| 
+不支援 _
+
+
+
+ a| 
+如何控制接收通知的對象？
+ a| 
+. 選擇* alerts *>*電子郵件設定*。
+. 在「*收件者*」區段中、輸入每個電子郵件清單或在發生警示時應收到電子郵件的人員的電子郵件地址。
+
+
+link:email-alert-notifications.html["設定警示的電子郵件通知"]
+ a| 
+. 選擇* support*>*警示（舊版）*>*舊版電子郵件設定*。
+. 建立郵寄清單。
+. 選擇*通知*。
+. 選取郵寄清單。
+
+
+link:managing-alarms.html["管理警示（舊系統）"]
+
+
+
+ a| 
+哪些管理節點會傳送通知？
+ a| 
+單一管理節點（偏好的寄件者）。
+
+link:../primer/what-admin-node-is.html["什麼是管理節點？"]
+ a| 
+單一管理節點（偏好的寄件者）。
+
+link:../primer/what-admin-node-is.html["什麼是管理節點？"]
+
+
+
+ a| 
+如何隱藏某些通知？
+ a| 
+. 選取*警示*>*靜音*。
+. 選取您要靜音的警示規則。
+. 指定靜音的持續時間。
+. 選取您要靜音的警示嚴重性。
+. 選取此選項、即可將靜音套用至整個網格、單一站台或單一節點。
+
+
+*附註*：如果您已啟用SNMP代理程式、靜音功能也會抑制SNMP設陷並通知。
+
+link:silencing-alert-notifications.html["靜音警示通知"]
+ a| 
+. 選擇* support*>*警示（舊版）*>*舊版電子郵件設定*。
+. 選擇*通知*。
+. 選取郵寄清單、然後選取* Sup抑制*。
+
+
+link:managing-alarms.html["管理警示（舊系統）"]
+
+
+
+ a| 
+如何隱藏所有通知？
+ a| 
+選擇* alerts*>* silences.then、選擇* All Rules *。
+
+*附註*：如果您已啟用SNMP代理程式、靜音功能也會抑制SNMP設陷並通知。
+
+link:silencing-alert-notifications.html["靜音警示通知"]
+ a| 
+不支援 _
+
+
+
+ a| 
+如何自訂條件和觸發條件？
+ a| 
+. 選取*警示*>*規則*。
+. 選取要編輯的預設規則、或選取*建立自訂規則*。
+
+
+link:editing-alert-rules.html["編輯警示規則"]
+
+link:creating-custom-alert-rules.html["建立自訂警示規則"]
+ a| 
+. 選取*支援*>*警示（舊版）*>*全域警示*。
+. 建立全域自訂警示以覆寫預設警示、或監控沒有預設警示的屬性。
+
+
+link:managing-alarms.html["管理警示（舊系統）"]
+
+
+
+ a| 
+如何停用個別警示或警示？
+ a| 
+. 選取*警示*>*規則*。
+. 選取規則、然後選取*編輯規則*。
+. 清除 *Enabled* 核取方塊。
+
+
+link:disabling-alert-rules.html["停用警示規則"]
+ a| 
+. 選取*支援*>*警示（舊版）*>*全域警示*。
+. 選取規則、然後選取編輯圖示。
+. 清除 *Enabled* 核取方塊。
+
+
+link:managing-alarms.html["管理警示（舊系統）"]
+
+|===

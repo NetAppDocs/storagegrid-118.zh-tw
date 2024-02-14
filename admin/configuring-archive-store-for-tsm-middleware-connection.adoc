@@ -1,0 +1,44 @@
+---
+permalink: admin/configuring-archive-store-for-tsm-middleware-connection.html 
+sidebar: sidebar 
+keywords: archive node, tsm server, tivoli storage manager, archive store 
+summary: 如果您的歸檔節點連線至TSM中介軟體伺服器、您可以將歸檔節點的歸檔儲存區狀態設定為「線上」或「離線」。您也可以在歸檔節點首次啟動時停用歸檔儲存區、或是重設追蹤相關警示的故障數。 
+---
+= 設定TSM的歸檔狀態和計數器
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+如果您的歸檔節點連線至TSM中介軟體伺服器、您可以將歸檔節點的歸檔儲存區狀態設定為「線上」或「離線」。您也可以在歸檔節點首次啟動時停用歸檔儲存區、或是重設追蹤相關警示的故障數。
+
+.開始之前
+* 您將使用登入Grid Manager link:../admin/web-browser-requirements.html["支援的網頁瀏覽器"]。
+* 您有 link:admin-group-permissions.html["特定存取權限"]。
+
+
+.步驟
+. 選取*支援*>*工具*>*網格拓撲*。
+. 選擇「*歸檔節點_*>* ARC*>*儲存*」。
+. 選擇*組態*>*主要*。
++
+image::../media/archive_store_tsm.gif[設定用於TSM中介軟體連線的歸檔存放區]
+
+. 視需要修改下列設定：
++
+** 儲存狀態：將元件狀態設為：
++
+*** 線上：「歸檔節點」可用於處理儲存至歸檔儲存系統的物件資料。
+*** 離線：歸檔節點無法處理儲存至歸檔儲存系統的物件資料。
+
+
+** 啟動時停用歸檔存放區：選取此選項時、重新啟動時歸檔存放區元件會保持唯讀狀態。用於持續停用目標歸檔儲存系統的儲存設備。當目標歸檔儲存系統無法接受內容時、此功能非常實用。
+** 重設零售店失敗計數：針對零售店故障重設計數器。這可用來清除ARVf（儲存故障）警示。
+
+
+. 選取*套用變更*。
+
+
+.相關資訊
+link:managing-archive-node-when-tsm-server-reaches-capacity.html["當TSM伺服器達到容量時、管理歸檔節點"]

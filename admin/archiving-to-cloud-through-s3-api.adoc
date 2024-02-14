@@ -1,0 +1,24 @@
+---
+permalink: admin/archiving-to-cloud-through-s3-api.html 
+sidebar: sidebar 
+keywords: archive node to AWS, Amazon Web Services 
+summary: 您可以將歸檔節點設定為直接連線至Amazon Web Services（AWS）或任何其他可StorageGRID 透過S3 API介面連線至該系統的系統。 
+---
+= 透過S3 API歸檔至雲端
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以將歸檔節點設定為直接連線至Amazon Web Services（AWS）或任何其他可StorageGRID 透過S3 API連接至BIOS系統的系統。
+
+[CAUTION]
+====
+對歸檔節點的支援已過時、將於未來版本中移除。透過S3 API將物件從歸檔節點移至外部歸檔儲存系統、已由ILM Cloud Storage Pool取代、提供更多功能。
+
+Cloud Tiering - Simple Storage Service （ S3 ）選項也已過時。如果您目前正在使用具有此選項的歸檔節點、 link:../admin/migrating-objects-from-cloud-tiering-s3-to-cloud-storage-pool.html["將物件移轉至雲端儲存池"] 而是。
+
+此外、您應該從 StorageGRID 11.7 或更早版本的主動式 ILM 原則中移除歸檔節點。移除儲存在保存節點上的物件資料、可簡化未來的升級作業。請參閱 link:../ilm/working-with-ilm-rules-and-ilm-policies.html["使用ILM規則和ILM原則"]。
+
+====

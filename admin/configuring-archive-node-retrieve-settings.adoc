@@ -1,0 +1,41 @@
+---
+permalink: admin/configuring-archive-node-retrieve-settings.html 
+sidebar: sidebar 
+keywords: archive node, retrieve settings 
+summary: 您可以設定歸檔節點的擷取設定、將狀態設定為「線上」或「離線」、或重設要追蹤相關警示的故障計數。 
+---
+= 設定歸檔節點擷取設定
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以設定歸檔節點的擷取設定、將狀態設定為「線上」或「離線」、或重設要追蹤相關警示的故障計數。
+
+.開始之前
+* 您將使用登入Grid Manager link:../admin/web-browser-requirements.html["支援的網頁瀏覽器"]。
+* 您有 link:admin-group-permissions.html["特定存取權限"]。
+
+
+.步驟
+. 選取*支援*>*工具*>*網格拓撲*。
+. 選擇*歸檔節點*>* ARC/>*擷取*。
+. 選擇*組態*>*主要*。
++
+image::../media/archive_node_retreive.gif[歸檔節點的組態頁面>擷取設定]
+
+. 視需要修改下列設定：
++
+** *擷取狀態*：將元件狀態設為：
++
+*** 線上：網格節點可從歸檔媒體裝置擷取物件資料。
+*** 離線：網格節點無法擷取物件資料。
+
+
+** 重設要求失敗計數：勾選核取方塊以重設要求失敗的計數器。這可用來清除ARRF（要求失敗）警示。
+** 重設驗證失敗計數：勾選核取方塊以重設計數器、以針對擷取的物件資料進行驗證失敗。這可用來清除AR休 旅車（驗證失敗）警報。
+
+
+. 選取*套用變更*。
+

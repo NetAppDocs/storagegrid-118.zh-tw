@@ -1,0 +1,95 @@
+---
+permalink: maintain/recovering-storage-node-that-has-been-down-more-than-15-days.html 
+sidebar: sidebar 
+keywords: storagegrid, recover, storage node failure 
+summary: 如果單一儲存節點已離線、且超過15天未連線至其他儲存節點、則必須在節點上重新建置Cassandra。 
+---
+= 將儲存節點還原至停機時間超過15天
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+如果單一儲存節點已離線、且超過15天未連線至其他儲存節點、則必須在節點上重新建置Cassandra。
+
+.開始之前
+* 您已檢查儲存節點汰換是否在進行中、或您已暫停節點取消委任程序。（在Grid Manager中、選取* maintenance *>* Tasks *>* Decompress*。）
+* 您已檢查擴充是否在進行中。（在Grid Manager中、選取* maintenance *>* Tasks *>* Expansion *。）
+
+
+.關於這項工作
+儲存節點具有Cassandra資料庫、其中包含物件中繼資料。如果儲存節點無法與其他儲存節點通訊超過15天、StorageGRID 則會假設節點的Cassandra資料庫已過時。在使用其他儲存節點的資訊重建 Cassandra 之前、儲存節點無法重新加入網格。
+
+只有在單一儲存節點當機時、才能使用此程序來重新建置Cassandra。如果額外的儲存節點離線、或是在過去15天內在另一個儲存節點上重建Cassandra、請聯絡技術支援部門；例如、Cassandra可能已重新建置為恢復故障儲存磁碟區或恢復故障儲存節點的程序之一。
+
+
+CAUTION: 如果有多個儲存節點故障（或離線）、請聯絡技術支援部門。請勿執行下列恢復程序。資料可能會遺失。
+
+
+CAUTION: 如果這是儲存節點故障或恢復後15天內的第二個儲存節點故障、請聯絡技術支援部門。請勿執行下列恢復程序。資料可能會遺失。
+
+
+NOTE: 如果站台上的多個儲存節點發生故障、可能需要執行站台還原程序。請參閱 link:how-site-recovery-is-performed-by-technical-support.html["技術支援如何恢復網站"]。
+
+.步驟
+. 必要時、開啟需要恢復的儲存節點。
+. 登入網格節點：
++
+.. 輸入下列命令： `ssh admin@_grid_node_IP_`
+.. 輸入中所列的密碼 `Passwords.txt` 檔案：
+.. 輸入下列命令以切換至root： `su -`
+.. 輸入中所列的密碼 `Passwords.txt` 檔案：
++
+當您以root登入時、提示會從變更 `$` 至 `#`.+
+
++
+
+NOTE: 如果您無法登入網格節點、系統磁碟可能不完整。請移至的程序  link:recovering-from-system-drive-failure.html["從系統磁碟機故障中恢復"]。
+
+
+
+. 在儲存節點上執行下列檢查：
++
+.. 發出此命令： `nodetool status`
++
+輸出應為 `Connection refused`
+
+.. 在Grid Manager中、選取*支援*>*工具*>* Grid topology *。
+.. 選擇「*站台_*>*儲存節點*>* SUS*>*服務*」。確認Cassandra服務已顯示 `Not Running`。
+.. 選擇*儲存節點*>* S要*>*資源*。確認「Volumes（磁碟區）」區段中沒有錯誤狀態。
+.. 發出此命令： `grep -i Cassandra /var/local/log/servermanager.log`
++
+您應該會在輸出中看到下列訊息：
+
++
+[listing]
+----
+Cassandra not started because it has been offline for more than 15 day grace period - rebuild Cassandra
+----
+
+
+. 發出此命令、並監控指令碼輸出： `check-cassandra-rebuild`
++
+** 如果 Cassandra 服務視磁碟區 0 而定正在執行、系統會提示您停止服務。輸入：* y*
++
+
+NOTE: 如果 Cassandra 服務已停止、系統不會提示您。Cassandra服務僅針對Volume 0停止。
+
+** 檢閱指令碼中的警告。如果不適用、請確認您要重新建置Cassandra。輸入：* y*
++
+
+NOTE: 部分StorageGRID 還原程序會使用Reaper來處理Cassandra的修復作業。一旦相關或必要的服務開始、系統就會自動進行修復。您可能會注意到指令碼輸出中提到「 reaper 」或「 Cassandra repair 」。 如果您看到指出修復失敗的錯誤訊息、請執行錯誤訊息中指出的命令。
+
+
+
+. 重建完成後、請執行下列檢查：
++
+.. 在Grid Manager中、選取*支援*>*工具*>* Grid topology *。
+.. 選擇「*站台_*>*恢復儲存節點*>* SUS*>*服務*」。
+.. 確認所有服務都在執行中。
+.. 選擇* DDS *>* Data Store*。
+.. 確認 * 資料儲存區狀態 * 為「正常」、 * 資料儲存區狀態 * 為「正常」。
+
+
+

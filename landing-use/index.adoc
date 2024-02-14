@@ -1,0 +1,13 @@
+---
+layout: landing-page 
+sidebar: sidebar 
+permalink: landing-use/index.html 
+summary: 完成初始設定後、 StorageGRID 租戶帳戶可以建立貯體、並使用 S3 用戶端應用程式來擷取、擷取及刪除物件。 
+---
+= 使用 StorageGRID 租戶和用戶端
+:hardbreaks:
+:allow-uri-read: 
+:linkattrs: 
+:imagesdir: ./media/
+
+

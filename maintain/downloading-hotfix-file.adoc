@@ -1,0 +1,48 @@
+---
+permalink: maintain/downloading-hotfix-file.html 
+sidebar: sidebar 
+keywords: storagegrid, hotfix, download 
+summary: 您必須先下載此修復程式檔案、才能套用此修復程式。 
+---
+= 下載修補程式檔案
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您必須先下載此修復程式檔案、才能套用此修復程式。
+
+.步驟
+. 前往 https://mysupport.netapp.com/site/products/all/details/storagegrid/downloads-tab["NetApp下載StorageGRID"^]。
+. 選取*可用軟體*下的向下箭號、即可查看可供下載的修補程式清單。
++
+
+NOTE: 熱修復檔案版本的格式為：11.4_.x.y__。
+
+. 檢閱更新中包含的變更。
++
+
+NOTE: 如果您只有 link:configuring-replacement-primary-admin-node.html["已恢復主管理節點"] 而且您需要套用 Hotfix 、請選取安裝在其他網格節點上的相同 Hotfix 版本。
+
++
+.. 選取您要下載的修補程式版本、然後選取「*執行*」。
+.. 使用您NetApp帳戶的使用者名稱和密碼登入。
+.. 閱讀並接受終端使用者授權合約。
++
+此時會出現所選版本的下載頁面。
+
+.. 下載熱修復程式 `readme.txt` 檔案以檢視熱修復所含變更的摘要。
+
+
+. 選取熱修復程式的下載按鈕、然後儲存檔案。
++
+
+NOTE: 請勿變更此檔案的名稱。
+
++
+
+NOTE: 如果您使用的是MacOS裝置、則熱修復檔案可能會自動另存為 `.txt` 檔案：如果是、您必須重新命名檔案、而不使用 `.txt` 擴充：
+
+. 選取下載位置、然後選取*儲存*。
+

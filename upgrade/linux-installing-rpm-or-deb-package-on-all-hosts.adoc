@@ -1,0 +1,82 @@
+---
+permalink: upgrade/linux-installing-rpm-or-deb-package-on-all-hosts.html 
+sidebar: sidebar 
+keywords: upgrade, linux, rpm, deb, 
+summary: 如果在 Linux 主機上部署了任何 StorageGRID 節點、請在開始升級之前、先在這些主機上安裝額外的 RPM 或 Deb 套件。 
+---
+= Linux ：在所有主機上下載並安裝 RPM 或 Deb 套件
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+如果在 Linux 主機上部署了任何 StorageGRID 節點、請在開始升級之前、先在這些主機上下載並安裝額外的 RPM 或 Deb 套件。
+
+
+
+== 下載升級、 Linux 和 Hotfix 檔案
+
+當您從 Grid Manager 執行 StorageGRID 升級時、系統會提示您下載升級歸檔和任何必要的 Hotfix 作為第一步。不過、如果您需要下載檔案來升級 Linux 主機、您可以事先下載所有必要的檔案、以節省時間。
+
+.步驟
+. 前往 https://mysupport.netapp.com/site/products/all/details/storagegrid/downloads-tab["NetApp下載StorageGRID"^]。
+. 選取下載最新版本的按鈕、或從下拉式功能表中選取其他版本、然後選取*執行*。
++
+下列格式的軟件版本：11._x.y_。StorageGRID下列格式的更新程式為：11._x.y.z_。StorageGRID
+
+. 以您NetApp帳戶的使用者名稱和密碼登入。
+. 如果出現「注意」 / 「 MustRead 」通知、請記下 Hotfix 編號、然後選取核取方塊。
+. 閱讀終端使用者授權合約、選取核取方塊、然後選取 * 接受並繼續 * 。
++
+此時將顯示所選版本的下載頁面。頁面包含三欄。
+
+. 從第二欄（ * 升級 StorageGRID * ）下載兩個檔案：
++
+** 最新版本的升級歸檔文件（這是標有 * VMware 、 SG1000 或 SG100 主要管理節點 * 的部分中的檔案）。雖然在您執行升級之前不需要此檔案、但現在下載將可節省時間。
+** 其中的 RPM 或 Deb 歸檔 `.tgz` 或 `.zip` 格式。選取 `.zip` 檔案（如果您是在服務筆記型電腦上執行Windows）。
++
+*** Red Hat Enterprise Linux +
+`StorageGRID-Webscale-_version_-RPM-_uniqueID_.zip` +
+`StorageGRID-Webscale-_version_-RPM-_uniqueID_.tgz`
+*** Ubuntu或DEBIAN+
+`StorageGRID-Webscale-_version_-DEB-_uniqueID_.zip` +
+`StorageGRID-Webscale-_version_-DEB-_uniqueID_.tgz`
+
+
+
+
+. 如果您因為需要 Hotfix 而需要同意「注意」 / 「 MustRead 」通知、請下載 Hotfix ：
++
+.. 返回 https://mysupport.netapp.com/site/products/all/details/storagegrid/downloads-tab["NetApp下載StorageGRID"^]。
+.. 從下拉式清單中選取 Hotfix 編號。
+.. 再次同意「注意」通知和 EULA 。
+.. 下載並儲存 Hotfix 及其 README 。
++
+當您開始升級時、系統會提示您上傳 StorageGRID 升級頁面上的 Hotfix 檔案。
+
+
+
+
+
+
+
+== 在所有 Linux 主機上安裝歸檔
+
+在升級 StorageGRID 軟體之前、請先執行這些步驟。
+
+.步驟
+. 從安裝檔案擷取RPM或Dub套件。
+. 在所有Linux主機上安裝RPM或Deb套件。
++
+請參閱安裝說明中的 StorageGRID 主機服務安裝步驟：
+
++
+** link:../rhel/installing-storagegrid-webscale-host-service.html["Red Hat Enterprise Linux ：安裝 StorageGRID 主機服務"]
+** link:../ubuntu/installing-storagegrid-webscale-host-services.html["Ubuntu 或 Debian ：安裝 StorageGRID 主機服務"]
+
+
++
+新的套件會以其他套件的形式安裝。請勿移除現有的套件。
+
+

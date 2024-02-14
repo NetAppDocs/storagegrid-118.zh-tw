@@ -1,0 +1,137 @@
+---
+permalink: swift/container-operations.html 
+sidebar: sidebar 
+keywords: swift container operations 
+summary: 每個Swift帳戶最多可支援1、000個容器。StorageGRID下列Swift API作業會在Container上執行。 
+---
+= 容器作業
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+每個Swift帳戶最多可支援1、000個容器。StorageGRID下列Swift API作業會在Container上執行。
+
+
+
+== 刪除容器
+
+此作業會從StorageGRID Swift帳戶的一個空容器中移除一個位在整個系統中的容器。
+
+需要下列要求參數：
+
+* `Account`
+* `Container`
+
+
+需要下列要求標頭：
+
+* `X-Auth-Token`
+
+
+成功執行會傳回下列標頭、並顯示「HTTP / 1.1 204無內容」回應：
+
+* `Content-Length`
+* `Content-Type`
+* `Date`
+* `X-Trans-Id`
+
+
+
+
+== 取得Container
+
+此作業會擷取與容器相關聯的物件清單、以及StorageGRID 物件統計資料和元資料在一個作業系統中。
+
+需要下列要求參數：
+
+* `Account`
+* `Container`
+
+
+需要下列要求標頭：
+
+* `X-Auth-Token`
+
+
+下列支援的要求查詢參數為選用項目：
+
+* `Delimiter`
+* `End_marker`
+* `Format`
+* `Limit`
+* `Marker`
+* `Path`
+* `Prefix`
+
+
+成功執行會傳回下列標頭、並顯示「HTTP / 1.1 200成功」或「HTTP / 1.1 204無內容」回應：
+
+* `Accept-Ranges`
+* `Content-Length`
+* `Content-Type`
+* `Date`
+* `X-Container-Bytes-Used`
+* `X-Container-Object-Count`
+* `X-Timestamp`
+* `X-Trans-Id`
+
+
+
+
+== 頭端容器
+
+此作業會從StorageGRID 作業系統擷取Container統計資料和中繼資料。
+
+需要下列要求參數：
+
+* `Account`
+* `Container`
+
+
+需要下列要求標頭：
+
+* `X-Auth-Token`
+
+
+成功執行會傳回下列標頭、並顯示「HTTP / 1.1 204無內容」回應：
+
+* `Accept-Ranges`
+* `Content-Length`
+* `Date`
+* `X-Container-Bytes-Used`
+* `X-Container-Object-Count`
+* `X-Timestamp`
+* `X-Trans-Id`
+
+
+
+
+== 放入容器
+
+此作業會在StorageGRID 一個不穩定系統中建立帳戶的容器。
+
+需要下列要求參數：
+
+* `Account`
+* `Container`
+
+
+需要下列要求標頭：
+
+* `X-Auth-Token`
+
+
+成功執行會傳回下列標頭、並顯示「HTTP / 1.1 201已建立」或「HTTP / 1.1 2已接受」（如果此帳戶下已存在該容器）回應：
+
+* `Content-Length`
+* `Date`
+* `X-Timestamp`
+* `X-Trans-Id`
+
+
+Container名稱必須在StorageGRID Isname命名空間中是唯一的。如果該容器存在於其他帳戶下、則會傳回下列標頭：「HTTP / 1.1 409衝突」。
+
+.相關資訊
+link:monitoring-and-auditing-operations.html["監控與稽核作業"]

@@ -1,0 +1,113 @@
+= 
+:allow-uri-read: 
+
+
+[cols="1a,1a"]
+|===
+| 路徑和檔案名稱 | 說明 
+
+
+| /vSphere/README  a| 
+說明StorageGRID 包含在更新檔中的所有檔案的文字檔。
+
+
+
+| ./vSphere/NLF000000.txt  a| 
+不提供產品任何支援權利的免費授權。
+
+
+
+| /vSphere/NetApp-SG-version -SHA-vmdk  a| 
+用來做為建立網格節點虛擬機器範本的虛擬機器磁碟檔案。
+
+
+
+| ./vSphere/vsphere-primer-admin.OVF
+
+./vSphere/vsphere-primer-admin.mf  a| 
+開放式虛擬化格式範本檔案 (`.ovf`）和資訊清單檔案 (`.mf`）以部署主管理節點。
+
+
+
+| ./vSphere/vSphere-non-primer-admin.OVF
+
+./vSphere/vsphere-non-primary 管理 .mf  a| 
+範本檔案 (`.ovf`）和資訊清單檔案 (`.mf`）以部署非主要管理節點。
+
+
+
+| ./vSphere/vsphere-archive 。 OVF
+
+./vSphere/vsphere-archive  a| 
+範本檔案 (`.ovf`）和資訊清單檔案 (`.mf`）以部署歸檔節點。
+
+
+
+| ./vSphere/vsphere-gateway.OVF
+
+./vSphere/vsphere-gateway.mf  a| 
+範本檔案 (`.ovf`）和資訊清單檔案 (`.mf`）以部署閘道節點。
+
+
+
+| ./vSphere/vsphere-storage 。 OVF
+
+./vSphere/vsphere-storage .mf  a| 
+範本檔案 (`.ovf`）和資訊清單檔案 (`.mf`）以部署虛擬機器型儲存節點。
+
+
+
+| 部署指令碼工具 | 說明 
+
+
+| ./vSphere/deploy-vsphere-ovftool.sh  a| 
+Bash Shell指令碼、用於自動化虛擬網格節點的部署。
+
+
+
+| ./vSphere/deploy-vsphere-ovftool-sample.ini  a| 
+搭配使用的範例組態檔案 `deploy-vsphere-ovftool.sh` 指令碼：
+
+
+
+| ./vSphere/configure-storagegrid.py  a| 
+Python指令碼、用於自動化StorageGRID 組態的功能。
+
+
+
+| ./vSphere/configure-sga.py  a| 
+Python指令碼、用於自動化StorageGRID 設定不必要的應用程式。
+
+
+
+| ./vSphere/storagegrid-ssoauth.py  a| 
+啟用單一登入（ SSO ）時、您可以使用 Python 指令碼範例登入 Grid Management API 。您也可以將此指令碼用於 Ping 聯合。
+
+
+
+| /vSphere/configure-storagegrid、same.json  a| 
+搭配使用的範例組態檔案 `configure-storagegrid.py` 指令碼：
+
+
+
+| /vSphere/configure-storagegrid、blank.json  a| 
+與搭配使用的空白組態檔 `configure-storagegrid.py` 指令碼：
+
+
+
+| ./vSphere/storagegrid-ssoauth-azure.py  a| 
+使用 Active Directory 或 Ping 聯合啟用單一登入（ SSO ）時、可以用來登入 Grid Management API 的 Python 指令碼範例。
+
+
+
+| ./svSphere/storagegRID -soauth-azure.js  a| 
+由該夥伴所呼叫的輔助程式指令碼 `storagegrid-ssoauth-azure.py` Python 指令碼可與 Azure 執行 SSO 互動。
+
+
+
+| /vSphere/Extras / API架構  a| 
+API架構StorageGRID 。
+
+* 注意 * ：在執行升級之前、如果您沒有非正式作業的 StorageGRID 環境來進行升級相容性測試、您可以使用這些架構來確認您為使用 StorageGRID 管理 API 所撰寫的任何程式碼、都與新的 StorageGRID 版本相容。
+
+|===

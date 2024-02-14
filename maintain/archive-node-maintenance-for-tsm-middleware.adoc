@@ -1,0 +1,229 @@
+---
+permalink: maintain/archive-node-maintenance-for-tsm-middleware.html 
+sidebar: sidebar 
+keywords: storagegrid, archive node, tsm, tsm middleware, middleware 
+summary: 歸檔節點可設定為透過TSM中介軟體伺服器鎖定磁帶、或透過S3 API鎖定雲端。完成組態後、就無法變更歸檔節點目標。 
+---
+= TSM中介軟體的歸檔節點維護
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+歸檔節點可設定為透過TSM中介軟體伺服器鎖定磁帶、或透過S3 API鎖定雲端。完成組態後、就無法變更歸檔節點的目標。
+
+如果主控歸檔節點的伺服器故障、請更換伺服器、並遵循適當的還原程序。
+
+
+
+== 歸檔儲存設備故障
+
+如果您確定歸檔節點透過Tivoli Storage Manager（TSM）存取的歸檔儲存設備有故障、請將歸檔節點離線、以限制StorageGRID 在該作業系統中顯示的警示數目。然後、您可以使用TSM伺服器或儲存設備的管理工具、或兩者、進一步診斷並解決問題。
+
+
+
+=== 使目標元件離線
+
+在維護可能導致歸檔節點無法使用的TSM中介軟體伺服器之前、請先將目標元件離線、以限制TSM中介軟體伺服器無法使用時觸發的警示數目。
+
+.開始之前
+您將使用登入Grid Manager link:../admin/web-browser-requirements.html["支援的網頁瀏覽器"]。
+
+.步驟
+. 選取*支援*>*工具*>*網格拓撲*。
+. 選擇*歸檔節點*>* ARC/>*目標*>*組態*>*主*。
+. 將Tivoli Storage Manager State的值變更為*離線*、然後按一下*套用變更*。
+. 維護完成後、將Tivoli Storage Manager State的值變更為* Online*、然後按一下* Apply Changes *。
+
+
+
+
+== Tivoli Storage Manager管理工具
+
+dsmadmc工具是安裝在歸檔節點上之TSM中介軟體伺服器的管理主控台。您可以輸入以下命令來存取工具 `dsmadmc` 在伺服器的命令列。使用設定用於ARC服務的相同管理使用者名稱和密碼登入管理主控台。
+
+。 `tsmquery.rb` 建立指令碼的目的是以更易讀取的格式、從dsmadmc產生狀態資訊。您可以在歸檔節點的命令列輸入下列命令來執行此指令碼： `/usr/local/arc/tsmquery.rb status`
+
+如需TSM管理主控台dsmadmc的詳細資訊、請參閱_Tivoli Storage Manager for Linux：Administrator參考資料_。
+
+
+
+== 物件永遠無法使用
+
+當歸檔節點向Tivoli Storage Manager（TSM）伺服器要求物件、且擷取失敗時、歸檔節點會在10秒的時間間隔內重試該要求。如果物件永久無法使用（例如、因為物件在磁帶上毀損）、TSM API無法向歸檔節點指出這一點、因此歸檔節點會繼續重試該要求。
+
+發生這種情況時、會觸發警示、而且值會持續增加。若要查看警示、請選取*支援*>*工具*>*網格拓撲*。然後選擇*歸檔節點*>* ARC/>*擷取*>*要求失敗*。
+
+如果物件永久無法使用、您必須識別物件、然後依照程序中所述、手動取消歸檔節點的要求。 <<determining_objects_permanently_unavailable,判斷物件是否永久無法使用>>。
+
+如果物件暫時無法使用、擷取也可能失敗。在這種情況下、後續的擷取要求最終應該會成功。
+
+如果 StorageGRID 系統設定為使用 ILM 規則來建立單一物件複本、而且無法擷取該複本、則物件會遺失、無法還原。不過、您仍必須遵循程序來判斷物件是否永遠無法「清理」 StorageGRID 系統、取消「歸檔節點」的要求、以及清除遺失物件的中繼資料。
+
+
+
+=== 判斷物件是否永久無法使用
+
+您可以使用TSM管理主控台提出要求、判斷物件是否永久無法使用。
+
+.開始之前
+* 您有 link:../admin/admin-group-permissions.html["特定存取權限"]。
+* 您擁有 `Passwords.txt` 檔案：
+* 您擁有管理節點的 IP 位址。
+
+
+.關於這項工作
+本範例提供給您的資訊。此程序無法協助您識別可能導致無法使用的物件或磁帶磁碟區的所有故障情況。如需TSM管理的相關資訊、請參閱TSM伺服器文件。
+
+.步驟
+. 登入管理節點：
++
+.. 輸入下列命令： `ssh admin@Admin_Node_IP`
+.. 輸入中所列的密碼 `Passwords.txt` 檔案：
+
+
+. 識別歸檔節點無法擷取的物件：
++
+.. 移至包含稽核記錄檔的目錄： `cd /var/local/log`
++
+作用中的稽核記錄檔名為稽核記錄檔。一天一次、活動 `audit.log` 檔案已儲存、且是新的 `audit.log` 檔案已啟動。儲存檔案的名稱會以格式指出儲存時間 `yyyy-mm-dd.txt`。一天後、儲存的檔案會以壓縮格式重新命名 `yyyy-mm-dd.txt.gz`，保留原始日期。
+
+.. 在相關的稽核記錄檔中搜尋訊息、指出無法擷取歸檔物件。例如、輸入： `grep ARCE audit.log | less -n`
++
+當無法從歸檔節點擷取物件時、 Arce 稽核訊息（歸檔物件擷取結束）會在結果欄位中顯示 Arun （歸檔中介軟體無法使用）或 GERR （一般錯誤）。稽核記錄中的下列範例行顯示Arce訊息終止、其CBID 498D8A1F681F05B3的結果為Arun。
+
++
+[listing]
+----
+[AUDT:[CBID(UI64):0x498D8A1F681F05B3][VLID(UI64):20091127][RSLT(FC32):ARUN][AVER(UI32):7]
+[ATIM(UI64):1350613602969243][ATYP(FC32):ARCE][ANID(UI32):13959984][AMID(FC32):ARCI]
+[ATID(UI64):4560349751312520631]]
+----
++
+如需詳細資訊、請參閱瞭解稽核訊息的指示。
+
+.. 記錄每個要求失敗的物件的CBID。
++
+您也可能想要記錄TSM用來識別歸檔節點所儲存物件的下列額外資訊：
+
++
+*** *檔案空間名稱*：相當於歸檔節點ID。若要尋找歸檔節點ID、請選取*支援*>*工具*>*網格拓撲*。然後選擇*歸檔節點*>* ARC/>*目標*>*總覽*。
+*** *高層名稱*：相當於歸檔節點指派給物件的Volume ID。Volume ID的格式為日期（例如、 `20091127`）、並在歸檔稽核訊息中記錄為物件的VLID。
+*** *低層名稱*：等同StorageGRID 於由該系統指派給物件的CBID。
+
+
+.. 登出命令Shell： `exit`
+
+
+. 檢查TSM伺服器、查看步驟2中識別的物件是否永久無法使用：
++
+.. 登入TSM伺服器的管理主控台： `dsmadmc`
++
+使用設定用於ARC服務的管理使用者名稱和密碼。在Grid Manager中輸入使用者名稱和密碼。（要查看使用者名稱、請選取*支援*>*工具*>*網格拓撲*。然後選擇*歸檔節點*>* ARC/>*目標*>*組態*。）
+
+.. 判斷物件是否永久無法使用。
++
+例如、您可以在TSM活動記錄中搜尋該物件的資料完整性錯誤。下列範例顯示過去一天的活動記錄搜尋、以搜尋具有CBID的物件 `498D8A1F681F05B3`。
+
++
+[listing]
+----
+> query actlog begindate=-1 search=276C14E94082CC69
+12/21/2008 05:39:15 ANR0548W Retrieve or restore
+failed for session 9139359 for node DEV-ARC-20 (Bycast ARC)
+processing file space /19130020 4 for file /20081002/
+498D8A1F681F05B3 stored as Archive - data
+integrity error detected. (SESSION: 9139359)
+>
+----
++
+根據錯誤的性質、CBID可能不會記錄在TSM活動記錄中。您可能需要在要求失敗時搜尋記錄、找出其他TSM錯誤。
+
+.. 如果整個磁帶永久無法使用、請識別儲存在該磁碟區上的所有物件的CBID： `query content TSM_Volume_Name`
++
+其中 `TSM_Volume_Name` 是不可用磁帶的TSM名稱。以下是此命令的輸出範例：
+
++
+[listing]
+----
+ > query content TSM-Volume-Name
+Node Name     Type Filespace  FSID Client's Name for File Name
+------------- ---- ---------- ---- ----------------------------
+DEV-ARC-20    Arch /19130020  216  /20081201/ C1D172940E6C7E12
+DEV-ARC-20    Arch /19130020  216  /20081201/ F1D7FBC2B4B0779E
+----
++
+。 `Client’s Name for File Name` 與歸檔節點 Volume ID （或 TSM 「高階名稱」）相同、後面接著物件的 CBID （或 TSM 「低階名稱」）。也就是 `Client’s Name for File Name` 採用表單 `/Archive Node volume ID /CBID`。在範例輸出的第一行中 `Client’s Name for File Name` 是 `/20081201/ C1D172940E6C7E12`。
+
++
+也請記得 `Filespace` 為歸檔節點的節點ID。
+
++
+您需要儲存在磁碟區上的每個物件的CBID、以及歸檔節點的節點ID、才能取消擷取要求。
+
+
+
+. 對於永久無法使用的每個物件、請取消擷取要求、並發出命令通知StorageGRID 此作業系統物件複本已遺失：
++
+
+CAUTION: 請謹慎使用ADE主控台。如果主控台使用不當、可能會中斷系統作業並毀損資料。請謹慎輸入命令、並僅使用本程序中所述的命令。
+
++
+.. 如果您尚未登入歸檔節點、請以下列方式登入：
++
+... 輸入下列命令： `ssh admin@_grid_node_IP_`
+... 輸入中所列的密碼 `Passwords.txt` 檔案：
+... 輸入下列命令以切換至root： `su -`
+... 輸入中所列的密碼 `Passwords.txt` 檔案：
+
+
+.. 存取ARC服務的ADE主控台： `telnet localhost 1409`
+.. 取消物件的要求： `/proc/BRTR/cancel -c CBID`
++
+其中 `CBID` 是無法從 TSM 擷取的物件識別碼。
+
++
+如果只有物件的複本在磁帶上、則會取消「大量擷取」要求、並顯示「 1 個要求已取消」訊息。如果物件的複本存在於系統的其他位置、則物件擷取會由不同的模組處理、因此對訊息的回應為「 0 要求已取消」。
+
+.. 發出命令、通知StorageGRID 此資訊系統物件複本已遺失、必須另外製作複本： `/proc/CMSI/Object_Lost CBID node_ID`
++
+其中 `CBID` 是無法從 TSM 伺服器和擷取的物件識別碼 `node_ID` 為歸檔節點的節點ID、其中擷取失敗。
+
++
+您必須為每個遺失的物件複本輸入個別命令：不支援輸入一系列的CBID。
+
++
+在大多數情況下StorageGRID 、此功能會立即開始製作額外的物件資料複本、以確保遵循系統的ILM原則。
+
++
+不過、如果物件的 ILM 規則指定只要複本一次、而該複本現在已遺失、則無法還原物件。在這種情況下、請執行 `Object_Lost` 命令會清除StorageGRID 來自整個作業系統的遺失物件中繼資料。
+
++
+當 `Object_Lost` 命令成功完成、會傳回下列訊息：
+
++
+[listing]
+----
+CLOC_LOST_ANS returned result ‘SUCS’
+----
++
+
+NOTE: 。 `/proc/CMSI/Object_Lost` 命令僅對儲存在歸檔節點上的遺失物件有效。
+
+.. 結束ADE主控台： `exit`
+.. 登出歸檔節點： `exit`
+
+
+. 重設StorageGRID 申請表系統中的申請失敗值：
++
+.. 轉至*歸檔節點*>* ARC/>*擷取*>*組態*、然後選取*重設要求失敗計數*。
+.. 按一下*套用變更*。
+
+
+
+
+.相關資訊
+link:../admin/index.html["管理StorageGRID"]
+
+link:../audit/index.html["檢閱稽核記錄"]

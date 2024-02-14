@@ -1,0 +1,188 @@
+---
+permalink: monitor/logs-files-reference.html 
+sidebar: sidebar 
+keywords: log, logs, log files 
+summary: 提供記錄、可用來擷取事件、診斷訊息和錯誤狀況。StorageGRID系統可能會要求您收集記錄檔、並將其轉送至技術支援部門、以協助進行疑難排解。 
+---
+= 記錄檔參考資料：總覽
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+提供記錄、可用來擷取事件、診斷訊息和錯誤狀況。StorageGRID系統可能會要求您收集記錄檔、並將其轉送至技術支援部門、以協助進行疑難排解。
+
+記錄的分類如下：
+
+* link:storagegrid-software-logs.html["軟體記錄StorageGRID"]
+* link:deployment-and-maintenance-logs.html["部署與維護記錄"]
+* link:logs-for-third-party-software.html["協力廠商軟體的記錄"]
+* link:about-bycast-log.html["關於bycast.log"]
+
+
+
+NOTE: 每種記錄類型的詳細資料僅供參考。這些記錄可由技術支援人員進行進階疑難排解。使用稽核記錄和應用程式記錄檔來重新建構問題歷程記錄的進階技術、已超出本指示的範圍。
+
+
+
+== 存取記錄
+
+若要存取記錄、您可以 link:collecting-log-files-and-system-data.html["收集記錄檔和系統資料"] 從一個或多個節點做為單一記錄檔歸檔。或者、如果主要管理節點無法使用或無法連線至特定節點、您可以依下列方式存取每個網格節點的個別記錄檔：
+
+. 輸入下列命令： `ssh admin@grid_node_IP`
+. 輸入中所列的密碼 `Passwords.txt` 檔案：
+. 輸入下列命令以切換至root： `su -`
+. 輸入中所列的密碼 `Passwords.txt` 檔案：
+
+
+
+
+== 記錄檔類別
+
+包含針對每個類別所描述的記錄檔、以及包含度量和偵錯命令輸出的其他檔案。StorageGRID
+
+[cols="1a,3a"]
+|===
+| 歸檔位置 | 說明 
+
+
+| 稽核  a| 
+稽核在正常系統作業期間所產生的訊息。
+
+
+
+| 基礎作業系統記錄  a| 
+基本作業系統資訊、包括StorageGRID 不含影像版本的資訊。
+
+
+
+| 套裝組合  a| 
+全域組態資訊（套裝組合）。
+
+
+
+| Cassandra  a| 
+Cassandra資料庫資訊和Reaper修復記錄。
+
+
+
+| EC  a| 
+VCSs 有關目前節點和 EC 群組資訊的資訊（依設定檔 ID ）。
+
+
+
+| 網格  a| 
+一般網格記錄、包括偵錯 (`bycast.log`）和 `servermanager` 記錄。
+
+
+
+| grid.xml  a| 
+所有節點共用的網格組態檔。
+
+
+
+| 還價  a| 
+高可用度群組指標與記錄。
+
+
+
+| 安裝  a| 
+`Gdu-server` 並安裝記錄檔。
+
+
+
+| lumberjack.log  a| 
+偵錯與記錄收集相關的訊息。
+
+
+
+| Lambda-仲裁 人  a| 
+與S3 Select Proxy要求相關的記錄。
+
+
+
+| 指標  a| 
+Grafana、Jaeger、節點輸出程式和Prometheus的服務記錄。
+
+
+
+| 誤用  a| 
+Miscd存取與錯誤記錄。
+
+
+
+| MySQL  a| 
+MariaDB資料庫組態及相關記錄。
+
+
+
+| 網路  a| 
+由網路相關指令碼和Dynip服務所產生的記錄。
+
+
+
+| 恩靈思  a| 
+負載平衡器和網格同盟組態檔案和記錄。也包括Grid Manager和Tenant Manager流量記錄。
+
+
+
+| 恩靈思- GW  a| 
+負載平衡器和網格同盟組態檔案和記錄。
+
+
+
+| NTP  a| 
+NTP組態檔案和記錄。
+
+
+
+| 作業系統  a| 
+節點和網格狀態檔案、包括服務 `pid`。
+
+
+
+| 其他  a| 
+下的記錄檔 `/var/local/log` 不會收集到其他資料夾中。
+
+
+
+| 效能  a| 
+CPU、網路和磁碟I/O的效能資訊
+
+
+
+| Prometheus-data  a| 
+目前的Prometheus指標（如果記錄收集包含Prometheus資料）。
+
+
+
+| 資源配置  a| 
+與網格資源配置程序相關的記錄。
+
+
+
+| 漂流  a| 
+平台服務所用的來自於raft叢集的記錄。
+
+
+
+| SSH  a| 
+與 SSH 組態和服務相關的記錄。
+
+
+
+| SNMP  a| 
+用於傳送SNMP通知的SNMP代理程式組態和警示允許/拒絕清單。
+
+
+
+| 套接字資料  a| 
+用於網路偵錯的通訊端資料。
+
+
+
+| system-commands.txt  a| 
+輸出示例容器命令。StorageGRID包含系統資訊、例如網路和磁碟使用量。
+
+|===

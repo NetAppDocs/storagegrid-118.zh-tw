@@ -1,0 +1,82 @@
+---
+permalink: admin/removing-nfs-audit-client-from-audit-share.html 
+sidebar: sidebar 
+keywords: nfs audit client, remove audit client 
+summary: NFS稽核用戶端會根據其IP位址授予稽核共用的存取權。您可以移除現有的稽核用戶端IP位址、以移除該用戶端。 
+---
+= 從稽核共用區移除NFS稽核用戶端
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+NFS稽核用戶端會根據其IP位址授予稽核共用的存取權。您可以移除現有的稽核用戶端IP位址、以移除該用戶端。
+
+.開始之前
+* 您擁有 `Passwords.txt` 具有 root / admin 帳戶密碼的檔案。
+* 您擁有 `Configuration.txt` 檔案（可在恢復套件中取得）。
+
+
+.關於這項工作
+您無法移除上次允許存取稽核共用的 IP 位址。
+
+.步驟
+. 登入主要管理節點：
++
+.. 輸入下列命令： `ssh admin@_primary_Admin_Node_IP_`
+.. 輸入中所列的密碼 `Passwords.txt` 檔案：
+.. 輸入下列命令以切換至root： `su -`
+.. 輸入中所列的密碼 `Passwords.txt` 檔案：
++
+當您以root登入時、提示會從變更 `$` 至 `#`。
+
+
+
+. 啟動NFS組態公用程式： `config_nfs.rb`
++
+[listing]
+----
+
+-----------------------------------------------------------------
+| Shares               | Clients              | Config          |
+-----------------------------------------------------------------
+| add-audit-share      | add-ip-to-share      | validate-config |
+| enable-disable-share | remove-ip-from-share | refresh-config  |
+|                      |                      | help            |
+|                      |                      | exit            |
+-----------------------------------------------------------------
+----
+. 從稽核共用區移除IP位址： `remove-ip-from-share`
++
+隨即顯示伺服器上設定的稽核共用編號清單。稽核共用列示如下： `/var/local/log`
+
+. 輸入與稽核共用區相對應的編號： `_audit_share_number_`
++
+隨即顯示允許存取稽核共用區的IP位址編號清單。
+
+. 輸入對應於您要移除之IP位址的號碼。
++
+稽核共用區將會更新、且不再允許任何具有此IP位址的稽核用戶端進行存取。
+
+. 出現提示時、請按* Enter *。
++
+隨即顯示NFS組態公用程式。
+
+. 關閉NFS組態公用程式： `exit`
+. 如果StorageGRID 您的不支援部署是多個資料中心站台部署、而其他站台則有額外的管理節點、請視需要停用這些稽核共用：
++
+.. 遠端登入每個站台的管理節點：
++
+... 輸入下列命令： `ssh admin@_grid_node_IP_`
+... 輸入中所列的密碼 `Passwords.txt` 檔案：
+... 輸入下列命令以切換至root： `su -`
+... 輸入中所列的密碼 `Passwords.txt` 檔案：
+
+
+.. 重複這些步驟、為每個額外的管理節點設定稽核共用。
+.. 關閉遠端安全Shell登入遠端管理節點： `exit`
+
+
+. 登出命令Shell： `exit`
+

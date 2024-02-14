@@ -1,0 +1,28 @@
+---
+permalink: admin/identifying-primary-admin-node.html 
+sidebar: sidebar 
+keywords: cmn service, primary admin node, configuration management node 
+summary: 主管理節點裝載CMN服務。部分維護程序只能使用主要管理節點執行。 
+---
+= 識別主要管理節點
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+主管理節點裝載CMN服務。部分維護程序只能使用主要管理節點執行。
+
+.開始之前
+* 您將使用登入Grid Manager link:../admin/web-browser-requirements.html["支援的網頁瀏覽器"]。
+* 您有 link:admin-group-permissions.html["特定存取權限"]。
+
+
+.步驟
+. 選取*支援*>*工具*>*網格拓撲*。
+. 選取*站台_*>*管理節點*、然後選取 image:../media/icon_plus_sign_black_on_white.gif["加號"] 可展開拓撲樹狀結構並顯示此管理節點上託管的服務。
++
+主管理節點裝載CMN服務。
+
+. 如果此管理節點未裝載CMN服務、請檢查其他管理節點。
+

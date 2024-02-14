@@ -1,0 +1,42 @@
+---
+permalink: maintain/troubleshooting-node-decommissioning.html 
+sidebar: sidebar 
+keywords: storagegrid, recover, decommission, troubleshoot 
+summary: 如果節點取消委任程序因為錯誤而停止、您可以採取特定步驟來疑難排解問題。 
+---
+= 疑難排解節點汰換
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+如果節點取消委任程序因為錯誤而停止、您可以採取特定步驟來疑難排解問題。
+
+.開始之前
+您將使用登入Grid Manager link:../admin/web-browser-requirements.html["支援的網頁瀏覽器"]。
+
+.關於這項工作
+如果您關閉要停用的網格節點、工作會停止、直到網格節點重新啟動為止。網格節點必須處於線上狀態。
+
+.步驟
+. 選取*支援*>*工具*>*網格拓撲*。
+. 在Grid拓撲樹狀結構中、展開每個Storage Node項目、然後確認DDS和LDR服務都在線上。
++
+若要執行儲存節點汰換、所有節點和所有服務都必須在線上節點/站台汰換開始時保持正常運作。
+
+. 要查看活動網格任務，請選擇*主管理節點*>* CMN*>*網格任務*>*概述*。
+. 檢查解除委任網格工作的狀態。
++
+.. 如果停用網格工作的狀態顯示儲存網格工作套件時發生問題、請選取 * 主要管理節點 * > * CMN* > * 事件 * > * 總覽 * 。
+.. 檢查可用的稽核中繼數。
++
+如果可用的稽核轉送屬性為一或多個、則CMN服務會連線至至少一個ADC服務。ADC服務充當稽核中繼。
+
++
+CMN服務必須連線至至少一項ADC服務、StorageGRID 且必須提供大部分（50%加一）的非集中式系統的ADC服務、才能讓網格工作從停用階段移至停用階段、然後完成。
+
+.. 如果CMN服務未連線至足夠的ADC服務、請確認儲存節點已上線、並檢查主要管理節點與儲存節點之間的網路連線。
+
+
+

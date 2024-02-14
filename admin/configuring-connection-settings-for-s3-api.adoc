@@ -1,0 +1,74 @@
+---
+permalink: admin/configuring-connection-settings-for-s3-api.html 
+sidebar: sidebar 
+keywords: archive node connection to s3, arc service 
+summary: 如果您使用S3介面連線至歸檔節點、則必須設定S3 API的連線設定。在設定這些設定之前、由於無法與外部歸檔儲存系統通訊、因此ARC服務會維持在主要警示狀態。 
+---
+= 設定S3 API的連線設定
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+如果您使用S3介面連線至歸檔節點、則必須設定S3 API的連線設定。在設定這些設定之前、由於無法與外部歸檔儲存系統通訊、因此ARC服務會維持在主要警示狀態。
+
+[CAUTION]
+====
+對歸檔節點的支援已過時、將於未來版本中移除。透過S3 API將物件從歸檔節點移至外部歸檔儲存系統、已由ILM Cloud Storage Pool取代、提供更多功能。
+
+Cloud Tiering - Simple Storage Service （ S3 ）選項也已過時。如果您目前正在使用具有此選項的歸檔節點、 link:../admin/migrating-objects-from-cloud-tiering-s3-to-cloud-storage-pool.html["將物件移轉至雲端儲存池"] 而是。
+
+此外、您應該從 StorageGRID 11.7 或更早版本的主動式 ILM 原則中移除歸檔節點。移除儲存在保存節點上的物件資料、可簡化未來的升級作業。請參閱 link:../ilm/working-with-ilm-rules-and-ilm-policies.html["使用ILM規則和ILM原則"]。
+
+====
+.開始之前
+* 您將使用登入Grid Manager link:../admin/web-browser-requirements.html["支援的網頁瀏覽器"]。
+* 您有 link:admin-group-permissions.html["特定存取權限"]。
+* 您已在目標歸檔儲存系統上建立儲存貯體：
++
+** 此儲存庫專用於單一歸檔節點。其他歸檔節點或其他應用程式無法使用此功能。
+** 此庫位會針對您所在的位置選擇適當的區域。
+** 此儲存區應設定為暫停版本管理。
+
+
+* 「物件區隔」已啟用、且「最大區段大小」小於或等於4.5 GiB（4、831838、208位元組）。如果使用S3做為外部歸檔儲存系統、超過此值的S3 API要求將會失敗。
+
+
+.步驟
+. 選取*支援*>*工具*>*網格拓撲*。
+. 選擇*歸檔節點*>* ARC/>*目標*。
+. 選擇*組態*>*主要*。
++
+image::../media/archive_node_s3_middleware.gif[歸檔節點的組態頁面]
+
+. 從目標類型下拉式清單中選取*雲端分層-簡易儲存服務（S3）*。
++
+
+NOTE: 除非您選取目標類型、否則組態設定將無法使用。
+
+. 設定雲端分層（S3）帳戶、以便歸檔節點透過該帳戶連線至目標外部S3相容的歸檔儲存系統。
++
+此頁面上的大部分欄位都是不言自明的。以下說明您可能需要指引的欄位。
+
++
+** *地區*：僅在選擇*使用AWS*時可用。您選取的區域必須符合儲存區的區域。
+** *端點*和*使用AWS*：對於Amazon Web Services（AWS）、請選取*使用AWS*。*端點*會根據「庫位名稱」和「區域」屬性、自動填入端點URL。例如：
++
+`\https://bucket.region.amazonaws.com`
+
++
+對於非AWS目標、請輸入裝載儲存區之系統的URL、包括連接埠號碼。例如：
+
++
+`\https://system.com:1080`
+
+** *端點驗證*：預設為啟用。如果外部歸檔儲存系統的網路受到信任、您可以清除核取方塊、以停用目標外部歸檔儲存系統的端點 SSL 憑證和主機名稱驗證。如果 StorageGRID 系統的另一個執行個體是目標歸檔儲存裝置、且系統已設定為公開簽署的憑證、您可以保持核取方塊的選取狀態。
+** *儲存類別*：選取*標準（預設）*作為一般儲存設備。僅針對可輕鬆重新建立的物件、選取*減少備援*。*減少備援*可降低儲存成本、降低可靠性。如果目標歸檔儲存系統是StorageGRID 另一個支援此功能的執行個體、則*儲存類別*會控制在目標系統上擷取時、物件的臨時複本數量、如果在目標系統上擷取物件時使用雙重提交。
+
+
+. 選取*套用變更*。
++
+指定的組態設定會經過驗證、並套用至StorageGRID 您的系統。套用設定之後、就無法變更目標。
+
+

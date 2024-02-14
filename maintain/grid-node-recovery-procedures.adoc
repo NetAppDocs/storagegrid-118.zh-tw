@@ -1,0 +1,23 @@
+---
+permalink: maintain/grid-node-recovery-procedures.html 
+sidebar: sidebar 
+keywords: storagegrid, recovery 
+summary: 如果網格節點發生故障、您可以更換故障的實體或虛擬伺服器、重新安裝StorageGRID 還原軟體、以及還原可恢復的資料、來還原節點。 
+---
+= 網格節點恢復程序：總覽
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+如果網格節點發生故障、您可以更換故障的實體或虛擬伺服器、重新安裝StorageGRID 還原軟體、以及還原可恢復的資料、來還原節點。
+
+如果硬體、虛擬化、作業系統或軟體故障導致節點無法運作或不可靠、網格節點可能會失敗。有許多種故障會觸發恢復網格節點的需求。
+
+根據主控網格節點的平台和網格節點類型、恢復網格節點的步驟會有所不同。每種類型的網格節點都有特定的還原程序、您必須嚴格遵循此程序。
+
+一般而言、您會盡量保留故障網格節點的資料、修復或更換故障節點、使用Grid Manager來設定替換節點、以及還原節點的資料。
+
+
+NOTE: 如果整個StorageGRID 網站故障、請聯絡技術支援部門。技術支援部門將與您合作開發及執行站台恢復計畫、以最大化所恢復的資料量、並達成您的業務目標。請參閱 link:how-site-recovery-is-performed-by-technical-support.html["技術支援如何恢復網站"]。

@@ -1,0 +1,40 @@
+---
+permalink: admin/modifying-connection-settings-for-s3-api.html 
+sidebar: sidebar 
+keywords: archive node, cloud tiering 
+summary: 將歸檔節點設定為透過S3 API連線至外部歸檔儲存系統之後、您可以在連線變更時修改部分設定。 
+---
+= 修改S3 API的連線設定
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+將歸檔節點設定為透過S3 API連線至外部歸檔儲存系統之後、您可以在連線變更時修改部分設定。
+
+.開始之前
+* 您將使用登入Grid Manager link:../admin/web-browser-requirements.html["支援的網頁瀏覽器"]。
+* 您有 link:admin-group-permissions.html["特定存取權限"]。
+
+
+.關於這項工作
+如果您變更Cloud Tiering（S3）帳戶、則必須確保使用者存取認證具有儲存區的讀取/寫入存取權、包括歸檔節點先前擷取至儲存區的所有物件。
+
+.步驟
+. 選取*支援*>*工具*>*網格拓撲*。
+. 選擇「*歸檔節點_*>* ARC*>*目標*」。
+. 選擇*組態*>*主要*。
++
+image::../media/archive_node_s3_middleware.gif[修改歸檔節點的「組態」頁面]
+
+. 視需要修改帳戶資訊。
++
+如果您變更儲存類別、新的物件資料會與新的儲存類別一起儲存。擷取時、現有物件會繼續儲存在儲存類別集的下方。
+
++
+
+NOTE: 貯體名稱、區域和端點、使用 AWS 值、無法變更。
+
+. 選取*套用變更*。
+

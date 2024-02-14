@@ -1,0 +1,198 @@
+---
+permalink: troubleshoot/investigating-lost-objects.html 
+sidebar: sidebar 
+keywords: lost objects, investigating, objects 
+summary: 觸發*物件遺失*警示時、您必須立即調查。收集受影響物件的相關資訊、並聯絡技術支援部門。 
+---
+= 調查遺失的物件
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+觸發*物件遺失*警示時、您必須立即調查。收集受影響物件的相關資訊、並聯絡技術支援部門。
+
+.開始之前
+* 您必須使用登入Grid Manager link:../admin/web-browser-requirements.html["支援的網頁瀏覽器"]。
+* 您有 link:../admin/admin-group-permissions.html["特定存取權限"]。
+* 您必須擁有 `Passwords.txt` 檔案：
+
+
+.關於這項工作
+*物件遺失*警示表示StorageGRID 、Sure認為網格中沒有物件的複本。資料可能已永久遺失。
+
+立即調查遺失的物件警示。您可能需要採取行動、以避免進一步的資料遺失。在某些情況下、如果您採取提示行動、可能可以還原遺失的物件。
+
+.步驟
+. 選擇*節點*。
+. 選擇「*儲存節點_*>*物件*」。
+. 檢閱「物件數」表格中顯示的遺失物件數。
++
+此數字表示此網格節點偵測到整個StorageGRID 作業系統中遺失的物件總數。此值是在LDR和DDS服務中、資料儲存區元件遺失物件計數器的總和。
+
++
+image::../media/nodes_storage_nodes_objects_page_lost_object.png[節點儲存節點物件頁面遺失物件]
+
+. 從管理節點、 link:../audit/accessing-audit-log-file.html["存取稽核記錄"] 若要判斷觸發「 * 物件遺失 * 」警示的物件的唯一識別碼（ UUID ）：
++
+.. 登入網格節點：
++
+... 輸入下列命令： `ssh admin@grid_node_IP`
+... 輸入中所列的密碼 `Passwords.txt` 檔案：
+... 輸入下列命令以切換至root： `su -`
+... 輸入中所列的密碼 `Passwords.txt` 檔案：
+當您以root登入時、提示會從變更 `$` 至 `#`。
+
+
+.. 變更至稽核記錄所在的目錄。輸入： `cd /var/local/log/`
+.. 使用Grep擷取物件遺失（OLST）稽核訊息。輸入： `grep OLST audit_file_name`
+.. 請注意訊息中包含的UUID值。
++
+[listing]
+----
+>Admin: # grep OLST audit.log
+2020-02-12T19:18:54.780426 [AUDT:[CBID(UI64):0x38186FE53E3C49A5][UUID(CSTR):926026C4-00A4-449B-AC72-BCCA72DD1311]
+[PATH(CSTR):"source/cats"][NOID(UI32):12288733][VOLI(UI64):3222345986][RSLT(FC32):NONE][AVER(UI32):10]
+[ATIM(UI64):1581535134780426][ATYP(FC32):OLST][ANID(UI32):12448208][AMID(FC32):ILMX][ATID(UI64):7729403978647354233]]
+----
+
+
+. 使用 `ObjectByUUID` 命令、依物件識別碼（UUID）尋找物件、然後判斷資料是否有風險。
++
+.. 以遠端登入localhost 1402以存取LMR主控台。
+.. 輸入： `/proc/OBRP/ObjectByUUID UUID_value`
++
+在此第一個範例中、是使用的物件 `UUID 926026C4-00A4-449B-AC72-BCCA72DD1311` 列出兩個位置。
+
++
+[listing]
+----
+ade 12448208: /proc/OBRP > ObjectByUUID 926026C4-00A4-449B-AC72-BCCA72DD1311
+
+{
+    "TYPE(Object Type)": "Data object",
+    "CHND(Content handle)": "926026C4-00A4-449B-AC72-BCCA72DD1311",
+    "NAME": "cats",
+    "CBID": "0x38186FE53E3C49A5",
+    "PHND(Parent handle, UUID)": "221CABD0-4D9D-11EA-89C3-ACBB00BB82DD",
+    "PPTH(Parent path)": "source",
+    "META": {
+        "BASE(Protocol metadata)": {
+            "PAWS(S3 protocol version)": "2",
+            "ACCT(S3 account ID)": "44084621669730638018",
+            "*ctp(HTTP content MIME type)": "binary/octet-stream"
+        },
+        "BYCB(System metadata)": {
+            "CSIZ(Plaintext object size)": "5242880",
+            "SHSH(Supplementary Plaintext hash)": "MD5D 0xBAC2A2617C1DFF7E959A76731E6EAF5E",
+            "BSIZ(Content block size)": "5252084",
+            "CVER(Content block version)": "196612",
+            "CTME(Object store begin timestamp)": "2020-02-12T19:16:10.983000",
+            "MTME(Object store modified timestamp)": "2020-02-12T19:16:10.983000",
+            "ITME": "1581534970983000"
+        },
+        "CMSM": {
+            "LATM(Object last access time)": "2020-02-12T19:16:10.983000"
+        },
+        "AWS3": {
+            "LOCC": "us-east-1"
+        }
+    },
+    "CLCO\(Locations\)": \[
+        \{
+            "Location Type": "CLDI\(Location online\)",
+            "NOID\(Node ID\)": "12448208",
+            "VOLI\(Volume ID\)": "3222345473",
+            "Object File Path": "/var/local/rangedb/1/p/17/11/00rH0%DkRt78Ila\#3udu",
+            "LTIM\(Location timestamp\)": "2020-02-12T19:36:17.880569"
+        \},
+        \{
+            "Location Type": "CLDI\(Location online\)",
+            "NOID\(Node ID\)": "12288733",
+            "VOLI\(Volume ID\)": "3222345984",
+            "Object File Path": "/var/local/rangedb/0/p/19/11/00rH0%DkRt78Rrb\#3s;L",
+            "LTIM\(Location timestamp\)": "2020-02-12T19:36:17.934425"
+        }
+    ]
+}
+----
++
+在第二個範例中、為的物件 `UUID 926026C4-00A4-449B-AC72-BCCA72DD1311` 未列出任何位置。
+
++
+[listing]
+----
+ade 12448208: / > /proc/OBRP/ObjectByUUID 926026C4-00A4-449B-AC72-BCCA72DD1311
+
+{
+    "TYPE(Object Type)": "Data object",
+    "CHND(Content handle)": "926026C4-00A4-449B-AC72-BCCA72DD1311",
+    "NAME": "cats",
+    "CBID": "0x38186FE53E3C49A5",
+    "PHND(Parent handle, UUID)": "221CABD0-4D9D-11EA-89C3-ACBB00BB82DD",
+    "PPTH(Parent path)": "source",
+    "META": {
+        "BASE(Protocol metadata)": {
+            "PAWS(S3 protocol version)": "2",
+            "ACCT(S3 account ID)": "44084621669730638018",
+            "*ctp(HTTP content MIME type)": "binary/octet-stream"
+        },
+        "BYCB(System metadata)": {
+            "CSIZ(Plaintext object size)": "5242880",
+            "SHSH(Supplementary Plaintext hash)": "MD5D 0xBAC2A2617C1DFF7E959A76731E6EAF5E",
+            "BSIZ(Content block size)": "5252084",
+            "CVER(Content block version)": "196612",
+            "CTME(Object store begin timestamp)": "2020-02-12T19:16:10.983000",
+            "MTME(Object store modified timestamp)": "2020-02-12T19:16:10.983000",
+            "ITME": "1581534970983000"
+        },
+        "CMSM": {
+            "LATM(Object last access time)": "2020-02-12T19:16:10.983000"
+        },
+        "AWS3": {
+            "LOCC": "us-east-1"
+        }
+    }
+}
+----
+.. 檢閱/proc/OBRP / ObjectByUUID的輸出、然後採取適當的行動：
++
+[cols="2a,4a"]
+|===
+| 中繼資料 | 結論 
+
+
+ a| 
+找不到物件（「錯誤」：」）
+ a| 
+如果找不到物件、則會傳回「錯誤：」訊息。
+
+如果找不到物件、您可以重設*遺失物件*的計數、以清除警示。缺少物件表示該物件是刻意刪除的。
+
+
+
+ a| 
+位置> 0
+ a| 
+如果輸出中列出了位置、則「*物件遺失*」警示可能是假正面。
+
+確認物件存在。使用輸出中列出的節點ID和檔案路徑、確認物件檔案位於所列位置。
+
+（的程序 link:searching-for-and-restoring-potentially-lost-objects.html["正在搜尋可能遺失的物件"] 說明如何使用節點ID來尋找正確的儲存節點。）
+
+如果物件存在、您可以重設*遺失物件*的計數、以清除警示。
+
+
+
+ a| 
+位置= 0
+ a| 
+如果輸出中未列出任何位置、表示物件可能遺失。您可以嘗試 link:searching-for-and-restoring-potentially-lost-objects.html["搜尋並還原物件"] 您自己也可以聯絡技術支援部門。
+
+技術支援人員可能會要求您判斷是否有正在進行的儲存恢復程序。請參閱相關資訊 link:../maintain/restoring-volume.html["使用 Grid Manager 還原物件資料"] 和 link:../maintain/restoring-object-data-to-storage-volume.html["將物件資料還原至儲存磁碟區"]。
+
+|===
+
+
+

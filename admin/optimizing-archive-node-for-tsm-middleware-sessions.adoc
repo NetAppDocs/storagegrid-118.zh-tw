@@ -1,0 +1,33 @@
+---
+permalink: admin/optimizing-archive-node-for-tsm-middleware-sessions.html 
+sidebar: sidebar 
+keywords: archive node optimization 
+summary: 您可以設定歸檔節點的工作階段、將連接到Tivoli Server Manager（TSM\）的歸檔節點效能最佳化。 
+---
+= 針對TSM中介軟體工作階段最佳化歸檔節點
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以設定歸檔節點的工作階段、將連接到Tivoli Server Manager（TSM）的歸檔節點效能最佳化。
+
+.開始之前
+* 您將使用登入Grid Manager link:../admin/web-browser-requirements.html["支援的網頁瀏覽器"]。
+* 您有 link:admin-group-permissions.html["特定存取權限"]。
+
+
+.關於這項工作
+歸檔節點開放給TSM中介軟體伺服器的並行工作階段數目、通常會設定為TSM伺服器專用於歸檔節點的磁帶機數目。其中一個磁帶機分配給儲存設備、其餘則分配給擷取。不過、在從歸檔節點複本重建儲存節點、或歸檔節點以唯讀模式運作的情況下、您可以將擷取工作階段的最大數量設定為與並行工作階段數相同、以最佳化TSM伺服器效能。因此、所有磁碟機都可同時用於擷取、而且如果適用、最多也可將其中一個磁碟機用於儲存設備。
+
+.步驟
+. 選取*支援*>*工具*>*網格拓撲*。
+. 選擇「*歸檔節點_*>* ARC*>*目標*」。
+. 選擇*組態*>*主要*。
+. 將*最大擷取工作階段*變更為*工作階段數*。
++
+image::../media/optimizing_tivoli_storage_manager.gif[歸檔節點的組態頁面]
+
+. 選取*套用變更*。
+

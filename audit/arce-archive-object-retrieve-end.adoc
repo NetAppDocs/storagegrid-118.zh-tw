@@ -1,0 +1,54 @@
+---
+permalink: audit/arce-archive-object-retrieve-end.html 
+sidebar: sidebar 
+keywords: storagegrid, audit, message, ARCE, Archive Object Retrieve End 
+summary: 當歸檔節點嘗試從外部歸檔儲存系統擷取物件資料完成時、就會產生此訊息。如果成功、訊息會指出所要求的物件資料已從歸檔位置讀取完畢、並已成功驗證。擷取並驗證物件資料之後、便會將其傳送至要求的服務。 
+---
+= Arce：歸檔物件擷取結束
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+當歸檔節點嘗試從外部歸檔儲存系統擷取物件資料完成時、就會產生此訊息。如果成功、訊息會指出所要求的物件資料已從歸檔位置讀取完畢、並已成功驗證。擷取並驗證物件資料之後、便會將其傳送至要求的服務。
+
+[cols="1a,1a,4a"]
+|===
+| 程式碼 | 欄位 | 說明 
+
+
+ a| 
+CBID
+ a| 
+內容區塊ID
+ a| 
+要從外部歸檔儲存系統擷取之內容區塊的唯一識別碼。
+
+
+
+ a| 
+VLID
+ a| 
+Volume識別碼
+ a| 
+資料歸檔所在磁碟區的識別碼。如果找不到內容的歸檔位置、則會傳回 0 的 Volume ID 。
+
+
+
+ a| 
+RSRLT
+ a| 
+擷取結果
+ a| 
+歸檔擷取程序的完成狀態：
+
+* SUCS：成功
+* VRFL：失敗（物件驗證失敗）
+* Arun：故障（外部歸檔儲存系統無法使用）
+* 取消：失敗（擷取作業已取消）
+* GERR:故障（一般錯誤）
+
+
+|===
+將此訊息與對應的ARCB訊息配對、可指出執行歸檔擷取所需的時間。此訊息會指出擷取是否成功、如果失敗、則會指出無法擷取內容區塊的原因。

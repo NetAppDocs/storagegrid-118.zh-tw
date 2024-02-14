@@ -1,0 +1,115 @@
+---
+permalink: tenant/what-platform-services-are.html 
+sidebar: sidebar 
+keywords: platform services 
+summary: StorageGRID 平台服務可讓您將 S3 物件和物件中繼資料的事件通知和複本傳送至外部目的地、協助您實作混合雲策略。 
+---
+= 管理平台服務：總覽
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+StorageGRID 平台服務可讓您將 S3 物件和物件中繼資料的事件通知和複本傳送至外部目的地、協助您實作混合雲策略。
+
+如果您的租戶帳戶允許使用平台服務、您可以針對任何S3儲存區設定下列服務：
+
+CloudMirror複寫:: 使用 link:understanding-cloudmirror-replication-service.html["CloudMirror複寫服務StorageGRID"] 將特定物件從 StorageGRID 貯體鏡射到指定的外部目的地。
++
+--
+例如、您可以使用CloudMirror複寫將特定的客戶記錄鏡射到Amazon S3、然後利用AWS服務對資料執行分析。
+
+
+NOTE: 如果來源儲存區已啟用S3物件鎖定、則不支援CloudMirror複寫。
+
+--
+通知:: 使用 link:understanding-notifications-for-buckets.html["每桶事件通知"] 可向指定的外部 Amazon Simple Notification Service （ Amazon SNS ）發送有關對對象執行的特定操作的通知。
++
+--
+例如、您可以設定要傳送警示給系統管理員、以通知新增至儲存區的每個物件、其中物件代表與重大系統事件相關的記錄檔。
+
+
+NOTE: 雖然事件通知可在已啟用S3物件鎖定的儲存區上設定、但通知訊息中不會包含物件的S3物件鎖定中繼資料（包括「保留直到日期」和「法定保留」狀態）。
+
+--
+搜尋整合服務:: 使用 link:understanding-search-integration-service.html["搜尋整合服務"] 將 S3 物件中繼資料傳送至指定的彈性搜尋索引、以便使用外部服務搜尋或分析中繼資料。
++
+--
+例如、您可以設定儲存區、將S3物件中繼資料傳送至遠端Elasticsearch服務。然後您可以使用Elasticsearch來執行跨儲存區的搜尋、並對物件中繼資料中的模式進行精密分析。
+
+
+NOTE: 雖然可在啟用S3物件鎖定的儲存區上設定Elasticsearch整合、但通知訊息中不會包含物件的S3物件鎖定中繼資料（包括「保留直到日期」和「法定保留」狀態）。
+
+--
+
+
+由於平台服務的目標位置通常是StorageGRID 不受您的支援、因此平台服務可讓您靈活運用外部儲存資源、通知服務、以及搜尋或分析資料服務。
+
+任何平台服務組合都可設定為單一S3儲存區。例如、您可以在StorageGRID S3儲存區上設定CloudMirror服務和通知、以便將特定物件鏡射至Amazon Simple Storage Service、同時將每個物件的通知傳送至協力廠商監控應用程式、以協助您追蹤AWS費用。
+
+
+TIP: 每個租戶帳戶必須由StorageGRID 使用Grid Manager或Grid Management API的管理員啟用平台服務的使用。
+
+
+
+== 平台服務的設定方式
+
+平台服務會與您使用設定的外部端點通訊 link:configuring-platform-services-endpoints.html["租戶管理程式"] 或 link:understanding-tenant-management-api.html["租戶管理API"]。每個端點都代表一個外部目的地、例如 StorageGRID S3 儲存區、 Amazon Web Services 儲存區、 Amazon SNS 主題、或是本地、 AWS 或其他地方託管的 ElasticSearch 叢集。
+
+建立外部端點之後、您可以將 XML 組態新增至貯體、為某個貯體啟用平台服務。XML組態可識別儲存區應執行的物件、儲存區應採取的動作、以及儲存區應用於服務的端點。
+
+您必須為每個要設定的平台服務新增個別的XML組態。例如：
+
+* 如果您想要所有以金鑰開頭的物件 `/images` 若要複寫至Amazon S3儲存區、您必須將複寫組態新增至來源儲存區。
+* 如果您也想要在這些物件儲存至儲存區時傳送通知、則必須新增通知組態。
+* 最後、如果您要為這些物件的中繼資料建立索引、則必須新增用於實作搜尋整合的中繼資料通知組態。
+
+
+組態XML的格式受用於實作StorageGRID 支援功能的S3 REST API所規範：
+
+[cols="1a,2a,1a"]
+|===
+| 平台服務 | S3 REST API | 請參閱 
+
+
+ a| 
+CloudMirror複寫
+ a| 
+* GetBucketReplication
+* PutBucketReplication
+
+ a| 
+* link:configuring-cloudmirror-replication.html["CloudMirror複寫"]
+* link:../s3/operations-on-buckets.htmll["在貯體上作業"]
+
+
+
+
+ a| 
+通知
+ a| 
+* GetBucketNotificationConfiguration
+* PutBucketNotificationConfiguration
+
+ a| 
+* link:configuring-event-notifications.html["通知"]
+* link:../s3/s3/operations-on-buckets.html["在貯體上作業"]
+
+
+
+
+ a| 
+搜尋整合
+ a| 
+* 取得Bucket中繼資料通知組態
+* 放置時段中繼資料通知組態
+
+ a| 
+* link:using-search-integration-service.html["搜尋整合"]
+* link:../s3/custom-operations-on-buckets.html["StorageGRID 自訂作業"]
+
+
+|===
+.相關資訊
+link:considerations-for-platform-services.html["平台服務的考量"]

@@ -1,0 +1,22 @@
+---
+permalink: admin/configuring-tsm-server.html 
+sidebar: sidebar 
+keywords: tsm server, tivoli storage manager 
+summary: 本節包括依照 TSM 最佳實務準備 TSM 伺服器的範例指示。 
+---
+= 設定TSM伺服器
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+本節包括依照 TSM 最佳實務準備 TSM 伺服器的範例指示。
+
+下列指示將引導您完成下列程序：
+
+* 定義TSM伺服器上的磁碟儲存資源池和磁帶儲存資源池（如有需要）
+* 針對從歸檔節點儲存的資料、定義使用TSM管理類別的網域原則、並登錄節點以使用此網域原則
+
+
+這些指示僅供您參考、並不適用於取代 TSM 文件、或是提供適用於所有組態的完整完整完整說明。部署特定指示應由TSM管理員提供、他熟悉您的詳細需求、以及完整的TSM伺服器文件集。

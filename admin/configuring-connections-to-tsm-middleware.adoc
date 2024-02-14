@@ -1,0 +1,59 @@
+---
+permalink: admin/configuring-connections-to-tsm-middleware.html 
+sidebar: sidebar 
+keywords: archive node connection to tsm, tivoli storage manager 
+summary: 在 Archive Node 能夠與 Tivoli Storage Manager （ TSM\ ）中介軟體通訊之前、您必須先設定數項設定。 
+---
+= 設定與TSM中介軟體的連線
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+在 Archive Node 能夠與 Tivoli Storage Manager （ TSM ）中介軟體通訊之前、您必須先設定數項設定。
+
+.開始之前
+* 您將使用登入Grid Manager link:../admin/web-browser-requirements.html["支援的網頁瀏覽器"]。
+* 您有 link:admin-group-permissions.html["特定存取權限"]。
+
+
+.關於這項工作
+在設定這些設定之前、由於無法與Tivoli Storage Manager通訊、因此ARC服務會維持在主要警示狀態。
+
+.步驟
+. 選取*支援*>*工具*>*網格拓撲*。
+. 選擇「*歸檔節點_*>* ARC*>*目標*」。
+. 選擇*組態*>*主要*。
++
+image::../media/configuring_tsm_middleware.gif[目標TSM帳戶]
+
+. 從*目標類型*下拉式清單中、選取* Tivoli Storage Manager（TSM）*。
+. 若為* Tivoli Storage Manager State*、請選取*離線*以防止從TSM中介軟體伺服器擷取資料。
++
+根據預設、Tivoli Storage Manager狀態設為「線上」、表示歸檔節點能夠從TSM中介軟體伺服器擷取物件資料。
+
+. 請填寫下列資訊：
++
+** *伺服器IP或主機名稱*：指定用於ARC服務的TSM中介軟體伺服器IP位址或完整網域名稱。預設IP位址為127.0.0.1。
+** *伺服器連接埠*：在TSM中介軟體伺服器上指定連接埠號碼、以便讓ARC服務連線至該伺服器。預設值為 1500 。
+** *節點名稱*：指定歸檔節點的名稱。您必須輸入您在TSM中介軟體伺服器上註冊的名稱（旋轉式使用者）。
+** *使用者名稱*：指定使用者名稱、以便讓ARC服務用來登入TSM伺服器。輸入您為歸檔節點指定的預設使用者名稱（ar任何 使用者）或管理使用者。
+** *密碼*：指定ARC服務用來登入TSM伺服器的密碼。
+** *管理類*：指定在將對象保存到StorageGRID 該系統時未指定管理類時使用的默認管理類，或未在TSM中間件服務器上定義指定的管理類時使用的管理類。
+** *工作階段數*：指定TSM中介軟體伺服器上專用於歸檔節點的磁帶機數量。歸檔節點可同時建立每個掛載點最多一個工作階段、外加少量額外工作階段（少於五個）。
++
+當歸檔節點登錄或更新時、您必須將此值變更為與MAXNUMMP（掛載點的最大數目）的設定值相同。（在登錄命令中、如果未設定任何值、則使用的MAXNUMMP預設值為1。）
+
++
+您也必須將TSM伺服器的MAXSESSIONS值變更為至少與設定用於該ARC服務的工作階段數目一樣大的數字。TSM伺服器上MAXSESSIONS的預設值為25。
+
+** *最大擷取工作階段數*：指定ARC服務可開啟至TSM中介軟體伺服器以進行擷取作業的工作階段數上限。在大多數情況下、適當的值是「工作階段數」減去「最大儲存工作階段數」。如果您需要共用一個磁帶機以供儲存和擷取、請指定一個值、此值等於工作階段數。
+** *最大儲存工作階段數*：指定可開啟至TSM中介軟體伺服器進行歸檔作業的同時工作階段數上限。
++
+除非目標歸檔儲存系統已滿、而且只能執行擷取、否則此值應設為一個。將此值設為零、以使用所有工作階段進行擷取。
+
+
+
+. 選取*套用變更*。
+

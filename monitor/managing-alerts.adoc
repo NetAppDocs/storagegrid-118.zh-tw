@@ -1,0 +1,31 @@
+---
+permalink: monitor/managing-alerts.html 
+sidebar: sidebar 
+keywords: alert rules, managing alerts, alerts, alert notifications. edit alert rules 
+summary: 警示系統提供易於使用的介面、可偵測、評估及解決StorageGRID 在執行過程中可能發生的問題。 
+---
+= 管理警示：總覽
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+警示系統提供易於使用的介面、可偵測、評估及解決StorageGRID 在執行過程中可能發生的問題。
+
+您可以建立自訂警示、編輯或停用警示、以及管理警示通知。
+
+若要深入瞭解：
+
+* 觀看影片： https://netapp.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=4506fc61-c8e9-4b86-ba00-b0b901184b38["影片： StorageGRID 11.8 的警示綜覽"^]
++
+[link=https://netapp.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=4506fc61-c8e9-4b86-ba00-b0b901184b38]
+image::../media/video-screenshot-alert-overview-118.png[影片： StorageGRID 11.8 的警示綜覽]
+
+* 觀看影片： https://netapp.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=e3a75bc1-47a2-44b9-a84d-b0b9011dc2d1["影片：使用度量在 StorageGRID 11.8 中建立自訂警示"^]
++
+[link=https://netapp.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=e3a75bc1-47a2-44b9-a84d-b0b9011dc2d1]
+image::../media/video-screenshot-alert-create-custom-118.png[影片：使用度量在 StorageGRID 11.8 中建立自訂警示]
+
+* 請參閱 link:alerts-reference.html["警示參考資料"]。
+

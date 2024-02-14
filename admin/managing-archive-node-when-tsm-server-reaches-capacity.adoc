@@ -1,0 +1,59 @@
+---
+permalink: admin/managing-archive-node-when-tsm-server-reaches-capacity.html 
+sidebar: sidebar 
+keywords: archive node, tsm server, full capacity, node is full 
+summary: TSM伺服器無法在TSM資料庫或TSM伺服器管理的歸檔媒體儲存設備即將達到容量時通知歸檔節點。這種情況可透過主動監控TSM伺服器來避免。 
+---
+= 當TSM伺服器達到容量時、管理歸檔節點
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+TSM伺服器無法在TSM資料庫或TSM伺服器管理的歸檔媒體儲存設備即將達到容量時通知歸檔節點。這種情況可透過主動監控TSM伺服器來避免。
+
+.開始之前
+* 您將使用登入Grid Manager link:../admin/web-browser-requirements.html["支援的網頁瀏覽器"]。
+* 您有 link:admin-group-permissions.html["特定存取權限"]。
+
+
+.關於這項工作
+在TSM伺服器停止接受新內容之後、歸檔節點會繼續接受物件資料以傳輸至TSM伺服器。此內容無法寫入由 TSM 伺服器管理的媒體。如果發生這種情況、就會觸發警示。
+
+
+
+== 防止ARC服務傳送內容至TSM伺服器
+
+若要防止ARC服務傳送更多內容到TSM伺服器、您可以將歸檔節點離線、方法是將其* ARC/>* Store*元件離線。當TSM伺服器無法進行維護時、此程序也有助於防止警示。
+
+.步驟
+. 選取*支援*>*工具*>*網格拓撲*。
+. 選擇「*歸檔節點_*>* ARC*>*儲存*」。
+. 選擇*組態*>*主要*。
++
+image::../media/tsm_offline.gif[歸檔節點的組態頁面]
+
+. 將*儲存狀態*變更為 `Offline`。
+. 選擇*在啟動時停用歸檔儲存區*。
+. 選取*套用變更*。
+
+
+
+
+== 如果TSM中介軟體達到容量、請將歸檔節點設為唯讀
+
+如果目標TSM中介軟體伺服器達到容量、則歸檔節點可最佳化、僅執行擷取。
+
+.步驟
+. 選取*支援*>*工具*>*網格拓撲*。
+. 選擇「*歸檔節點_*>* ARC*>*目標*」。
+. 選擇*組態*>*主要*。
+. 將擷取工作階段上限變更為與工作階段數目中所列的並行工作階段數目相同。
+. 將「最大儲存區工作階段數」變更為0。
++
+
+NOTE: 如果歸檔節點為唯讀、則不需要將最大儲存工作階段變更為0。不會建立零售店工作階段。
+
+. 選取*套用變更*。
+

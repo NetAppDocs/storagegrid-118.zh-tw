@@ -1,0 +1,142 @@
+---
+permalink: tenant/considerations-for-platform-services.html 
+sidebar: sidebar 
+keywords: considerations for using platform services 
+summary: 在實作平台服務之前、請先檢閱使用這些服務的建議與考量事項。 
+---
+= 平台服務的考量
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+在實作平台服務之前、請先檢閱使用這些服務的建議與考量事項。
+
+如需S3的相關資訊、請參閱 link:../s3/index.html["使用S3 REST API"]。
+
+
+
+== 使用平台服務的考量
+
+[cols="1a,3a"]
+|===
+| 考量 | 詳細資料 
+
+
+ a| 
+目的地端點監控
+ a| 
+您必須監控每個目的地端點的可用度。如果連線到目的地端點的時間過長、而且有大量的要求待處理、那麼額外的用戶端要求StorageGRID （例如提出要求）將會失敗。當端點可連線時、您必須重試這些失敗的要求。
+
+
+
+ a| 
+目的地端點節流
+ a| 
+如果傳送要求的速度超過目的地端點接收要求的速度、則支援使用此軟體來限制傳入S3的貯體要求。StorageGRID節流只會在有待傳送至目的地端點的要求待處理項目時發生。
+
+唯一的可見效果是傳入S3要求執行時間較長。如果您開始偵測到效能大幅降低、應該降低擷取速度、或是使用容量較大的端點。如果要求的待處理項目持續增加、用戶端S3作業（例如PUT要求）最終將會失敗。
+
+CloudMirror要求較容易受到目的地端點效能的影響、因為這些要求通常比搜尋整合或事件通知要求涉及更多資料傳輸。
+
+
+
+ a| 
+訂購保證
+ a| 
+可保證站台內物件的作業順序。StorageGRID只要物件的所有作業都在同一個站台內、最終的物件狀態（用於複寫）就會永遠等於StorageGRID 該站台的狀態。
+
+在整個景點進行作業時、盡力訂購申請。StorageGRID StorageGRID例如、如果您一開始將物件寫入站台A、然後在站台B覆寫相同的物件、則CloudMirror複寫到目的地儲存區的最終物件將無法保證為較新的物件。
+
+
+
+ a| 
+ILM導向物件刪除
+ a| 
+為了符合 AWS CRR 和 Amazon Simple Notification Service 的刪除行為、當來源儲存庫中的物件因 StorageGRID ILM 規則而遭到刪除時、 CloudMirror 和事件通知要求不會傳送。例如、如果ILM規則在14天後刪除物件、則不會傳送CloudMirror或事件通知要求。
+
+相反地、因為ILM而刪除物件時、會傳送搜尋整合要求。
+
+
+
+ a| 
+使用 Kafka 端點
+ a| 
+對於 Kafka 端點、不支援相互 TLS 。因此、如果您有 `ssl.client.auth` 設定為 `required` 在您的 Kafka Broker 組態中、可能會導致 Kafka 端點組態問題。
+
+Kafka 端點的驗證使用下列驗證類型。這些類型與用於驗證其他端點（例如 Amazon SNS ）的類型不同、需要使用者名稱和密碼認證。
+
+* SLS/PLAIN
+* SASL/SCRAM-SHA-256
+* SLS/SCRAM-SHA-512
+
+
+* 注意： * 設定的儲存 Proxy 設定不適用於 Kafka 平台服務端點。
+
+|===
+
+
+== 使用CloudMirror複寫服務的考量
+
+[cols="1a,3a"]
+|===
+| 考量 | 詳細資料 
+
+
+ a| 
+複寫狀態
+ a| 
+不支援StorageGRID `x-amz-replication-status` 標頭。
+
+
+
+ a| 
+物件大小
+ a| 
+CloudMirror複寫服務可複寫至目的地儲存區的物件大小上限為5 TiB、與最大_supported物件大小相同。
+
+* 注意 * ：單一 PutObject 作業的最大建議大小為 5 GiB （ 5 、 368,709,120 位元組）。如果您的物件大於5 GiB、請改用多部份上傳。
+
+
+
+ a| 
+儲存區版本管理和版本ID
+ a| 
+如果StorageGRID 支援版本管理功能的來源S3儲存區、您也應該啟用目的地儲存區的版本管理功能。
+
+使用版本管理時、請注意、由於S3傳輸協定的限制、CloudMirror服務無法保證目的地儲存庫中物件版本的順序順序。
+
+* 附註 * ： StorageGRID 中來源貯體的版本 ID 與目的地貯體的版本 ID 無關。
+
+
+
+ a| 
+標記物件版本
+ a| 
+由於 S3 傳輸協定的限制、 CloudMirror 服務不會複寫任何提供版本 ID 的 PuttObjectTaggingor DeleteObjectTaggings 要求。由於來源和目的地的版本識別碼不相關、因此無法確保將標記更新複寫到特定版本識別碼。
+
+相反地、 CloudMirror 服務會複寫未指定版本 ID 的 PutObjectTaggings 或 DeleteObjectTaggings 要求。這些要求會更新最新金鑰的標記（如果儲存庫版本已有版本、則會更新最新版本）。也會複寫含有標記的一般擷取（非標記更新）。
+
+
+
+ a| 
+多部份上傳和 `ETag` 價值
+ a| 
+鏡射使用多重上傳的物件時、CloudMirror服務不會保留這些部分。因此 `ETag` 鏡射物件的值將與不同 `ETag` 原始物件的值。
+
+
+
+ a| 
+使用SSE-C加密的物件（使用客戶提供的金鑰進行伺服器端加密）
+ a| 
+CloudMirror服務不支援以SSE-C加密的物件如果您嘗試將物件擷取至來源儲存區以進行CloudMirror複寫、且要求中包含SSE-C要求標頭、則作業會失敗。
+
+
+
+ a| 
+啟用S3物件鎖定的儲存區
+ a| 
+如果 CloudMirror 複寫的目的地 S3 貯體已啟用 S3 物件鎖定、則設定貯體複寫（ PuttBucketReplication ）的嘗試將會失敗、並出現 AccessDenied 錯誤。
+
+|===

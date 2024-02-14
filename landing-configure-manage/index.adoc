@@ -1,0 +1,13 @@
+---
+layout: landing-page 
+sidebar: sidebar 
+permalink: landing-configure-manage/index.html 
+summary: 您需要為新的 StorageGRID 系統執行的組態工作、取決於您使用網格的方式。您至少需要設定系統存取、使用 FabricPool 和 S3 精靈、以及管理各種儲存和安全性設定。 
+---
+= 設定及管理 StorageGRID 系統
+:hardbreaks:
+:allow-uri-read: 
+:linkattrs: 
+:imagesdir: ./media/
+
+

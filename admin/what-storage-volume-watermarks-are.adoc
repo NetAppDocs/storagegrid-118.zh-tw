@@ -1,0 +1,110 @@
+---
+permalink: admin/what-storage-volume-watermarks-are.html 
+sidebar: sidebar 
+keywords: what are storage volume watermarks, storage volume soft read-only watermark, storage volume hard read-only watermark, storage volume read-write watermark 
+summary: 利用三個儲存磁碟區浮點、確保儲存節點在極低空間執行之前、安全地轉換為唯讀狀態、並允許已轉換為唯讀狀態的儲存節點再次變成讀寫狀態。StorageGRID 
+---
+= 什麼是儲存Volume浮水印？
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+利用三個儲存磁碟區浮點、確保儲存節點在極低空間執行之前、安全地轉換為唯讀狀態、並允許已轉換為唯讀狀態的儲存節點再次變成讀寫狀態。StorageGRID
+
+image::../media/storage_volume_watermarks.png[儲存Volume浮點]
+
+
+NOTE: 儲存Volume浮點僅適用於複寫和銷毀編碼物件資料所使用的空間。若要瞭解保留給Volume 0上物件中繼資料的空間、請前往
+link:managing-object-metadata-storage.html["管理物件中繼資料儲存"]。
+
+
+
+== 什麼是軟式唯讀浮標？
+
+「*儲存磁碟區軟式唯讀浮點*」是第一個浮點、表示儲存節點的物件資料可用空間已滿。
+
+如果儲存節點中的每個磁碟區的可用空間少於該磁碟區的軟式唯讀浮點、則儲存節點會轉換成_read-only模式_。唯讀模式表示儲存節點會將唯讀服務廣告給StorageGRID 其他的作業系統、但會滿足所有擱置中的寫入要求。
+
+例如、假設儲存節點中的每個磁碟區都有10 GB的軟式唯讀浮點。只要每個磁碟區的可用空間少於10 GB、儲存節點就會轉換成軟式唯讀模式。
+
+
+
+== 什麼是硬式唯讀浮標？
+
+「*儲存Volume硬式唯讀浮點*」是下一個浮點、表示節點的物件資料可用空間已滿。
+
+如果磁碟區上的可用空間小於該磁碟區的硬式唯讀浮點、則寫入磁碟區的作業將會失敗。不過、寫入其他磁碟區的作業仍可繼續、直到這些磁碟區上的可用空間低於硬式唯讀浮標為止。
+
+例如、假設儲存節點中的每個磁碟區都有5 GB的硬式唯讀浮點。只要每個磁碟區的可用空間少於5 GB、儲存節點就不再接受任何寫入要求。
+
+硬式唯讀浮點永遠小於軟式唯讀浮點。
+
+
+
+== 什麼是讀寫浮點？
+
+「*儲存磁碟區讀寫浮點*」僅適用於轉換為唯讀模式的儲存節點。它決定何時可以再次讀寫節點。當儲存節點中任何一個儲存磁碟區的可用空間大於該磁碟區的讀寫浮點時、節點會自動轉換回讀寫狀態。
+
+例如、假設儲存節點已轉換為唯讀模式。此外、假設每個磁碟區的讀寫浮點為30 GB。只要任何磁碟區的可用空間增加到30 GB、節點就會再次變成讀寫。
+
+「讀寫浮點」永遠大於「軟式唯讀浮點」和「硬式唯讀浮點」。
+
+
+
+== 檢視儲存Volume浮點
+
+您可以檢視目前的浮水印設定和系統最佳化的值。如果未使用最佳化的浮水印、您可以判斷是否可以或應該調整設定。
+
+.開始之前
+* 您已完成 StorageGRID 11.6 或更新版本的升級。
+* 您將使用登入Grid Manager link:../admin/web-browser-requirements.html["支援的網頁瀏覽器"]。
+* 您擁有 link:admin-group-permissions.html["root 存取權限"]。
+
+
+
+
+=== 檢視目前的浮水印設定
+
+您可以在Grid Manager中檢視目前的儲存浮水印設定。
+
+.步驟
+. 選擇 * 支援 * > * 其他 * > * 儲存浮水印 * 。
+. 在「儲存浮水印」頁面上、查看「使用最佳化值」核取方塊。
++
+** 如果選取此核取方塊、則會根據儲存節點的大小和磁碟區的相對容量、針對每個儲存節點上的每個儲存磁碟區最佳化所有三個浮水印。
++
+這是預設和建議的設定。請勿更新這些值。您也可以選擇 <<view-optimized-storage-watermarks,檢視最佳化的儲存浮水印>>。
+
+** 如果取消選取 [ 使用最佳化值 ] 核取方塊，則會使用自訂（非最佳化）浮水印。不建議使用自訂浮水印設定。請使用的說明 link:../troubleshoot/troubleshoot-low-watermark-alert.html["疑難排解低唯讀浮水印會覆寫警示"] 以判斷您是否可以調整或應該調整設定。
++
+指定自訂浮水印設定時、您必須輸入大於 0 的值。
+
+
+
+
+
+
+
+=== [[view-優 化的儲存浮水印 ]] 檢視最佳化的儲存浮水印
+
+使用兩個Prometheus指標來顯示其針對*儲存Volume軟式唯讀浮點*所計算的最佳化值。StorageGRID您可以檢視網格中每個儲存節點的最小和最大最佳化值。
+
+. 選取*支援*>*工具*>*指標*。
+. 在Prometheus區段中、選取連結以存取Prometheus使用者介面。
+. 若要查看建議的最小軟式唯讀浮水印、請輸入下列Prometheus指標、然後選取*執行*：
++
+`storagegrid_storage_volume_minimum_optimized_soft_readonly_watermark`
+
++
+最後一欄顯示每個儲存節點上所有儲存磁碟區的軟式唯讀浮點的最小最佳化值。如果此值大於*儲存磁碟區軟式唯讀浮點*的自訂設定、則會針對儲存節點觸發*低唯讀浮點置換*警示。
+
+. 若要查看建議的最大軟式唯讀浮水印、請輸入下列Prometheus指標、然後選取*執行*：
++
+`storagegrid_storage_volume_maximum_optimized_soft_readonly_watermark`
+
++
+最後一欄顯示每個儲存節點上所有儲存磁碟區的軟式唯讀浮點的最大最佳化值。
+
+

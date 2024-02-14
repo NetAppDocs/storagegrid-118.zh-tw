@@ -1,0 +1,42 @@
+---
+permalink: swift/index.html 
+sidebar: sidebar 
+keywords: openstack swift api support, swift rest api 
+summary: 用戶端應用程式可以使用OpenStack Swift API與StorageGRID 該系統進行介面。 
+---
+= 使用 Swift REST API ：概述
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+用戶端應用程式可以使用OpenStack Swift API與StorageGRID 該系統進行介面。
+
+
+NOTE: Swift 用戶端應用程式的支援已過時、未來版本將會移除。
+
+支援下列Swift和HTTP的特定版本。StorageGRID
+
+|===
+| 項目 | 版本 
+
+
+ a| 
+Swift規格
+ a| 
+OpenStack Swift Object Storage API v1（截至2015年11月）
+
+
+
+ a| 
+HTTP
+ a| 
+1.1.
+如需HTTP的詳細資訊、請參閱HTTP / 1.1（RFC 7230-35）。
+
+*附註* StorageGRID ：不支援HTTP / 1.1鋪管。
+
+|===
+.相關資訊
+http://docs.openstack.org/developer/swift/api/object_api_v1_overview.html["OpenStack：物件儲存API"^]

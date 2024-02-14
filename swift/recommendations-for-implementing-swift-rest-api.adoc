@@ -1,0 +1,60 @@
+---
+permalink: swift/recommendations-for-implementing-swift-rest-api.html 
+sidebar: sidebar 
+keywords: implement swift rest api 
+summary: 實作Swift REST API以搭配StorageGRID 使用時、請遵循以下建議。 
+---
+= 實作Swift REST API的建議
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+實作Swift REST API以搭配StorageGRID 使用時、請遵循以下建議。
+
+
+
+== 針對不存在物件的使用者提出建議
+
+如果您的應用程式會定期檢查某個物件是否存在於您不希望該物件實際存在的路徑、則應使用「可用」一致性。例如、如果應用程式在執行放置作業至某個位置之前、先對該位置執行頭端作業、則應使用「可用」一致性。
+
+否則、如果執行頭作業找不到物件、當一個或多個儲存節點無法使用時、您可能會收到大量500個內部伺服器錯誤。
+
+您可以使用設定每個容器的「可用」一致性 link:put-container-consistency-request.html["放置容器一致性要求"]。您可以使用來檢視設定每個容器的「可用」一致性 link:get-container-consistency-request.html["取得Container一致性要求"]。
+
+
+
+== 物件名稱建議
+
+對於StorageGRID 以VMware 11.4或更新版本建立的容器、不再需要限制物件名稱以符合效能最佳實務做法。例如、您現在可以將隨機值用於物件名稱的前四個字元。
+
+若容器是在StorageGRID 版本早於物件名稱的版本中建立、請繼續遵循以下建議：
+
+* 您不應使用隨機值做為物件名稱的前四個字元。這與前AWS關於名稱前置詞的建議不同。您應該改用非隨機、非唯一的前置詞、例如 `image`。
+* 如果您遵循前一項AWS建議、在名稱前置字元中使用隨機和獨特的字元、則應該在物件名稱前置一個目錄名稱。也就是使用此格式：
++
+[listing]
+----
+mycontainer/mydir/f8e3-image3132.jpg
+----
++
+而非此格式：
+
++
+[listing]
+----
+mycontainer/f8e3-image3132.jpg
+----
+
+
+
+
+== 「範圍讀取」建議
+
+如果是 link:../admin/configuring-stored-object-compression.html["用於壓縮儲存物件的全域選項"] 啟用時、 Swift 用戶端應用程式應避免執行指定傳回位元組範圍的 Get 物件作業。這些「範圍讀取」作業效率不彰、因為 StorageGRID 必須有效地解壓縮物件以存取要求的位元組。從非常大的物件要求少量位元組的「Get Object」（取得物件）作業效率特別低；例如、從50 GB壓縮物件讀取10 MB範圍的效率非常低。
+
+如果從壓縮物件讀取範圍、用戶端要求可能會逾時。
+
+
+NOTE: 如果您需要壓縮物件、而用戶端應用程式必須使用範圍讀取、請增加應用程式的讀取逾時。

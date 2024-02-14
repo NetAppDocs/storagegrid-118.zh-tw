@@ -1,0 +1,20 @@
+---
+permalink: admin/completing-archive-node-setup.html 
+sidebar: sidebar 
+keywords: archive node setup 
+summary: 完成安裝程序後、歸檔節點無法正常運作。在將物件儲存至TSM歸檔節點之前StorageGRID 、您必須完成TSM伺服器的安裝與組態、並設定歸檔節點與TSM伺服器進行通訊。 
+---
+= 完成歸檔節點設定
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+完成安裝程序後、歸檔節點無法正常運作。在將物件儲存至TSM歸檔節點之前StorageGRID 、您必須完成TSM伺服器的安裝與組態、並設定歸檔節點與TSM伺服器進行通訊。
+
+當您準備TSM伺服器以整合StorageGRID 到整個作業系統的歸檔節點時、請視需要參閱下列IBM文件：
+
+* http://www.ibm.com/support/docview.wss?rs=577&uid=ssg1S7002972["IBM磁帶設備驅動程式安裝與使用指南"^]
+* http://www.ibm.com/support/docview.wss?rs=577&uid=ssg1S7003032["IBM磁帶設備驅動程式程式設計參考"^]
+

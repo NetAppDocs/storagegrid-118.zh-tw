@@ -1,0 +1,37 @@
+---
+permalink: tenant/using-search-integration-service.html 
+sidebar: sidebar 
+keywords: how to use search integration service 
+summary: 搜尋整合服務是StorageGRID 三項功能完善的平台服務之一。您可以啟用此服務、在物件建立、刪除或更新中繼資料或標記時、將物件中繼資料傳送至目的地搜尋索引。 
+---
+= 使用搜尋整合服務
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+搜尋整合服務是StorageGRID 三項功能完善的平台服務之一。您可以啟用此服務、在物件建立、刪除或更新中繼資料或標記時、將物件中繼資料傳送至目的地搜尋索引。
+
+您可以使用租戶管理程式來設定搜尋整合功能、將自訂StorageGRID 的靜態組態XML套用至儲存庫。
+
+
+NOTE: 由於搜尋整合服務會將物件中繼資料傳送至目的地、因此其組態XML稱為中繼資料通知組態XML。此組態XML不同於用來啟用事件通知的_notification組態XML。
+
+請參閱 link:../s3/index.html["實作S3用戶端應用程式的指示"] 如需下列自訂StorageGRID 的Sfor Rest API作業的詳細資料：
+
+* 刪除時段中繼資料通知組態
+* 取得Bucket中繼資料通知組態
+* 放置時段中繼資料通知組態
+
+
+.相關資訊
+link:configuration-xml-for-search-configuration.html["搜尋整合的組態XML"]
+
+link:object-metadata-included-in-metadata-notifications.html["中繼資料通知中包含的物件中繼資料"]
+
+link:json-generated-by-search-integration-service.html["由搜尋整合服務產生的JSON"]
+
+link:configuring-search-integration-service.html["設定搜尋整合服務"]
+
+link:../s3/index.html["使用S3 REST API"]

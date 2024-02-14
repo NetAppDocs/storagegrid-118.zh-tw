@@ -1,0 +1,45 @@
+---
+permalink: swift/options-request.html 
+sidebar: sidebar 
+keywords: swift options request 
+summary: 選項要求會檢查個別Swift服務的可用度。選項要求由URL中指定的儲存節點或閘道節點處理。 
+---
+= 選項要求
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+選項要求會檢查個別Swift服務的可用度。選項要求由URL中指定的儲存節點或閘道節點處理。
+
+
+
+== 選項方法
+
+例如、用戶端應用程式可以在儲存節點上向Swift連接埠發出選項要求、而無需提供Swift驗證認證、以判斷儲存節點是否可用。您可以使用此要求來監控或允許外部負載平衡器識別儲存節點何時當機。
+
+搭配資訊URL或儲存URL使用時、options方法會傳回指定URL所支援的動詞清單（例如、標頭、Get、選項及PUT）。選項方法無法與驗證 URL 搭配使用。
+
+需要下列要求參數：
+
+* `Account`
+
+
+下列要求參數為選用項目：
+
+* `Container`
+* `Object`
+
+
+成功執行會傳回下列標頭、並回應「 HTTP/1.1 204 無內容」。儲存URL的選項要求不需要目標存在。
+
+* `Allow` （特定URL支援的動詞清單、例如：標頭、GET、選項、並投入）
+* `Content-Length`
+* `Content-Type`
+* `Date`
+* `X-Trans-Id`
+
+
+.相關資訊
+link:supported-swift-api-endpoints.html["支援的Swift API端點"]

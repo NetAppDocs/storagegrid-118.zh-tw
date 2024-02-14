@@ -1,0 +1,37 @@
+---
+permalink: audit/avcc-archive-validate-cloud-tier-configuration.html 
+sidebar: sidebar 
+keywords: storagegrid, audit, message, AVCC, Archive Validate Cloud-Tier Configuration 
+summary: 此訊息是在驗證雲端分層-簡易儲存服務（S3）目標類型的組態設定時產生。 
+---
+= AVCC：歸檔驗證雲端層組態
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+此訊息是在驗證雲端分層-簡易儲存服務（S3）目標類型的組態設定時產生。
+
+[cols="1a,1a,4a"]
+|===
+| 程式碼 | 欄位 | 說明 
+
+
+ a| 
+RSRLT
+ a| 
+結果代碼
+ a| 
+傳回成功（SUCS）或後端報告的錯誤。
+
+
+
+ a| 
+SUID
+ a| 
+儲存唯一識別碼
+ a| 
+正在驗證的外部歸檔儲存系統相關UUID。
+
+|===
