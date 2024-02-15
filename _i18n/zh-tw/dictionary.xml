@@ -19410,8 +19410,6 @@ VM_API_Gateway</block>
   <block id="2352c4e1f4d0024ade0869e00e6243f4" category="paragraph"><block ref="2352c4e1f4d0024ade0869e00e6243f4" category="inline-link-macro-rx"></block></block>
   <block id="c0227cef6f07a8cd2ac72f2945b031aa" category="section-title">開放原始碼</block>
   <block id="9b73989307c1975dfa4d5e1581e4afe8" category="paragraph">通知檔案提供有關 NetApp 軟體所使用之協力廠商版權與授權的資訊。</block>
-  <block id="21b17c7b7d71861473c6337e153ea6ea" category="paragraph"><block ref="21b17c7b7d71861473c6337e153ea6ea" category="inline-link-rx"></block></block>
-  <block id="29007b92e2b6688072358d8f25529d24" category="paragraph"><block ref="29007b92e2b6688072358d8f25529d24" category="inline-link-rx"></block></block>
   <block id="9f6353da86fa1f6ae96f6a022e88709b" category="summary">除了連接埠22、80、123和443以外、內部防火牆僅允許連入網格網路上的特定連接埠（請參閱外部通訊資訊）StorageGRID 。負載平衡器端點所定義的連接埠也接受連線。</block>
   <block id="d6551410e0a6c8c712af2331c2b66254" category="paragraph">StorageGRID 內部防火牆允許連入網格網路上的特定連接埠。負載平衡器端點所定義的連接埠也接受連線。</block>
   <block id="5d704155823ccea3b11689d40751ca9e" category="admonition">NetApp建議您在網格節點之間啟用網際網路控制訊息傳輸協定（ICMP）流量。當無法到達網格節點時、允許 ICMP 流量可改善容錯移轉效能。</block>
@@ -23832,4 +23830,5 @@ VM_API_Gateway</block>
   <block id="9f765acbe84ca59497885e41bd916b9b" category="paragraph">本範例假設您已將負載平衡器端點設定為使用 IP 位址 10.96.101.17 和連接埠 10443 。</block>
   <block id="752044a1cc344178141086a49a185265" category="paragraph">如果成功建立了儲存區、則會傳回儲存區的位置、如下列範例所示：</block>
   <block id="ea3fc85359b16a65c30b6839e3ed8b2d" category="list-text">上傳物件。</block>
+  <block id="46621f49f52b2e7735202aeadc8627bc" category="paragraph"><block ref="46621f49f52b2e7735202aeadc8627bc" category="inline-link-rx"></block></block>
 </blocks>
