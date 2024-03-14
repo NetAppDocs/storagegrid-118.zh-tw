@@ -10779,7 +10779,6 @@ X-NetApp-asup-mode-name +</block>
   <block id="243f8ae8a2808c58d6751a1b344980de" category="list-text">選取*上傳中繼資料檔案*按鈕、然後選取您為對應的管理節點下載的SAML中繼資料檔案。</block>
   <block id="8965ca0da3d3be7f5b359a725f9bd813" category="list-text">載入檔案後、選取*「Save"（儲存）*、然後選取「* X*」以關閉窗格。您將返回「使用SAML設定單一登入」頁面。</block>
   <block id="d596a1bad7b0948a7985bf7153e05581" category="list-text">請依照中的步驟進行 <block ref="4539ca96b3e34e55cee5c672da43266c" category="inline-link-macro-rx"></block> 測試每個應用程式。</block>
-  <block id="0a7565bc711ff62e67cd8ffdc054021e" category="summary">瞭解如何設定及使用 StorageGRID 應用裝置硬體。</block>
   <block id="c7af46b6cfb1d87714ad28a6641b7604" category="doc">安裝 StorageGRID 應用裝置</block>
   <block id="4fab2171e21f4258294a2a074494fa18" category="inline-link">StorageGRID 應用裝置文件</block>
   <block id="dde8acece265d46e5aab164c12d3a44c" category="paragraph">前往<block ref="be9ecc58910f449a87a62c3eec4d0fe8" category="inline-link-rx"></block> 以瞭解如何安裝、設定及維護 StorageGRID 儲存設備和服務應用裝置。</block>
@@ -23831,4 +23830,6 @@ VM_API_Gateway</block>
   <block id="752044a1cc344178141086a49a185265" category="paragraph">如果成功建立了儲存區、則會傳回儲存區的位置、如下列範例所示：</block>
   <block id="ea3fc85359b16a65c30b6839e3ed8b2d" category="list-text">上傳物件。</block>
   <block id="46621f49f52b2e7735202aeadc8627bc" category="paragraph"><block ref="46621f49f52b2e7735202aeadc8627bc" category="inline-link-rx"></block></block>
+  <block id="7fab435ddee33f90ad5e190ad86b8843" category="summary">瞭解如何安裝、設定及使用 StorageGRID 應用裝置硬體。</block>
+  <block id="9283e244bcd98f1bdd350c1b4f2da148" category="doc">StorageGRID 應用裝置</block>
 </blocks>
