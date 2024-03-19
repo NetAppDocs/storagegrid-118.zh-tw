@@ -1414,7 +1414,6 @@
   <block id="f93d4a3c44038f82bf46823db3edf56a" category="paragraph">MTU設定的差異可能代表部分（但並非全部）eth0網路已設定為使用巨型框架。MTU大小不相符的值大於1000、可能會導致網路效能問題。</block>
   <block id="28375c98d727c787e107735ba1e32585" category="list-text">列出所有節點上eth0的MTU設定。</block>
   <block id="4977f393492c3547c20ef7571d4714e3" category="list-text">使用Grid Manager中提供的查詢。</block>
-  <block id="130716025735a65d0023ad662453580d" category="list-text">瀏覽至<block ref="4a12e34a57886922df81701f5c6f52a1" prefix=" " category="inline-code"></block> 並輸入下列查詢：<block ref="50a13557c8d51cfce791a56d7dfa71f4" prefix=" " category="inline-code"></block></block>
   <block id="2d1177c634d5ce56bbc6c2c08c46cfa6" category="inline-link">修改 MTU 設定</block>
   <block id="dc89db67d22ae9a1ddda5ddcbcce7759" category="list-text"><block ref="2ec7a62b759b840d1a139a993888c845" category="inline-link-rx"></block> 為確保所有節點上的網格網路介面（ eth0 ）相同、請視需要加以確認。</block>
   <block id="28c019ef2ca68fabe2aecb80eac96e26" category="list-text">對於Linux和VMware型節點、請使用下列命令：<block ref="bdcb8cec0e2655782ca9a974cd0b3311" prefix=" " category="inline-code"></block></block>
@@ -23832,4 +23831,5 @@ VM_API_Gateway</block>
   <block id="46621f49f52b2e7735202aeadc8627bc" category="paragraph"><block ref="46621f49f52b2e7735202aeadc8627bc" category="inline-link-rx"></block></block>
   <block id="7fab435ddee33f90ad5e190ad86b8843" category="summary">瞭解如何安裝、設定及使用 StorageGRID 應用裝置硬體。</block>
   <block id="9283e244bcd98f1bdd350c1b4f2da148" category="doc">StorageGRID 應用裝置</block>
+  <block id="aba4c14b1916186cd3b60772be91f848" category="list-text">瀏覽至<block ref="4a12e34a57886922df81701f5c6f52a1" prefix=" " category="inline-code"></block> 並輸入下列查詢：<block ref="e72dbe21cf71a35756daaa57249906a8" prefix=" " category="inline-code"></block></block>
 </blocks>
