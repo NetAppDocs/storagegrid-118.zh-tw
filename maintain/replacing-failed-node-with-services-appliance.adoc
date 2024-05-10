@@ -2,7 +2,7 @@
 permalink: maintain/replacing-failed-node-with-services-appliance.html 
 sidebar: sidebar 
 keywords: storagegrid, recover, replace failed node, services appliance 
-summary: 您可以使用SG100或SG1000服務應用裝置來還原故障的閘道節點、故障的非主要管理節點、或是在VMware、Linux主機或服務應用裝置上代管的故障主要管理節點。此程序是網格節點還原程序的一個步驟。 
+summary: 您可以使用服務應用裝置來復原故障的閘道節點、故障的非主要管理節點、或是位於 VMware 、 Linux 主機或服務應用裝置上的故障主要管理節點。此程序是網格節點還原程序的一個步驟。 
 ---
 = 以服務應用裝置取代故障節點：綜覽
 :allow-uri-read: 
@@ -11,7 +11,7 @@ summary: 您可以使用SG100或SG1000服務應用裝置來還原故障的閘道
 
 
 [role="lead"]
-您可以使用SG100或SG1000服務應用裝置來還原故障的閘道節點、故障的非主要管理節點、或是在VMware、Linux主機或服務應用裝置上代管的故障主要管理節點。此程序是網格節點還原程序的一個步驟。
+您可以使用服務應用裝置來復原故障的閘道節點、故障的非主要管理節點、或是位於 VMware 、 Linux 主機或服務應用裝置上的故障主要管理節點。此程序是網格節點還原程序的一個步驟。
 
 .開始之前
 * 您已確定下列情況之一為真：
@@ -25,10 +25,10 @@ summary: 您可以使用SG100或SG1000服務應用裝置來還原故障的閘道
 
 
 
-NOTE: 請勿在同一個站台同時部署 SG100 和 SG1000 服務應用裝置。可能會導致無法預測的效能。
+NOTE: 請勿在同一個站台同時部署 SG110 和 SG1100 服務應用裝置、或 SG100 和 SG1000 服務應用裝置。可能會導致無法預測的效能。
 
 .關於這項工作
-在下列情況下、您可以使用SG100或SG1000服務應用裝置來恢復故障的網格節點：
+在下列情況下、您可以使用服務應用裝置來恢復故障的網格節點：
 
 * 故障節點是託管在 VMware 或 Linux 上（link:installing-services-appliance-platform-change-only.html["平台變更"]）
 * 故障節點是託管在服務應用裝置（link:preparing-appliance-for-reinstallation-platform-replacement-only.html["平台更換"]）

@@ -35,7 +35,7 @@ link:all-node-types-replacing-linux-node.html["更換Linux節點"]
 
 
  a| 
-SG100與SG1000服務應用裝置
+服務應用裝置
  a| 
 link:replacing-failed-node-with-services-appliance.html["更換服務應用裝置"]
 

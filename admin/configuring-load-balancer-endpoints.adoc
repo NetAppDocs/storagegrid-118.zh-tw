@@ -22,7 +22,7 @@ NOTE: Swift 用戶端應用程式的支援已過時、未來版本將會移除�
 * 您已檢閱 link:managing-load-balancing.html["負載平衡考量"]。
 * 如果您先前已重新對應要用於負載平衡器端點的連接埠、您就擁有了 link:../maintain/removing-port-remaps.html["已移除連接埠重新對應"]。
 * 您已建立任何打算使用的高可用度（HA）群組。建議使用HA群組、但不需要。請參閱 link:managing-high-availability-groups.html["管理高可用度群組"]。
-* 如果將使用負載平衡器端點 link:../admin/manage-s3-select-for-tenant-accounts.html["S3租戶選擇"]、不得使用任何裸機節點的IP位址或FQDN。S3 Select所使用的負載平衡器端點只能使用SG100或SG1000應用裝置和VMware軟體節點。
+* 如果將使用負載平衡器端點 link:../admin/manage-s3-select-for-tenant-accounts.html["S3租戶選擇"]、不得使用任何裸機節點的IP位址或FQDN。S3 Select 所使用的負載平衡器端點僅允許使用服務應用裝置和 VMware 型軟體節點。
 * 您已設定任何打算使用的VLAN介面。請參閱 link:configure-vlan-interfaces.html["設定VLAN介面"]。
 * 如果您要建立HTTPS端點（建議）、您就有伺服器憑證的資訊。
 +

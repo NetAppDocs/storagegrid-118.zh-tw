@@ -68,7 +68,7 @@ NOTE: 如果您發出 `service servermanager stop` 命令若要停止應用裝�
 
 . 如果您有應用裝置節點：
 +
-** 適用於 SG100 、 SG1000 或 SGF6112 設備
+** 適用於服務應用裝置或 SGF6112 應用裝置
 +
 ... 關閉產品電源。
 ... 等待藍色電源LED燈關閉。
@@ -106,5 +106,7 @@ https://docs.netapp.com/us-en/storagegrid-appliances/sg6100/index.html["SGF6112 
 https://docs.netapp.com/us-en/storagegrid-appliances/sg6000/index.html["SG6000儲存設備"^]
 
 https://docs.netapp.com/us-en/storagegrid-appliances/sg5700/index.html["SG5700 儲存設備"^]
+
+https://docs.netapp.com/us-en/storagegrid-appliances/sg110-1100/index.html["SG110 和 SG1100 服務應用裝置"^]
 
 https://docs.netapp.com/us-en/storagegrid-appliances/sg100-1000/index.html["SG100與SG1000服務應用裝置"^]

@@ -2,7 +2,7 @@
 permalink: maintain/starting-software-installation-on-services-appliance-recovery.html 
 sidebar: sidebar 
 keywords: storagegrid, recover, services appliance, start software installation 
-summary: 若要在SG100或SG1000服務應用裝置上安裝閘道節點或管理節點、請使用StorageGRID 應用裝置隨附的《支援服務安裝程式》。 
+summary: 若要在服務應用裝置上安裝閘道節點或管理節點、請使用設備隨附的 StorageGRID 應用裝置安裝程式。 
 ---
 = 開始在服務應用裝置上安裝軟體
 :allow-uri-read: 
@@ -11,7 +11,7 @@ summary: 若要在SG100或SG1000服務應用裝置上安裝閘道節點或管理
 
 
 [role="lead"]
-若要在SG100或SG1000服務應用裝置上安裝閘道節點或管理節點、請使用StorageGRID 應用裝置隨附的《支援服務安裝程式》。
+若要在服務應用裝置上安裝閘道節點或管理節點、請使用設備隨附的 StorageGRID 應用裝置安裝程式。
 
 .開始之前
 * 此應用裝置安裝在機架中、連接至您的網路、並已開啟電源。
@@ -31,7 +31,7 @@ NOTE: 製造過程中、服務應用裝置會預先載入最新版本StorageGRID
 
 
 .關於這項工作
-若要在StorageGRID SG100或SG1000服務應用裝置上安裝支援軟體：
+若要在服務應用裝置上安裝 StorageGRID 軟體：
 
 * 對於主要管理節點、您可以指定節點名稱、然後上傳適當的軟體套件（若有需要）。
 * 對於非主要管理節點或閘道節點、您可以指定或確認主要管理節點的IP位址和節點名稱。
@@ -41,7 +41,7 @@ NOTE: 製造過程中、服務應用裝置會預先載入最新版本StorageGRID
 
 
 .步驟
-. 開啟瀏覽器、然後輸入SG100或SG1000服務應用裝置的其中一個IP位址。
+. 開啟瀏覽器、然後輸入服務應用裝置的其中一個 IP 位址。
 +
 `https://_Controller_IP_:8443`
 

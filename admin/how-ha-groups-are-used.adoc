@@ -60,7 +60,7 @@ S3或Swift用戶端存取-負載平衡器服務
  a| 
 的S3用戶端存取 link:../admin/manage-s3-select-for-tenant-accounts.html["S3 Select"]
  a| 
-* SG100或SG1000應用裝置
+* 服務應用裝置
 * VMware軟體節點
 
 

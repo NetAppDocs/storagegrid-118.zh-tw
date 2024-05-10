@@ -84,7 +84,7 @@ vsphere-archive .mf  a|
 CAUTION: 在正式作業部署中、請勿在單一虛擬機器伺服器上執行多個儲存節點。針對每個儲存節點使用專屬的虛擬機器主機、可提供隔離的故障網域。
 
 * 如果您要部署節點做為擴充或還原作業的一部分、您可以使用 link:../expand/index.html["擴充StorageGRID 功能的說明"] 或 link:../maintain/index.html["恢復與維護指示"]。
-* 如果您要將 StorageGRID 節點部署為虛擬機器、並從 NetApp ONTAP 系統指派儲存設備、則您已確認該磁碟區未啟用 FabricPool 分層原則。例如、如果StorageGRID 某個節點是以虛擬機器的形式在VMware主機上執行、請確保用於該節點之資料存放區的磁碟區FabricPool 未啟用「還原」原則。停用FabricPool 與物件節點搭配使用的磁碟區的分層StorageGRID 功能、可簡化疑難排解和儲存作業。
+* 如果您要將 StorageGRID 節點部署為虛擬機器、並從 NetApp ONTAP 系統指派儲存設備、則您已確認該磁碟區未啟用 FabricPool 分層原則。例如、如果 StorageGRID 節點在 VMware 主機上以虛擬機器的形式執行、請確保節點的資料存放區備份磁碟區未啟用 FabricPool 分層原則。停用FabricPool 與物件節點搭配使用的磁碟區的分層StorageGRID 功能、可簡化疑難排解和儲存作業。
 +
 
 NOTE: 切勿使用FabricPool 無法將StorageGRID 任何與還原StorageGRID 本身相關的資料分層。將StorageGRID 資料分層還原StorageGRID 至物件、可增加疑難排解和作業複雜度。

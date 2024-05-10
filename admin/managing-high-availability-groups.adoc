@@ -23,7 +23,7 @@ summary: 您可以將多個管理節點和閘道節點的網路介面分組為�
 
 * 包含閘道節點、管理節點或兩者的HA群組、可為S3和Swift用戶端提供高可用度的資料連線。
 * 僅包含管理節點的HA群組可提供高可用度的網格管理程式和租戶管理程式連線。
-* 僅包含SG100或SG1000應用裝置及VMware軟體節點的HA群組、可為提供高可用度的連線 link:../admin/manage-s3-select-for-tenant-accounts.html["使用S3 Select的S3租戶"]。
+* 只包含服務應用裝置和 VMware 型軟體節點的 HA 群組、可為提供高可用度的連線 link:../admin/manage-s3-select-for-tenant-accounts.html["使用S3 Select的S3租戶"]。
 使用S3 Select時建議使用HA群組、但不需要。
 
 
