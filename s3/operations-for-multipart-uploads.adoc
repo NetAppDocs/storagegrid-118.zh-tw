@@ -31,9 +31,9 @@ summary: 本節說明StorageGRID 此功能如何支援多部份上傳作業。
 
 
 * 所有的多部分上傳作業都支援 StorageGRID link:consistency-controls.html["一致性值"]。
+* 當使用多部分上傳擷取物件時 link:../admin/what-object-segmentation-is.html["物件分割臨界值（ 1 GiB ）"] 未套用。
 * 您可以視需要使用 link:using-server-side-encryption.html["伺服器端加密"] 多部分上傳。若要使用SSe（伺服器端加密搭配StorageGRID管理金鑰）、請加入 `x-amz-server-side-encryption` 僅限 CreateMultpartUpload 要求中的要求標頭。若要使用 SSE-C （伺服器端加密搭配客戶提供的金鑰）、您可以在 CreateMultpartUpload 要求和每個後續的 UploPart 要求中指定相同的三個加密金鑰要求標頭。
-
-
++
 [cols="2a,3a"]
 |===
 | 營運 | 實作 
@@ -89,3 +89,4 @@ ListMultipartUploads
 請參閱 link:upload-part-copy.html["上傳PartCopy"]
 
 |===
+

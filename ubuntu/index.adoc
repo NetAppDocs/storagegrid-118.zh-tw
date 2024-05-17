@@ -44,7 +44,7 @@ summary: 請依照這些高階步驟來安裝 Ubuntu 或 Debian StorageGRID 節�
 
 * 使用 Ansible 、 Puppet 或 Chef 等標準協調架構來自動化：
 +
-** RHEL 的安裝
+** 安裝 Ubuntu 或 Debian
 ** 網路與儲存設備的組態
 ** 安裝容器引擎和 StorageGRID 主機服務
 ** 部署虛擬網格節點

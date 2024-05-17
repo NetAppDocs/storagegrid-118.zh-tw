@@ -8748,10 +8748,6 @@ S3 用戶端可發出 GetObject 或 HeadObject 要求、以驗證物件的複寫
   <block id="7ba981622ca1c0a9fd1087a360161efe" category="paragraph">容器和區段不一定儲存在同一個儲存節點上。容器和區段可儲存在ILM規則中指定之儲存資源池內的任何儲存節點上。</block>
   <block id="b476824c1eb7a9441ca268db480f106f" category="paragraph">每個區段均由StorageGRID 整個系統獨立處理、並有助於計算託管物件和儲存物件等屬性的數量。例如、如果將儲存在StorageGRID 物件叢集系統中的物件分割成兩個區段、則在擷取完成後、「Managed物件」的值會增加三倍、如下所示：</block>
   <block id="4b19aed98748d98fae26c12341a3808b" category="paragraph"><block ref="ea6f38494bae41db8b8356e816b21c54" prefix="" category="inline-code"></block></block>
-  <block id="5670a55c2d12bd097067f67c1b0cd57d" category="paragraph">您可以確保：</block>
-  <block id="c50246874f3ef5fe33cd7e0c1130e3a0" category="list-text">每個閘道和儲存節點都有足夠的網路頻寬來處理所需的處理量。例如、在10 Gbps乙太網路介面上設定個別的Grid和Client Networks。</block>
-  <block id="ed054a2dcbaebcd3d01c379b58edff56" category="list-text">已部署足夠的閘道和儲存節點、以滿足所需的處理量。</block>
-  <block id="9283f4028ccbd82912208bf7a5d132fd" category="list-text">每個儲存節點都有足夠的磁碟 I/O 效能、以滿足所需的處理量。</block>
   <block id="0fc5a6b5097dfe267b97406b446e3ca7" category="summary">如果嘗試傳送 AutoSupport 套件失敗、 StorageGRID 系統會根據 AutoSupport 套件類型採取不同的動作。您可以選取「支援」 &gt;&gt; 「工具」 &gt;&gt; 「 AutoSupport 」 &gt;&gt; 「結果」來檢查 AutoSupport 套件的狀態。</block>
   <block id="433fdcdd89fa69e3a6cc0d66071bbb25" category="doc">疑難排解 AutoSupport 套件</block>
   <block id="54c8d34a7f45fa2284705d75ab8a555d" category="paragraph">如果嘗試傳送 AutoSupport 套件失敗、 StorageGRID 系統會根據 AutoSupport 套件類型採取不同的動作。您可以選擇 * 支援 * &gt; * 工具 * &gt; * AutoSupport * &gt; * 結果 * 來檢查 AutoSupport 套件的狀態。</block>
@@ -23845,4 +23841,7 @@ VM_API_Gateway</block>
   <block id="f7499813526e131b476c73f36c6a4c25" category="summary">您可以使用服務應用裝置來復原故障的閘道節點、故障的非主要管理節點、或是位於 VMware 、 Linux 主機或服務應用裝置上的故障主要管理節點。此程序是網格節點還原程序的一個步驟。</block>
   <block id="42315c8f319103d1f60342aa3fec351f" category="admonition">請勿在同一個站台同時部署 SG110 和 SG1100 服務應用裝置、或 SG100 和 SG1000 服務應用裝置。可能會導致無法預測的效能。</block>
   <block id="cc4ebbff158fd83b1da3996f016b9fa7" category="paragraph">在下列情況下、您可以使用服務應用裝置來恢復故障的網格節點：</block>
+  <block id="d59d870eb266e77446ed7095c1c29700" category="inline-link-macro">物件分割臨界值（ 1 GiB ）</block>
+  <block id="3d030c22adcff0392bf00fa77ac1ce73" category="list-text">當使用多部分上傳擷取物件時 <block ref="a87bfe25dad20d25eeb0de0278a2ca04" category="inline-link-macro-rx"></block> 未套用。</block>
+  <block id="b9bc547f448a534063774563cb84fe3e" category="list-text">安裝 Ubuntu 或 Debian</block>
 </blocks>
