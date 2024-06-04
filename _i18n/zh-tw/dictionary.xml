@@ -5409,7 +5409,6 @@ HA 群組是每個節點包含 StorageGRID 負載平衡器服務的集合。HA �
   <block id="09e91e9533de61221745c8e99edc073c" category="inline-link-macro">新增物件容量的準則</block>
   <block id="9802525c216e9a62d1507f773c521ffa" category="paragraph">在新增儲存Volume之前、請先檢閱 <block ref="cc67dbb4e97043c00aebb97ddc580449" category="inline-link-macro-rx"></block> 確保您知道要在何處新增磁碟區、以符合ILM原則的要求。</block>
   <block id="80c41098192177786ef3a9e33a7ee233" category="inline-link">新增擴充櫃至已部署的SG6060</block>
-  <block id="cf128caf23c0bb531d7cebb00b1f1e8f" category="admonition">這些說明僅適用於軟體型儲存節點。請參閱<block ref="80939074506991608b6e5cc84f728c9b" category="inline-link-rx"></block> 瞭解如何安裝擴充櫃、將儲存磁碟區新增至SG6060。其他應用裝置儲存節點無法擴充。</block>
   <block id="23abdd34ef84f4aef0cd76a623df7bb3" category="paragraph">儲存節點的基礎儲存空間分為儲存磁碟區。儲存磁碟區是以區塊為基礎的儲存裝置、由StorageGRID 作業系統格式化並掛載以儲存物件。每個儲存節點最多可支援16個儲存磁碟區、在Grid Manager中稱為「物件存放區」。</block>
   <block id="bd236d9d3bcb1d3c04b6cc8eb036653a" category="admonition">物件中繼資料一律儲存在物件存放區0中。</block>
   <block id="a5f6c2ca086c7266530d1fa443b47f9f" category="paragraph">每個物件存放區都會掛載到與其ID相對應的磁碟區上。例如、 ID 為 0000 的物件存放區會對應至<block ref="fb8e0763a6ea6baa7d3ce4773c2ef12d" prefix=" " category="inline-code"></block> 掛載點。</block>
@@ -7737,7 +7736,6 @@ S3 用戶端可發出 GetObject 或 HeadObject 要求、以驗證物件的複寫
   <block id="547b9db78fa3732c6c65d9a7f2511a95" category="inline-link-macro">擴充StorageGRID 功能</block>
   <block id="f63f1bc1be248c47f0960eb39d80d3f8" category="paragraph">每個儲存節點都支援最大數量的儲存磁碟區。所定義的最大值會因平台而異。如果儲存節點包含的儲存磁碟區數量少於最大儲存磁碟區數量、您可以新增磁碟區來增加其容量。請參閱的說明 <block ref="ed7fb2693d9c519671d6120bad3f19e1" category="inline-link-macro-rx"></block>。</block>
   <block id="b99c8a2197156d33f316deb2c0d1df35" category="section-title">新增儲存擴充櫃</block>
-  <block id="63b6998560d8d9ca9a59f003536045ed" category="paragraph">某些StorageGRID 諸如SG6060的物件應用儲存節點可支援額外的儲存櫃。如果StorageGRID 您擁有擴充功能尚未擴充至最大容量的不完整產品、您可以新增儲存櫃來增加容量。請參閱的說明 <block ref="ed7fb2693d9c519671d6120bad3f19e1" category="inline-link-macro-rx"></block>。</block>
   <block id="bda90421676565ea5bce60929e24b214" category="section-title">新增儲存節點</block>
   <block id="2f89e09d98b36823a3fd4f2c40508d58" category="paragraph">您可以新增儲存節點來增加儲存容量。新增儲存設備時、必須仔細考量目前使用中的ILM規則和容量需求。請參閱的說明 <block ref="ed7fb2693d9c519671d6120bad3f19e1" category="inline-link-macro-rx"></block>。</block>
   <block id="d5103c9d8c738419b383537e4dcc9355" category="summary">啟用單一登入（SSO）之前、您必須確認至少有一位同盟使用者可以登入Grid Manager、並登入任何現有租戶帳戶的租戶管理程式。</block>
@@ -10277,11 +10275,9 @@ X-NetApp-asup-mode-name +</block>
   <block id="bb3d04c353b1d0fe9c77e4a9a3e08a6c" category="paragraph">您可以使用 SANtricity 為每個儲存設備啟用 AutoSupport 。您可以在初始應用裝置設定期間或安裝應用裝置之後、設定 SANtricity AutoSupport ：</block>
   <block id="09caf66b6805a2aa33a74f3445899a62" category="paragraph">如果您在中設定透過 Proxy 進行 AutoSupport 傳輸、則 E 系列應用裝置的 AutoSupport 套件可包含在 StorageGRID AutoSupport 中 <block ref="a21e08bb91b102c374a379f61adc6a68" category="inline-link-macro-rx"></block>。</block>
   <block id="86384f421619c7ec8647205f4caef951" category="inline-link-macro">硬體警示</block>
-  <block id="c2af3e31bb3938e18f6b0b814b409834" category="paragraph">StorageGRID AutoSupport 不會回報硬體問題、例如 DIMM 或主機介面卡（ HIC ）故障。不過、可能會觸發某些元件故障 <block ref="af763b3bf377ef9fdbd7831bae2c7861" category="inline-link-macro-rx"></block>。對於配備主機板管理控制器（ BMC ）的 StorageGRID 應用裝置（例如 SG100 、 SG1000 、 SG6060 或 SGF6024 ）、您可以設定電子郵件和 SNMP 設陷來回報硬體故障：</block>
   <block id="1d46ac87d12ade0475315e467619d84f" category="inline-link">設定 BMC 警示的電子郵件通知</block>
   <block id="31a1077c0c139a7e231c635bbc6b356b" category="list-text"><block ref="31a1077c0c139a7e231c635bbc6b356b" category="inline-link-rx"></block></block>
   <block id="8c40c4c139d612d7304b70e6f0cb8c7c" category="inline-link">設定 BMC 的 SNMP 設定</block>
-  <block id="86ff0fe67394e4fa17e9b6501999570b" category="list-text"><block ref="3948ad6c249459b7063c84f81f42b9db" category="inline-link-rx"></block> 適用於 SG6000-CN 控制器或 SG100 和 SG1000 服務應用裝置</block>
   <block id="f4d1718476f238773172cc8143587c05" category="paragraph"><block ref="f4d1718476f238773172cc8143587c05" category="inline-link-rx"></block></block>
   <block id="d888e88f01f55cf8f0a34792563cd201" category="summary">連結成本可讓您在有兩個以上的資料中心站台存在時、排定哪個資料中心站台提供所要求的服務的優先順序。您可以調整連結成本、以反映站台之間的延遲。</block>
   <block id="fea922a0192ad3cc3b4770255ffb160c" category="doc">管理連結成本</block>
@@ -11889,7 +11885,6 @@ X-NetApp-asup-mode-name +</block>
   <block id="787fef0a119241554b1e2d1692dc3b04" category="list-text">99：儲存控制器機櫃</block>
   <block id="593fd68194186fa06aae2bcfa1c12e23" category="list-text">0：第一個擴充櫃</block>
   <block id="390572e745bd63bc546eb1e15646a5e8" category="list-text">1：第二個擴充櫃</block>
-  <block id="34f98aaaa70e537c3204a19b8c864e11" category="paragraph">*附註：*擴充櫃僅適用於SG6060。</block>
   <block id="ead199e1741e786212f27e95d9b8851f" category="paragraph">機櫃狀態</block>
   <block id="cfa18c126baa08d4eff4b3a8ff8bf776" category="paragraph">儲存櫃的整體狀態。</block>
   <block id="2cff123344a0955a8976355fe815bc31" category="paragraph">IOM 狀態</block>
@@ -21203,8 +21198,6 @@ VM_API_Gateway</block>
   <block id="4c08a39eba8bc369d32e0b777bd939d5" category="list-text">登入主機作業系統。</block>
   <block id="cab201b4a19b794f81a5a309cc21d97f" category="list-text">停止節點：<block ref="e6b4e0ee65fecc871f61afba7d13bbaf" prefix=" " category="inline-code"></block></block>
   <block id="d344629b7a7ec5c5a37aa64536d54307" category="list-text">關閉主機作業系統。</block>
-  <block id="3d90c5bb70f82caac90bbdc4b538e9ef" category="inline-link">SGF6112 儲存設備</block>
-  <block id="a3018b6bc178a6b1fd557e47f4a94b22" category="paragraph"><block ref="a3018b6bc178a6b1fd557e47f4a94b22" category="inline-link-rx"></block></block>
   <block id="f7a682e5190f72fc74656c0d9aa3fc71" category="inline-link">SG6000儲存設備</block>
   <block id="4e948d08c4438e5bbc4599456d998eb8" category="paragraph"><block ref="4e948d08c4438e5bbc4599456d998eb8" category="inline-link-rx"></block></block>
   <block id="e779f92ce3680c812c26f8bab62627f1" category="inline-link">SG5700 儲存設備</block>
@@ -23844,4 +23837,23 @@ VM_API_Gateway</block>
   <block id="d59d870eb266e77446ed7095c1c29700" category="inline-link-macro">物件分割臨界值（ 1 GiB ）</block>
   <block id="3d030c22adcff0392bf00fa77ac1ce73" category="list-text">當使用多部分上傳擷取物件時 <block ref="a87bfe25dad20d25eeb0de0278a2ca04" category="inline-link-macro-rx"></block> 未套用。</block>
   <block id="b9bc547f448a534063774563cb84fe3e" category="list-text">安裝 Ubuntu 或 Debian</block>
+  <block id="7d08f88518a75f13c2aaf426eed55167" category="paragraph">* 附註： * 擴充機櫃僅適用於 SG6060 和 SG6160 。</block>
+  <block id="aae678bcd23a7d500342421ad9d9864c" category="inline-link">SG6160 儲存設備</block>
+  <block id="ea4bf3a14e7c1a64f54a57f2f3a730c6" category="list-text"><block ref="ea4bf3a14e7c1a64f54a57f2f3a730c6" category="inline-link-rx"></block></block>
+  <block id="c082da62f70f3630c9cdbb2f70e25ceb" category="inline-link">連接埠連結模式（ SG6160 ）</block>
+  <block id="e541e6a8ce71ad9dd582a3851dadc51f" category="list-text"><block ref="e541e6a8ce71ad9dd582a3851dadc51f" category="inline-link-rx"></block></block>
+  <block id="3d653a616afd117e668b1ec6d4cda21b" category="open-title">SG6160</block>
+  <block id="a399fc8c79370132b4648e7f73668265" category="list-text">關閉 SG6100-CN 儲存控制器的電源。</block>
+  <block id="8ea1a38fb7663ed295555651bae87e9f" category="list-text">等待 SG6100-CN 儲存控制器上的藍色電源 LED 熄滅。</block>
+  <block id="53c35213614b3c6e296f44acde145c17" category="inline-link">SGF6112 和 SG6160 儲存設備</block>
+  <block id="37451eec9e8dfab4e834fff2248ce03e" category="list-text"><block ref="37451eec9e8dfab4e834fff2248ce03e" category="inline-link-rx"></block></block>
+  <block id="cba071db2e6e984402f3ea1cbb611840" category="list-text">適用於 SG6160 應用裝置</block>
+  <block id="6e6d49b787447699636bcd1167c466b2" category="paragraph">StorageGRID AutoSupport 不會回報硬體問題、例如 DIMM 或主機介面卡（ HIC ）故障。不過、可能會觸發某些元件故障 <block ref="af763b3bf377ef9fdbd7831bae2c7861" category="inline-link-macro-rx"></block>。對於配備主機板管理控制器（ BMC ）的 StorageGRID 應用裝置、您可以設定電子郵件和 SNMP 設陷來回報硬體故障：</block>
+  <block id="3948ad6c249459b7063c84f81f42b9db" category="list-text"><block ref="3948ad6c249459b7063c84f81f42b9db" category="inline-link-rx"></block></block>
+  <block id="c74fee6cdbf35f73120aa3b6b9b8b6e1" category="paragraph">某些 StorageGRID 應用裝置儲存節點（例如 SG6060 或 SG6160 ）可支援額外的儲存櫃。如果StorageGRID 您擁有擴充功能尚未擴充至最大容量的不完整產品、您可以新增儲存櫃來增加容量。請參閱的說明 <block ref="ed7fb2693d9c519671d6120bad3f19e1" category="inline-link-macro-rx"></block>。</block>
+  <block id="e4c94823822eb560adf47c0c8c4401e4" category="list-text">您可以在每個 SG6160 應用裝置上新增一或兩個擴充架。每個擴充機櫃都會新增 60 個儲存磁碟區。安裝兩個擴充機櫃後、 SG6160 可支援總共 180 個儲存磁碟區。</block>
+  <block id="002c5b52cccb8df3acc3fed409d4cf3f" category="inline-link">將擴充機櫃新增至部署的 SG6160</block>
+  <block id="7e21d6041a09b9b339ad7be5802c9e75" category="list-text">若要在 SG6160 儲存設備中新增一或兩個擴充櫃、請前往<block ref="ef34b01068ea7c3e677ab9e27b749868" category="inline-link-rx"></block></block>
+  <block id="2be6ad5e2e5b8183e8ce21da7c80bb45" category="admonition">這些說明僅適用於軟體型儲存節點。請參閱<block ref="80939074506991608b6e5cc84f728c9b" category="inline-link-rx"></block> 或<block ref="ef34b01068ea7c3e677ab9e27b749868" category="inline-link-rx"></block> 瞭解如何安裝擴充機櫃、將儲存磁碟區新增至 SG6060 或 SG6160 。其他應用裝置儲存節點無法擴充。</block>
+  <block id="db37b96288f306898bba4ed4e564e69c" category="list-text"><block ref="db37b96288f306898bba4ed4e564e69c" category="inline-link-rx"></block></block>
 </blocks>

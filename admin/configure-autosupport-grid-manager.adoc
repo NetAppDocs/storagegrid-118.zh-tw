@@ -190,10 +190,10 @@ AutoSupport for Appliance 回報 StorageGRID 硬體問題、而 StorageGRID Auto
 
 如果您在中設定透過 Proxy 進行 AutoSupport 傳輸、則 E 系列應用裝置的 AutoSupport 套件可包含在 StorageGRID AutoSupport 中 link:../admin/sending-eseries-autosupport-messages-through-storagegrid.html["系統管理程式SANtricity"]。
 
-StorageGRID AutoSupport 不會回報硬體問題、例如 DIMM 或主機介面卡（ HIC ）故障。不過、可能會觸發某些元件故障 link:../monitor/alerts-reference.html["硬體警示"]。對於配備主機板管理控制器（ BMC ）的 StorageGRID 應用裝置（例如 SG100 、 SG1000 、 SG6060 或 SGF6024 ）、您可以設定電子郵件和 SNMP 設陷來回報硬體故障：
+StorageGRID AutoSupport 不會回報硬體問題、例如 DIMM 或主機介面卡（ HIC ）故障。不過、可能會觸發某些元件故障 link:../monitor/alerts-reference.html["硬體警示"]。對於配備主機板管理控制器（ BMC ）的 StorageGRID 應用裝置、您可以設定電子郵件和 SNMP 設陷來回報硬體故障：
 
 * https://docs.netapp.com/us-en/storagegrid-appliances/installconfig/setting-up-email-notifications-for-alerts.html["設定 BMC 警示的電子郵件通知"^]
-* https://docs.netapp.com/us-en/storagegrid-appliances/installconfig/configuring-snmp-settings-for-bmc.html["設定 BMC 的 SNMP 設定"^] 適用於 SG6000-CN 控制器或 SG100 和 SG1000 服務應用裝置
+* https://docs.netapp.com/us-en/storagegrid-appliances/installconfig/configuring-snmp-settings-for-bmc.html["設定 BMC 的 SNMP 設定"^]
 
 
 .相關資訊

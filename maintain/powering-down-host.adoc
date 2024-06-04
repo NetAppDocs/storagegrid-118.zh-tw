@@ -52,6 +52,13 @@ NOTE: 在您發行之後 `shutdown -h now` 在應用裝置節點上執行命令�
 +
 [role="tabbed-block"]
 ====
+.SG6160
+--
+.. 關閉 SG6100-CN 儲存控制器的電源。
+.. 等待 SG6100-CN 儲存控制器上的藍色電源 LED 熄滅。
+
+
+--
 .SGF6112
 --
 .. 關閉產品電源。
@@ -98,7 +105,7 @@ NOTE: 在您發行之後 `shutdown -h now` 在應用裝置節點上執行命令�
 
 
 .相關資訊
-https://docs.netapp.com/us-en/storagegrid-appliances/sg6100/index.html["SGF6112 儲存設備"^]
+https://docs.netapp.com/us-en/storagegrid-appliances/sg6100/index.html["SGF6112 和 SG6160 儲存設備"^]
 
 https://docs.netapp.com/us-en/storagegrid-appliances/sg6000/index.html["SG6000儲存設備"^]
 

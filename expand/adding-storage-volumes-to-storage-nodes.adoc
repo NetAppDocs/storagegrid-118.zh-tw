@@ -17,7 +17,7 @@ summary: 您可以新增額外的儲存磁碟區、以擴充儲存磁碟區容�
 在新增儲存Volume之前、請先檢閱 link:guidelines-for-adding-object-capacity.html["新增物件容量的準則"] 確保您知道要在何處新增磁碟區、以符合ILM原則的要求。
 
 
-NOTE: 這些說明僅適用於軟體型儲存節點。請參閱 https://docs.netapp.com/us-en/storagegrid-appliances/sg6000/adding-expansion-shelf-to-deployed-sg6060.html["新增擴充櫃至已部署的SG6060"^] 瞭解如何安裝擴充櫃、將儲存磁碟區新增至SG6060。其他應用裝置儲存節點無法擴充。
+NOTE: 這些說明僅適用於軟體型儲存節點。請參閱 https://docs.netapp.com/us-en/storagegrid-appliances/sg6000/adding-expansion-shelf-to-deployed-sg6060.html["新增擴充櫃至已部署的SG6060"^] 或 https://docs.netapp.com/us-en/storagegrid-appliances/sg6100/adding-expansion-shelf-to-deployed-sg6160.html["將擴充機櫃新增至部署的 SG6160"^] 瞭解如何安裝擴充機櫃、將儲存磁碟區新增至 SG6060 或 SG6160 。其他應用裝置儲存節點無法擴充。
 
 .關於這項工作
 儲存節點的基礎儲存空間分為儲存磁碟區。儲存磁碟區是以區塊為基礎的儲存裝置、由StorageGRID 作業系統格式化並掛載以儲存物件。每個儲存節點最多可支援16個儲存磁碟區、在Grid Manager中稱為「物件存放區」。
