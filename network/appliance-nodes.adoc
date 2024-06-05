@@ -22,6 +22,7 @@ summary: 您可以設定StorageGRID 使用連接埠綁定模式的網路連接�
 * https://docs.netapp.com/us-en/storagegrid-appliances/installconfig/gathering-installation-information-sg6100.html#port-bond-modes["連接埠連結模式（ SG6160 ）"^]
 * https://docs.netapp.com/us-en/storagegrid-appliances/installconfig/gathering-installation-information-sg6100.html#port-bond-modes["連接埠連結模式（ SGF6112 ）"^]
 * https://docs.netapp.com/us-en/storagegrid-appliances/installconfig/gathering-installation-information-sg6000.html#port-bond-modes["連接埠連結模式（ SG6000-CN 控制器）"^]
+* https://docs.netapp.com/us-en/storagegrid-appliances/installconfig/gathering-installation-information-sg5800.html#port-bond-modes["連接埠連結模式（ SG5800 控制器）"^]
 * https://docs.netapp.com/us-en/storagegrid-appliances/installconfig/gathering-installation-information-sg5700.html#port-bond-modes["連接埠連結模式（ E5700SG 控制器）"^]
 * https://docs.netapp.com/us-en/storagegrid-appliances/installconfig/gathering-installation-information-sg110-and-sg1100.html#port-bond-modes["連接埠連結模式（ SG110 和 SG1100 ）"^]
 * https://docs.netapp.com/us-en/storagegrid-appliances/installconfig/gathering-installation-information-sg100-and-sg1000.html#port-bond-modes["連接埠連結模式（ SG100 和 SG1000 ）"^]

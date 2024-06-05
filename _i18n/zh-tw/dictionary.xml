@@ -23856,4 +23856,16 @@ VM_API_Gateway</block>
   <block id="7e21d6041a09b9b339ad7be5802c9e75" category="list-text">若要在 SG6160 儲存設備中新增一或兩個擴充櫃、請前往<block ref="ef34b01068ea7c3e677ab9e27b749868" category="inline-link-rx"></block></block>
   <block id="2be6ad5e2e5b8183e8ce21da7c80bb45" category="admonition">這些說明僅適用於軟體型儲存節點。請參閱<block ref="80939074506991608b6e5cc84f728c9b" category="inline-link-rx"></block> 或<block ref="ef34b01068ea7c3e677ab9e27b749868" category="inline-link-rx"></block> 瞭解如何安裝擴充機櫃、將儲存磁碟區新增至 SG6060 或 SG6160 。其他應用裝置儲存節點無法擴充。</block>
   <block id="db37b96288f306898bba4ed4e564e69c" category="list-text"><block ref="db37b96288f306898bba4ed4e564e69c" category="inline-link-rx"></block></block>
+  <block id="ab6c3f96f68216e09b97b5abc8ac93dc" category="inline-link">SG5800 儲存應用裝置</block>
+  <block id="0508f385955e6bc3bca9500ccd49bfbb" category="list-text"><block ref="0508f385955e6bc3bca9500ccd49bfbb" category="inline-link-rx"></block></block>
+  <block id="3cc50e8cafc48aa053771144f281699c" category="inline-link">連接埠連結模式（ SG5800 控制器）</block>
+  <block id="e8b8c14b87806ff64e21deea90472625" category="list-text"><block ref="e8b8c14b87806ff64e21deea90472625" category="inline-link-rx"></block></block>
+  <block id="445e825246156afbf483be98791c154f" category="inline-link">SG5800</block>
+  <block id="d8bc215061856957257b16f220092ef7" category="list-text"><block ref="d8bc215061856957257b16f220092ef7" category="inline-link-rx"></block></block>
+  <block id="3f74ae3e57b2bf13e95c153ec9b8102a" category="list-text">適用於 SG5800 應用裝置</block>
+  <block id="01d4dba33c39acfee6527a2ef4d297b1" category="list-text">從「SView System Manager」首頁SANtricity 選取*「View Operations in progress*」。</block>
+  <block id="c98cf85d863f7a9fdd847fa341bcb3b5" category="list-text">請確認所有作業均已完成、然後再繼續下一步。</block>
+  <block id="dc6774fa8560c050e29c019ef5f6960d" category="list-text">關閉控制器機櫃上的兩個電源開關、並等待控制器機櫃上的所有 LED 燈熄滅。</block>
+  <block id="f3d66eb150682e2a60af093e5d16adc7" category="inline-link">SG5800 儲存設備</block>
+  <block id="d3a11ed12eda956eb456e5ddb9b08abe" category="paragraph"><block ref="d3a11ed12eda956eb456e5ddb9b08abe" category="inline-link-rx"></block></block>
 </blocks>

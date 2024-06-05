@@ -76,6 +76,18 @@ NOTE: 在您發行之後 `shutdown -h now` 在應用裝置節點上執行命令�
 
 
 --
+.SG5800
+--
+.. 等待儲存控制器背面的綠色快取作用中LED關閉。
++
+當需要將快取的資料寫入磁碟機時、此LED會亮起。您必須等待此LED燈關閉、才能關閉電源。
+
+.. 從「SView System Manager」首頁SANtricity 選取*「View Operations in progress*」。
+.. 請確認所有作業均已完成、然後再繼續下一步。
+.. 關閉控制器機櫃上的兩個電源開關、並等待控制器機櫃上的所有 LED 燈熄滅。
+
+
+--
 .SG5700
 --
 .. 等待儲存控制器背面的綠色快取作用中LED關閉。
@@ -108,6 +120,8 @@ NOTE: 在您發行之後 `shutdown -h now` 在應用裝置節點上執行命令�
 https://docs.netapp.com/us-en/storagegrid-appliances/sg6100/index.html["SGF6112 和 SG6160 儲存設備"^]
 
 https://docs.netapp.com/us-en/storagegrid-appliances/sg6000/index.html["SG6000儲存設備"^]
+
+https://docs.netapp.com/us-en/storagegrid-appliances/sg5800/index.html["SG5800 儲存設備"^]
 
 https://docs.netapp.com/us-en/storagegrid-appliances/sg5700/index.html["SG5700 儲存設備"^]
 
