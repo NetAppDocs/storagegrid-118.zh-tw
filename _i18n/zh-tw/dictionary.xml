@@ -23868,4 +23868,9 @@ VM_API_Gateway</block>
   <block id="dc6774fa8560c050e29c019ef5f6960d" category="list-text">關閉控制器機櫃上的兩個電源開關、並等待控制器機櫃上的所有 LED 燈熄滅。</block>
   <block id="f3d66eb150682e2a60af093e5d16adc7" category="inline-link">SG5800 儲存設備</block>
   <block id="d3a11ed12eda956eb456e5ddb9b08abe" category="paragraph"><block ref="d3a11ed12eda956eb456e5ddb9b08abe" category="inline-link-rx"></block></block>
+  <block id="4ececd4faa0ee1692a44e0e76c58a432" category="summary">瞭解如何使用 Grid Manager 從 BlueXP  管理您的 StorageGRID 系統、並使用 BlueXP 的資料服務來進行備份、資料分層等。</block>
+  <block id="f0a859d6d1882a29d9e151a82ea1bdce" category="doc">如何使用 BlueXP  管理 StorageGRID</block>
+  <block id="e49fe84ab9de0d0293be60cd1cd89c71" category="inline-link">使用 BlueXP 進行 StorageGRID 管理</block>
+  <block id="68fca0b5ebd1ba543c02e3996102d3a7" category="paragraph">請移至<block ref="153e89292eececc83574f107181d8262" category="inline-link-rx"></block> 以瞭解如何使用 Grid Manager 從 BlueXP  管理您的 StorageGRID 系統、並使用 BlueXP 的資料服務來進行備份、資料分層等。</block>
+  <block id="0bbd35506c5fd92ca668359a77366235" category="sidebar">StorageGRID 與 BlueXP </block>
 </blocks>
