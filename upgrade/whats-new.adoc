@@ -42,6 +42,12 @@ SGF6112 改善功能:: StorageGRID 11.8 和 StorageGRID 應用裝置安裝程式
 == 設定與管理
 
 一致性網格範圍的預設值:: 您可以變更 link:../s3/consistency-controls.html["全網格的預設一致性"] 使用的 Grid Manager 或 GRid-config 端點 link:../admin/using-grid-management-api.html["Grid Management 私有 API"]。新的預設值將套用至變更後建立的貯體。
+預設稽核目的地:: StorageGRID 11.8 的全新安裝預設為本機節點稽核目的地。以前，(`/var/local/log/audit.log`僅將審計消息發送到管理節點上的審計日誌）。
++
+--
+如需變更稽核記錄目的地的相關資訊，請link:../monitor/configure-audit-messages.html#Select-audit-information-destinations["選取稽核資訊目的地"]參閱。
+
+--
 ILM 原則標籤:: 允許使用貯體標籤控制每一貯體的 ILM 原則。多個作用中和非作用中的 ILM 原則可以同時存在。請參閱 link:../ilm/ilm-policy-overview.html["ILM 原則：概觀"]。
 Kafka 端點:: 支援的 Kafka 端點 link:../tenant/understanding-notifications-for-buckets.html["貯體事件通知"]。
 用於管理介面流量的負載平衡器:: 建立負載平衡器端點、以管理管理節點上的管理介面工作負載。請參閱 link:../admin/managing-load-balancing.html["負載平衡考量"]。在這項變更中、您現在可以在建立用於 S3 或 Swift 用戶端存取的 HTTPS 負載平衡器端點時、使用 Grid Manager 和 Tenant Manager 連接埠 443 、 8443 和 9443 。
