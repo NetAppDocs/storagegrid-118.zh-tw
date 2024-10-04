@@ -38,7 +38,7 @@ summary: 如果您使用 HTTP 或 HTTPS 傳送 AutoSupport 套件、您可以在
 
 . 選取下列其中一項：
 +
-** 如果您要保護與管理 Proxy 的連線、請選取 * 驗證憑證 * 。上傳 CA 套件以驗證管理 Proxy 伺服器所提供 SSL 憑證的真實性。
+** 如果您想要保護與管理 Proxy 的連線、請選取 * 驗證 Proxy 憑證 * 。上傳 CA 套件以驗證管理 Proxy 伺服器所提供 SSL 憑證的真實性。
 +
 
 CAUTION: AutoSupport on Demand 、 E 系列 AutoSupport Through StorageGRID 、以及 StorageGRID 升級頁面上的更新路徑判斷、如果驗證了 Proxy 憑證、將無法運作。
@@ -46,7 +46,7 @@ CAUTION: AutoSupport on Demand 、 E 系列 AutoSupport Through StorageGRID 、�
 +
 上傳 CA 套件後、便會顯示其中繼資料。
 
-** 如果您不想在與管理 Proxy 伺服器通訊時驗證憑證、請選取 * 請勿驗證憑證 * 。
+** 如果您不想在與管理 Proxy 伺服器通訊時驗證憑證、請選取 * 不要驗證 Proxy 憑證 * 。
 
 
 . 選擇*保存*。

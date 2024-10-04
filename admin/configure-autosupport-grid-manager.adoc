@@ -80,7 +80,7 @@ link:configuring-admin-proxy-settings.html["瞭解如何設定管理 Proxy 設�
 
 == 停用事件觸發的 AutoSupport
 
-根據預設、 StorageGRID 系統會設定為每小時或發生重要警示或其他重大系統事件時、將 AutoSupport 套件傳送給技術支援。
+根據預設、 StorageGRID 系統會設定為每小時傳送一次 AutoSupport 套件給技術支援。
 
 您可以隨時停用事件觸發的 AutoSupport 。
 

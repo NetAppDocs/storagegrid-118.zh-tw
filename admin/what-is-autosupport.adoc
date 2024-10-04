@@ -64,7 +64,7 @@ AutoSupport 壓縮大小 +
 AutoSupport 解壓縮大小 +
 總收集時間（毫秒）
  a| 
-AutoSupport 歷程檔案
+AutoSupport 歷程檔案。
 
 
 
@@ -158,6 +158,29 @@ GRID 工作 .xml
 
 
  a| 
+GRB.JSON
+ a| 
+Grid + Revision + 軟體版本 + 說明 + 授權 + 密碼 + DNS + NTP + 站台 + 節點
+ a| 
+網格資訊。
+
+
+
+ a| 
+ILM 組態 .xml
+ a| 
+屬性 ID +
+屬性名稱 +
+價值 +
+索引 +
+表 ID +
+表格名稱
+ a| 
+ILM 組態的屬性清單。
+
+
+
+ a| 
 ILM-STATUS.xml
  a| 
 節點 +
@@ -178,7 +201,7 @@ ILM 。 xml
  a| 
 ILM 原始 XML
  a| 
-ILM 作用中原則檔案。包含使用中 ILM 原則的詳細資料、例如儲存池 ID 、擷取行為、篩選器、規則和說明。
+ILM 作用中原則檔案。包含使用中 ILM 原則的詳細資料、例如儲存池 ID 、擷取行為、篩選器、規則和說明。也包含預設 ILM 原則的 XML 。
 
 
 

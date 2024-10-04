@@ -8276,10 +8276,8 @@ S3 用戶端可發出 GetObject 或 HeadObject 要求、以驗證物件的複寫
   <block id="791b07d76fdf6a38c54ddfdd97b765e2" category="list-text">您也可以輸入 Proxy 伺服器的使用者名稱和密碼。</block>
   <block id="e033d5f2462551e9903434736cfaafb2" category="paragraph">如果您的 Proxy 伺服器不需要使用者名稱或密碼、請將這些欄位保留空白。</block>
   <block id="36ddaebda56a8c215a8dfff5eb57566d" category="list-text">選取下列其中一項：</block>
-  <block id="d409ea55b5fbe64875395ca54ef1297f" category="list-text">如果您要保護與管理 Proxy 的連線、請選取 * 驗證憑證 * 。上傳 CA 套件以驗證管理 Proxy 伺服器所提供 SSL 憑證的真實性。</block>
   <block id="137cb49314d7900af126e1051f835823" category="admonition">AutoSupport on Demand 、 E 系列 AutoSupport Through StorageGRID 、以及 StorageGRID 升級頁面上的更新路徑判斷、如果驗證了 Proxy 憑證、將無法運作。</block>
   <block id="9e5d80f44cfdfa5cb86f091585f09559" category="paragraph">上傳 CA 套件後、便會顯示其中繼資料。</block>
-  <block id="5a3a87e2f2fa8847e4f59567934c2020" category="list-text">如果您不想在與管理 Proxy 伺服器通訊時驗證憑證、請選取 * 請勿驗證憑證 * 。</block>
   <block id="b18892a1fe6cb35b011c8785cbd7a8b7" category="paragraph">儲存管理 Proxy 之後、系統會設定管理節點與技術支援之間的 Proxy 伺服器。</block>
   <block id="e26ec55466797d64707b046e78d62c79" category="list-text">如果您需要停用管理 Proxy 、請清除 * 啟用管理 Proxy * 核取方塊、然後選取 * 儲存 * 。</block>
   <block id="e3fa6319cd9bab04b5326eba1d29abbf" category="summary">開始使用網格同盟時、請檢閱跨網格複寫與 StorageGRID CloudMirror 複寫服務之間的相似點和差異。</block>
@@ -9699,7 +9697,6 @@ AutoSupport Put Filename +
 AutoSupport 壓縮大小 +
 AutoSupport 解壓縮大小 +
 總收集時間（毫秒）</block>
-  <block id="f4d72d97033405f7d862c1a7b5f484d9" category="paragraph">AutoSupport 歷程檔案</block>
   <block id="ba505a71998ddceec6eec51fc1e3932d" category="paragraph">AutoSupport .xml</block>
   <block id="0d627a769e3b47db8502d4a046ae1212" category="paragraph">節點 +
 聯絡支援 + 的通訊協定
@@ -9772,7 +9769,6 @@ Swift Write ACL 組態 +
   <block id="c1775704f8911de8db8b3f78e5b98971" category="paragraph">ILM 計量資訊檔案。包含每個節點的 ILM 評估率、以及全網格的計量。</block>
   <block id="4c081411491598226182197ee204fbb9" category="paragraph">ILM 。 xml</block>
   <block id="1608f217dc0a47f7f72a730a8d6124dd" category="paragraph">ILM 原始 XML</block>
-  <block id="12a55c4380ac5cb1308558b77c615a63" category="paragraph">ILM 作用中原則檔案。包含使用中 ILM 原則的詳細資料、例如儲存池 ID 、擷取行為、篩選器、規則和說明。</block>
   <block id="00bd62ef1f02aa8c86268175e45f30a9" category="paragraph">log.Tgz</block>
   <block id="0d8ad07f729b4d37d3a83f5c1433c1d3" category="paragraph">可下載的記錄檔。包含<block ref="da63af0129b9e737c56f070a29e9c107" prefix=" " category="inline-code"></block> 和<block ref="1359bd8f9e3125ff62f5b0e53b2a06b2" prefix=" " category="inline-code"></block> 從每個節點。</block>
   <block id="52524c4ea2186332605b0d87e88655f1" category="paragraph">Manifest.xml</block>
@@ -10235,7 +10231,6 @@ X-NetApp-asup-mode-name +</block>
   <block id="78cc9a767bd4de562f1be5bed46c0a46" category="paragraph">您可以隨時停用每週 AutoSupport 套件的自動傳送功能。</block>
   <block id="edb7278c8efb0bb990ab70b5fa0f2bca" category="list-text">清除 * 啟用每週 AutoSupport * 核取方塊。</block>
   <block id="10055564c024a1426981ce3999a413c3" category="section-title">停用事件觸發的 AutoSupport</block>
-  <block id="0657c1f4d13905929ba826bb23ee8975" category="paragraph">根據預設、 StorageGRID 系統會設定為每小時或發生重要警示或其他重大系統事件時、將 AutoSupport 套件傳送給技術支援。</block>
   <block id="6ec34d4dfe6af88d37f58f463c82dbd1" category="paragraph">您可以隨時停用事件觸發的 AutoSupport 。</block>
   <block id="7311fb484333bd132bc07957481552e3" category="list-text">清除 * 啟用事件觸發的 AutoSupport * 核取方塊。</block>
   <block id="6b24738503e161633995fbad9bcc321b" category="section-title">啟用AutoSupport 隨需功能</block>
@@ -20238,7 +20233,6 @@ VM_API_Gateway</block>
   <block id="aa8824f710e7764401a646dd5708b99b" category="list-text">重新開機完成</block>
   <block id="9dcb5e0f08e6f451ba450fe0a3dcabec" category="section-title">停止循環重新開機程序</block>
   <block id="a76ba97236531c14f3e545e4a1979b33" category="paragraph">您可以從主要管理節點停止循環重新開機程序。當您停止程序時、狀態為「停止服務」、「重新啟動系統」或「啟動服務」的任何節點都會完成重新開機作業。不過、這些節點將不再是程序的一部分。</block>
-  <block id="f825d3105cb7c895ae9c8d0972cc378c" category="list-text">在 * 監視器重新開機 * 步驟中、選取 * 停止重新開機 * 。</block>
   <block id="472453d98a7bad5a11d90232036d1819" category="summary">或者、您可以將Prometheus維護的歷史數據保留在失敗的主要管理節點上。只有StorageGRID 當您的系統包含另一個管理節點時、才能還原Prometheus指標。</block>
   <block id="99fb5d421a4f55c7ebc77ff69be21ab0" category="doc">恢復主管理節點時、請還原Prometheus指標</block>
   <block id="2eeb8e368ac24bb472753e90618ba625" category="list-text">已安裝並執行復原的管理節點。</block>
@@ -23876,4 +23870,15 @@ VM_API_Gateway</block>
   <block id="a2e27e1c9f8243051979f9a4ccf48fe5" category="list-text">預設稽核目的地</block>
   <block id="279ad737122edf40bbd3d46715424816" category="list-text">StorageGRID 11.8 的全新安裝預設為本機節點稽核目的地。以前，<block ref="e674b907872c88ac8370567f44423638" prefix="(" category="inline-code"></block>僅將審計消息發送到管理節點上的審計日誌）。</block>
   <block id="8f1a1fc584955802d03b05fb7d30309d" category="paragraph">如需變更稽核記錄目的地的相關資訊，請<block ref="eb9ec111efb5942e3d3bd0a86d72b7dc" category="inline-link-macro-rx"></block>參閱。</block>
+  <block id="6bf13eb73870a7c6ed1ee6794feb5ce7" category="paragraph">根據預設、 StorageGRID 系統會設定為每小時傳送一次 AutoSupport 套件給技術支援。</block>
+  <block id="cb2e2cdab6c5b7d9b884fb6b295f110f" category="list-text">如果您想要保護與管理 Proxy 的連線、請選取 * 驗證 Proxy 憑證 * 。上傳 CA 套件以驗證管理 Proxy 伺服器所提供 SSL 憑證的真實性。</block>
+  <block id="19c85285ec535031d0e03e9999adb7c3" category="list-text">如果您不想在與管理 Proxy 伺服器通訊時驗證憑證、請選取 * 不要驗證 Proxy 憑證 * 。</block>
+  <block id="b34e09f1cc4642fa3f6ca587c92dac6d" category="paragraph">AutoSupport 歷程檔案。</block>
+  <block id="609fdbff45c6f1fbdea86ceb9f172c9e" category="paragraph">GRB.JSON</block>
+  <block id="a5b18d3ae0cb45c1cff54daf5b25f2a0" category="paragraph">Grid + Revision + 軟體版本 + 說明 + 授權 + 密碼 + DNS + NTP + 站台 + 節點</block>
+  <block id="bc878c6bc5c1304ce76c45aa83e2d614" category="paragraph">網格資訊。</block>
+  <block id="06c55e5865d341ffdb425774b1b3a8cd" category="paragraph">ILM 組態 .xml</block>
+  <block id="1e84855fcb9cafb006ea4a7eada491d5" category="paragraph">ILM 組態的屬性清單。</block>
+  <block id="958f2d60704e1e35d5ddf6bb16950f71" category="paragraph">ILM 作用中原則檔案。包含使用中 ILM 原則的詳細資料、例如儲存池 ID 、擷取行為、篩選器、規則和說明。也包含預設 ILM 原則的 XML 。</block>
+  <block id="f39d876514ff1d863fdf819043adc815" category="list-text">在 * 監視器重新開機 * 步驟中、選取 * 停止重新開機程序 * 。</block>
 </blocks>
