@@ -23881,4 +23881,6 @@ VM_API_Gateway</block>
   <block id="1e84855fcb9cafb006ea4a7eada491d5" category="paragraph">ILM 組態的屬性清單。</block>
   <block id="958f2d60704e1e35d5ddf6bb16950f71" category="paragraph">ILM 作用中原則檔案。包含使用中 ILM 原則的詳細資料、例如儲存池 ID 、擷取行為、篩選器、規則和說明。也包含預設 ILM 原則的 XML 。</block>
   <block id="f39d876514ff1d863fdf819043adc815" category="list-text">在 * 監視器重新開機 * 步驟中、選取 * 停止重新開機程序 * 。</block>
+  <block id="a875f4e3e98d1c995967b1dfb394ca2e" category="inline-link">StorageGRID 11.9 文件</block>
+  <block id="6c2cd681861e61d16c43836be81d3df7" category="list-text"><block ref="6c2cd681861e61d16c43836be81d3df7" category="inline-link-rx"></block></block>
 </blocks>
