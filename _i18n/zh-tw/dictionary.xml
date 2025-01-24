@@ -7407,7 +7407,6 @@ S3 用戶端可發出 GetObject 或 HeadObject 要求、以驗證物件的複寫
   <block id="46e34d4025fadd766beccf79195719d5" category="paragraph">磁碟機加密不適用於 SANtricity 管理的磁碟機。如果您的儲存設備具有自我加密磁碟機和 SANtricity 控制器、則可以在 SANtricity 中啟用磁碟機安全性。</block>
   <block id="b92ce36195d9b7dbea9b50e3b54158a1" category="paragraph">在《支援資料保護系統》中提升安全性SANtricity</block>
   <block id="0472921e1ddce2239a2bd92ea276d1c2" category="inline-link">系統管理程式SANtricity</block>
-  <block id="1ef4f62596cab25c087adc0ac8a32101" category="paragraph">如果 SG5700 或 SG6000 儲存設備已啟用磁碟機安全功能、您可以使用<block ref="283c6e0cd189c125ad2427024dea04cb" category="inline-link-rx"></block> 以建立及管理安全金鑰。存取受保護磁碟機上的資料需要金鑰。</block>
   <block id="62c2fd20c57ec08bbfadfc971ba122bc" category="paragraph">具有全磁碟加密（ FDE ）磁碟機或自我加密磁碟機的儲存設備。安全磁碟機上的所有資料都能受到保護、避免實體遺失或從資料中心移除。無法與某些儲存設備或任何服務應用裝置搭配使用。</block>
   <block id="190f13f2b5ba98e56f6fd5d2240e58ca" category="paragraph">您可以啟用 <block ref="e8ccdd938a1e39ad62159e790db72534" category="inline-link-macro-rx"></block> Grid Manager 中的選項。啟用時、在貯體層級或物件層級未加密的任何新物件、都會在擷取期間加密。</block>
   <block id="c5f5bc763864c10e114ba32b66aaaf01" category="paragraph">新擷取的S3和Swift物件資料。</block>
@@ -23883,4 +23882,5 @@ VM_API_Gateway</block>
   <block id="a875f4e3e98d1c995967b1dfb394ca2e" category="inline-link">StorageGRID 11.9 文件</block>
   <block id="6c2cd681861e61d16c43836be81d3df7" category="list-text"><block ref="6c2cd681861e61d16c43836be81d3df7" category="inline-link-rx"></block></block>
   <block id="336113397a545b57c8aa09ef016d802b" category="list-text">輸入<block ref="f93d31996fecfb15a2c551f7b53c8b27" prefix=" " category="inline-code"></block></block>
+  <block id="202caf39f9c365924c85dae32bfdd5d4" category="paragraph">如果您的 StorageGRID 應用裝置已啟用磁碟機安全功能、您可以使用來<block ref="283c6e0cd189c125ad2427024dea04cb" category="inline-link-rx"></block>建立及管理安全金鑰。存取受保護磁碟機上的資料需要金鑰。</block>
 </blocks>

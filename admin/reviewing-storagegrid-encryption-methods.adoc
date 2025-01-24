@@ -45,7 +45,7 @@ StorageGRID 應用裝置安裝程式中的磁碟機加密頁面
  a| 
 在《支援資料保護系統》中提升安全性SANtricity
  a| 
-如果 SG5700 或 SG6000 儲存設備已啟用磁碟機安全功能、您可以使用 https://docs.netapp.com/us-en/storagegrid-appliances/installconfig/accessing-and-configuring-santricity-system-manager.html["系統管理程式SANtricity"^] 以建立及管理安全金鑰。存取受保護磁碟機上的資料需要金鑰。
+如果您的 StorageGRID 應用裝置已啟用磁碟機安全功能、您可以使用來 https://docs.netapp.com/us-en/storagegrid-appliances/installconfig/accessing-and-configuring-santricity-system-manager.html["系統管理程式SANtricity"^]建立及管理安全金鑰。存取受保護磁碟機上的資料需要金鑰。
  a| 
 具有全磁碟加密（ FDE ）磁碟機或自我加密磁碟機的儲存設備。安全磁碟機上的所有資料都能受到保護、避免實體遺失或從資料中心移除。無法與某些儲存設備或任何服務應用裝置搭配使用。
 
