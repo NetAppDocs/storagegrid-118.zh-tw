@@ -899,7 +899,6 @@
   <block id="df7e94e88d7e541515db8cc819ccf8dc" category="list-text">輸入<block ref="23e554a8303c5e2f2a814b91356f9c72" prefix=" " category="inline-code"></block></block>
   <block id="0fd8dcbac62e03fa4b1e1fdc26c128c7" category="list-text">輸入<block ref="8128b9e658ca83ca63b6a74f47c237a2" prefix=" " category="inline-code"></block></block>
   <block id="a7d635c518fe86efe6bb9ffee7e4c791" category="list-text">識別哪些租戶使用的物件大於 5 GiB 。</block>
-  <block id="44a02387ca031d53e2fa1b10b3cd916a" category="list-text">輸入<block ref="2606b16939bd29d1249feba5778b8362" prefix=" " category="inline-code"></block></block>
   <block id="303cf1c42b3a6db6db18e3cc05a8cdf7" category="list-text">針對結果中的每個稽核訊息、請參閱<block ref="93177f657f533dfc6f27715fdc3ad840" prefix=" " category="inline-code"></block> 欄位以決定租戶帳戶 ID 。使用訊息中的其他欄位來判斷用戶端、貯體和物件使用的 IP 位址：</block>
   <block id="ca0dbad92a874b2f69b549293387925e" category="cell">程式碼</block>
   <block id="3222bc44a036257abda50b3564e53c3f" category="cell">SAIP</block>
@@ -23883,4 +23882,5 @@ VM_API_Gateway</block>
   <block id="f39d876514ff1d863fdf819043adc815" category="list-text">在 * 監視器重新開機 * 步驟中、選取 * 停止重新開機程序 * 。</block>
   <block id="a875f4e3e98d1c995967b1dfb394ca2e" category="inline-link">StorageGRID 11.9 文件</block>
   <block id="6c2cd681861e61d16c43836be81d3df7" category="list-text"><block ref="6c2cd681861e61d16c43836be81d3df7" category="inline-link-rx"></block></block>
+  <block id="336113397a545b57c8aa09ef016d802b" category="list-text">輸入<block ref="f93d31996fecfb15a2c551f7b53c8b27" prefix=" " category="inline-code"></block></block>
 </blocks>
