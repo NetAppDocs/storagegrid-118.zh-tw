@@ -60,7 +60,7 @@ image::../media/nodes_storage_nodes_objects_page_lost_object.png[節點儲存節
 
 . 使用 `ObjectByUUID` 命令、依物件識別碼（UUID）尋找物件、然後判斷資料是否有風險。
 +
-.. 以遠端登入localhost 1402以存取LMR主控台。
+.. 使用 SSH 登入任何儲存節點。然後輸入「 telnet 0 1402 」來存取 LDR 主控台。
 .. 輸入： `/proc/OBRP/ObjectByUUID UUID_value`
 +
 在此第一個範例中、是使用的物件 `UUID 926026C4-00A4-449B-AC72-BCCA72DD1311` 列出兩個位置。

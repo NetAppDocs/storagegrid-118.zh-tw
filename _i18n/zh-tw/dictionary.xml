@@ -800,7 +800,6 @@
   <block id="d9a2c33464b691e90b5f0c46362c9bdc" category="list-text">如果找到物件路徑、請繼續下一步。您可以嘗試將找到的物件還原StorageGRID 回原地。</block>
   <block id="258afe2ad9b582e53ed506dada5096d0" category="list-text">如果找到物件路徑、請嘗試將物件還原StorageGRID 至下列項目：</block>
   <block id="43b8b44b0a967e1ef8de1e4c7a0c4a58" category="list-text">從同一個儲存節點、變更物件檔案的擁有權、以便StorageGRID 由支援部門進行管理。輸入：<block ref="c8c4a474ff1101b29576c351e6129d66" prefix=" " category="inline-code"></block></block>
-  <block id="029f1f03f531802e12c889c58c86e041" category="list-text">以遠端登入localhost 1402以存取LMR主控台。輸入：<block ref="34191054bd50510351a7fb4fa072554a" prefix=" " category="inline-code"></block></block>
   <block id="5c2bf56ce09e0189da43aa423d1b65c1" category="list-text">輸入：<block ref="09bf51a06ef801afda9a942e6515892c" prefix=" " category="inline-code"></block></block>
   <block id="5236e3a4c0eedef26c66ffd03e9ca8a4" category="list-text">輸入：<block ref="f1f4b7a3352df053653ed24e8b411118" prefix=" " category="inline-code"></block></block>
   <block id="6c57049ecf96166740d0148a76ab677b" category="paragraph">發行<block ref="4117b51f6f12e1d13d5623f3df8ae5bd" prefix=" " category="inline-code"></block> 命令會將物件的位置通知網格。它也會觸發作用中的 ILM 原則、並依照每個原則中的指定、製作額外的複本。</block>
@@ -932,7 +931,6 @@
   <block id="bed0f95aae778342ff2aff4af6b18c52" category="list-text">使用Grep擷取物件遺失（OLST）稽核訊息。輸入：<block ref="8d2ee8fb12c31c209ae2e841a6659e03" prefix=" " category="inline-code"></block></block>
   <block id="e296ae2c06db7d039be70a412b2c22a7" category="list-text">請注意訊息中包含的UUID值。</block>
   <block id="7a9ff12f88af18b0bd23124ab09acd1f" category="list-text">使用<block ref="3b5f2a3c0a1edc31b7f0b8b0585091f3" prefix=" " category="inline-code"></block> 命令、依物件識別碼（UUID）尋找物件、然後判斷資料是否有風險。</block>
-  <block id="80bf41dbc56e70b663a01b98218688d1" category="list-text">以遠端登入localhost 1402以存取LMR主控台。</block>
   <block id="699aab537c3942073cc5187c936ddac9" category="list-text">輸入：<block ref="10a424e2e4f41377e0d1fb93612873e7" prefix=" " category="inline-code"></block></block>
   <block id="a304dd99265583b3c66d5579dc54615b" category="paragraph">在此第一個範例中、是使用的物件<block ref="a2a10f65072babcba6a0cbad0bc499da" prefix=" " category="inline-code"></block> 列出兩個位置。</block>
   <block id="723e087b9adb4ef0ac5703456af8ecb3" category="paragraph">在第二個範例中、為的物件<block ref="a2a10f65072babcba6a0cbad0bc499da" prefix=" " category="inline-code"></block> 未列出任何位置。</block>
@@ -23883,4 +23881,12 @@ VM_API_Gateway</block>
   <block id="6c2cd681861e61d16c43836be81d3df7" category="list-text"><block ref="6c2cd681861e61d16c43836be81d3df7" category="inline-link-rx"></block></block>
   <block id="336113397a545b57c8aa09ef016d802b" category="list-text">輸入<block ref="f93d31996fecfb15a2c551f7b53c8b27" prefix=" " category="inline-code"></block></block>
   <block id="202caf39f9c365924c85dae32bfdd5d4" category="paragraph">如果您的 StorageGRID 應用裝置已啟用磁碟機安全功能、您可以使用來<block ref="283c6e0cd189c125ad2427024dea04cb" category="inline-link-rx"></block>建立及管理安全金鑰。存取受保護磁碟機上的資料需要金鑰。</block>
+  <block id="b99211e689eb30a0f585e81b64ad800d" category="paragraph">軟體型中繼資料專用節點資源必須符合現有的儲存節點資源。例如：</block>
+  <block id="d6130d1cbdc5548a68904de8d9a11c11" category="list-text">如果現有的 StorageGRID 站台使用 SG6000 或 SG6100 應用裝置，則僅限軟體型中繼資料節點必須符合下列最低需求：</block>
+  <block id="228d50520d6c2a627ecce76f2775d5e1" category="list-text">128 GB RAM</block>
+  <block id="ba714d418156de991481c94eca5689fb" category="list-text">8 核心 CPU</block>
+  <block id="b6ad52930949db0c7b795eb7c8e9ac6f" category="list-text">8 TB SSD 或與 Cassandra 資料庫相同的儲存設備（ rangedb/0 ）</block>
+  <block id="b869131b8d3adc70fb1aa175c961a46b" category="list-text">如果現有的 StorageGRID 站台使用具有 24 GB RAM ， 8 核心 CPU 和 3 TB 或 4TB 中繼資料儲存設備的虛擬儲存節點，則僅軟體中繼資料節點應使用類似資源（ 24 GB RAM ， 8 核心 CPU 和 4TB 中繼資料儲存設備（ rangedb/0 ）。</block>
+  <block id="5526d91c2268df033d56db9b208fdf10" category="paragraph">新增 StorageGRID 站台時，新站台的中繼資料總容量至少應與現有的 StorageGRID 站台和新站台資源相符，且應與現有 StorageGRID 站台的儲存節點相符。</block>
+  <block id="4ec1c04b72c04679e2ae15cab0a5e471" category="list-text">使用 SSH 登入任何儲存節點。然後輸入「 telnet 0 1402 」來存取 LDR 主控台。</block>
 </blocks>
