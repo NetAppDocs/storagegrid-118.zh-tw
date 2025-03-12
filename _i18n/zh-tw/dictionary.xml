@@ -15170,11 +15170,9 @@ NetApp.storagegrid</block>
   <block id="8ef596bf4eb7277f78ad1d7ad4cc04de" category="sidebar">知識庫StorageGRID</block>
   <block id="c2d388654878e1108f99fdeaa465fcac" category="sidebar">NetApp部落格</block>
   <block id="a310588c148d934b9b30c31802d4a30b" category="sidebar">NetApp社群</block>
-  <block id="8ba7e9fc95ff683b40e7c59130ea44da" category="sidebar">其他版本</block>
   <block id="9ccd79e77976b22b2105fd27f98d48e7" category="sidebar">部分11.4文件StorageGRID</block>
   <block id="8c7a26ec02e66f37e540ca0eca6fd970" category="sidebar">StorageGRID 11.3 文件</block>
   <block id="6944c8247f8c38ca693211d8bafb8a4e" category="sidebar">StorageGRID 11.2 文件</block>
-  <block id="61199ec484cad6cc2dd2ebf9c1a7720c" category="sidebar">StorageGRID 11.8 文件</block>
   <block id="902177bd02ae0a4f1a6bb299d07e6ff7" category="sidebar">安裝應用裝置</block>
   <block id="93001c0e0ab00af3500dd1799087e9d4" category="sidebar">套用 StorageGRID Hotfix</block>
   <block id="531e294adf9b55c98b81240fd08d331d" category="sidebar">Hotfix ：概觀</block>
@@ -19355,7 +19353,6 @@ VM_API_Gateway</block>
   <block id="89020511f4cbea8ea1100a70004b645d" category="inline-link">使用 StorageGRID 進行勒索軟體防禦</block>
   <block id="d6ec8a69c45d301959a0f8590bdf1241" category="paragraph">請遵循中的建議、協助保護物件資料免遭勒索軟體攻擊<block ref="45c0f7ef20285fd7beb4c854421470bd" category="inline-link-rx"></block>。</block>
   <block id="8727881150b0ace8b598a648cdfcd4e1" category="summary">NetApp StorageGRID 是一套軟體定義的物件儲存套件、可在公有雲、私有雲和混合式多雲端環境中支援各種使用案例。StorageGRID 提供 Amazon S3 API 的原生支援、並提供領先業界的創新技術、例如自動化生命週期管理、可長期以符合成本效益的方式儲存、保護、保護及保留非結構化資料。</block>
-  <block id="15b870e7b175a7af88e1f39b1dd67be6" category="doc">StorageGRID 11.8 文件</block>
   <block id="30d965eef5ba25c6b9998ae38270b43e" category="doc">法律聲明</block>
   <block id="e9c44bbfd795a5d63d74c6a77afee70d" category="paragraph">法律聲明提供版權聲明、商標、專利等存取權限。</block>
   <block id="6016a2b341113bf496b719905398ecd2" category="section-title">版權</block>
@@ -19905,21 +19902,6 @@ VM_API_Gateway</block>
   <block id="80b193a425859241aa42bcaf1eb3bf48" category="image-alt">網格管理網路IP</block>
   <block id="69c6e00c8ec46d07bb48fcaac32a0939" category="doc">用戶端網路需求</block>
   <block id="c7a950a9daa901035bf17ddd6154eaeb" category="paragraph">如果您使用用戶端網路、StorageGRID 只有在明確設定的負載平衡器端點上接受傳入用戶端流量、才能保護不受惡意攻擊的可靠性。請參閱 <block ref="cc49ba24bc21d2ae8f532e5a84e9aebb" category="inline-link-macro-rx"></block> 和 <block ref="7a7ba2cabc3c2cf3b35a108ec24ae900" category="inline-link-macro-rx"></block>。</block>
-  <block id="c97c39c2fb666ab046747b5eb4d80a29" category="summary">您可以在此找到 NetApp StorageGRID 軟體其他版本的文件。</block>
-  <block id="d6802b050b61628b78b01c33ead6fac3" category="doc">其他版本的 NetApp StorageGRID 文件</block>
-  <block id="9c033c2a387cf8d35a3a34cb680e78a5" category="paragraph">您可以在這裡找到其他 NetApp StorageGRID 軟體版本的文件：</block>
-  <block id="444a66aeef372672e744a05782bffa7c" category="inline-link">StorageGRID 11.7 文件</block>
-  <block id="a6b4363f6225727f0507281f9ae58717" category="list-text"><block ref="a6b4363f6225727f0507281f9ae58717" category="inline-link-rx"></block></block>
-  <block id="b6a6856979f644f23831092a77a579ae" category="inline-link">StorageGRID 11.6 文件</block>
-  <block id="ebe15b7f3ab23a21b80c2db319837831" category="list-text"><block ref="ebe15b7f3ab23a21b80c2db319837831" category="inline-link-rx"></block></block>
-  <block id="6d307701f8a2621afa3c68f86b66b9f7" category="inline-link">本文檔的內容StorageGRID</block>
-  <block id="57e1c48b034af2352e5a69534ab37dd2" category="list-text"><block ref="57e1c48b034af2352e5a69534ab37dd2" category="inline-link-rx"></block></block>
-  <block id="50c142f8f9e19c4c84cb06dbc431b229" category="inline-link">VMware文件中心StorageGRID</block>
-  <block id="71be9d9e0df7c2f5699834ae68011996" category="list-text"><block ref="71be9d9e0df7c2f5699834ae68011996" category="inline-link-rx"></block></block>
-  <block id="bab03a68f7e57fdecf1481852ac62d80" category="inline-link">Software 11.3文件中心StorageGRID</block>
-  <block id="d2ca6fb14c69e8ac834f4f43b0f0e9d8" category="list-text"><block ref="d2ca6fb14c69e8ac834f4f43b0f0e9d8" category="inline-link-rx"></block></block>
-  <block id="e58d2e166dc215d59ad9458a7cef9dc8" category="inline-link">供應資料中心StorageGRID</block>
-  <block id="dac584c7df1389d2899102bbaee99832" category="list-text"><block ref="dac584c7df1389d2899102bbaee99832" category="inline-link-rx"></block></block>
   <block id="cfd89f37fcc937a92faf616f73dcd24c" category="summary">如果您需要移除多個儲存節點、可以依序或平行取消委任。</block>
   <block id="99b2eef38f6147ce381d9fee8f6a699f" category="doc">取消委任多個儲存節點</block>
   <block id="bd045462ee18e63d4b77b3058af88574" category="admonition">在包含僅軟體中繼資料節點的網格中取消委任儲存節點時、請務必謹慎。如果您取消委任所有設定為儲存物件和中繼資料的節點、則儲存物件的能力會從網格中移除。請參閱 <block ref="8e49185a846f0d976af4a2b64adfc64f" category="inline-link-macro-rx"></block> 如需更多關於純中繼資料儲存節點的資訊、請參閱。</block>
@@ -23877,8 +23859,6 @@ VM_API_Gateway</block>
   <block id="1e84855fcb9cafb006ea4a7eada491d5" category="paragraph">ILM 組態的屬性清單。</block>
   <block id="958f2d60704e1e35d5ddf6bb16950f71" category="paragraph">ILM 作用中原則檔案。包含使用中 ILM 原則的詳細資料、例如儲存池 ID 、擷取行為、篩選器、規則和說明。也包含預設 ILM 原則的 XML 。</block>
   <block id="f39d876514ff1d863fdf819043adc815" category="list-text">在 * 監視器重新開機 * 步驟中、選取 * 停止重新開機程序 * 。</block>
-  <block id="a875f4e3e98d1c995967b1dfb394ca2e" category="inline-link">StorageGRID 11.9 文件</block>
-  <block id="6c2cd681861e61d16c43836be81d3df7" category="list-text"><block ref="6c2cd681861e61d16c43836be81d3df7" category="inline-link-rx"></block></block>
   <block id="336113397a545b57c8aa09ef016d802b" category="list-text">輸入<block ref="f93d31996fecfb15a2c551f7b53c8b27" prefix=" " category="inline-code"></block></block>
   <block id="202caf39f9c365924c85dae32bfdd5d4" category="paragraph">如果您的 StorageGRID 應用裝置已啟用磁碟機安全功能、您可以使用來<block ref="283c6e0cd189c125ad2427024dea04cb" category="inline-link-rx"></block>建立及管理安全金鑰。存取受保護磁碟機上的資料需要金鑰。</block>
   <block id="b99211e689eb30a0f585e81b64ad800d" category="paragraph">軟體型中繼資料專用節點資源必須符合現有的儲存節點資源。例如：</block>
@@ -23889,4 +23869,6 @@ VM_API_Gateway</block>
   <block id="b869131b8d3adc70fb1aa175c961a46b" category="list-text">如果現有的 StorageGRID 站台使用具有 24 GB RAM ， 8 核心 CPU 和 3 TB 或 4TB 中繼資料儲存設備的虛擬儲存節點，則僅軟體中繼資料節點應使用類似資源（ 24 GB RAM ， 8 核心 CPU 和 4TB 中繼資料儲存設備（ rangedb/0 ）。</block>
   <block id="5526d91c2268df033d56db9b208fdf10" category="paragraph">新增 StorageGRID 站台時，新站台的中繼資料總容量至少應與現有的 StorageGRID 站台和新站台資源相符，且應與現有 StorageGRID 站台的儲存節點相符。</block>
   <block id="4ec1c04b72c04679e2ae15cab0a5e471" category="list-text">使用 SSH 登入任何儲存節點。然後輸入「 telnet 0 1402 」來存取 LDR 主控台。</block>
+  <block id="27a5fc98d432133572f8dd4b135b3de1" category="sidebar">舊版</block>
+  <block id="30be66bcfef2e328f8fadba5f17d7d53" category="sidebar">StorageGRID 11.8 文件</block>
 </blocks>
