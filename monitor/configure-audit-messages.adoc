@@ -184,7 +184,7 @@ NOTE: 僅當*用戶端讀取*或*用戶端寫入*的稽核層級不是*關閉*�
 您可以選擇性地設定外部 Syslog 伺服器、將稽核記錄、應用程式記錄和安全性事件記錄儲存到網格外的位置。
 
 
-NOTE: 如果您不想使用外部 Syslog 伺服器、請跳過此步驟並前往 <<Select-audit-information-destinations,選取稽核資訊目的地>>。
+NOTE: 如果您不想使用外部 Syslog 伺服器、請跳過此步驟並前往<<select-audit-information-destinations,選取稽核資訊目的地>>。
 
 
 TIP: 如果此程序中可用的組態選項不夠靈活、無法滿足您的需求、則可使用套用其他組態選項 `audit-destinations` 端點、位於的私有 API 區段 link:../admin/using-grid-management-api.html["網格管理API"]。例如、如果您想要將不同的 Syslog 伺服器用於不同的節點群組、可以使用 API 。
@@ -585,9 +585,15 @@ NOTE: 除非您選取包含外部 Syslog 伺服器的目的地、否則 StorageG
 
 您可以指定稽核記錄檔、安全性事件記錄檔和的位置 link:../monitor/storagegrid-software-logs.html["軟體記錄StorageGRID"] 已傳送。
 
+[NOTE]
+====
+StorageGRID 預設為本機節點稽核目的地、並將稽核資訊儲存在 `/var/local/log/localaudit.log`中。
 
-NOTE: 某些目的地只有在您已設定外部 Syslog 伺服器時才可使用。
+使用 `/var/local/log/localaudit.log`時、 Grid Manager 和 Tenant Manager 稽核記錄項目可能會傳送至儲存節點。您可以使用命令來尋找哪些節點具有最近的項目 `run-each-node --parallel "zgrep MGAU /var/local/log/localaudit.log | tail"`。
 
+某些目的地只有在您已設定外部 Syslog 伺服器時才可使用。
+
+====
 .步驟
 . 在「稽核與系統記錄伺服器」頁面上、選取稽核資訊的目的地。
 +
@@ -603,7 +609,7 @@ TIP: * 僅限本機節點 * 和 * 外部系統記錄伺服器 * 通常可提供�
  a| 
 僅限本機節點（預設）
  a| 
-稽核訊息、安全性事件記錄和應用程式記錄不會傳送至管理節點。而是僅儲存在產生這些節點的節點上（「本機節點」）。在每個本機節點上產生的稽核資訊都儲存在中 `/var/local/log/localaudit.log`
+稽核訊息、安全性事件記錄和應用程式記錄不會傳送至管理節點。而是僅儲存在產生這些節點的節點上（「本機節點」）。在每個本機節點上產生的稽核資訊都儲存在 `/var/local/log/localaudit.log`中。
 
 * 注意 * ： StorageGRID 會定期移除輪替中的本機記錄檔、以釋放空間。當節點的記錄檔達到1 GB時、會儲存現有檔案、並啟動新的記錄檔。記錄檔的旋轉限制為21個檔案。建立22版記錄檔時、會刪除最舊的記錄檔。每個節點平均儲存約20 GB的記錄資料。
 
@@ -612,21 +618,25 @@ TIP: * 僅限本機節點 * 和 * 外部系統記錄伺服器 * 通常可提供�
  a| 
 管理節點 / 本機節點
  a| 
-稽核訊息會傳送至稽核記錄 (`/var/local/log/audit.log`）在管理節點上、安全事件記錄和應用程式記錄會儲存在產生它們的節點上。
+稽核訊息會傳送至管理節點上的稽核記錄、安全性事件記錄和應用程式記錄會儲存在產生這些記錄的節點上。稽核資訊會儲存在下列檔案中：
+
+** 管理節點（主要和非主要）： `/var/local/audit/export/audit.log`
+** 所有節點： `/var/local/log/localaudit.log`檔案通常是空的或遺失的。它可能包含次要資訊、例如某些訊息的額外複本。
+
 
 
 
  a| 
 外部syslog伺服器
  a| 
-稽核資訊會傳送至外部 Syslog 伺服器、並儲存在本機節點上。傳送的資訊類型取決於您設定外部syslog伺服器的方式。只有在設定外部syslog伺服器之後、才會啟用此選項。
+稽核資訊會傳送到外部 Syslog 伺服器、並儲存在本機節點上(`/var/local/log/localaudit.log`）。傳送的資訊類型取決於您設定外部syslog伺服器的方式。只有在設定外部syslog伺服器之後、才會啟用此選項。
 
 
 
  a| 
 管理節點和外部syslog伺服器
  a| 
-稽核訊息會傳送至稽核記錄 (`/var/local/log/audit.log`）並將稽核資訊傳送至外部 Syslog 伺服器、並儲存在本機節點上。傳送的資訊類型取決於您設定外部syslog伺服器的方式。只有在設定外部syslog伺服器之後、才會啟用此選項。
+稽核訊息會傳送至(`/var/local/audit/export/audit.log`管理節點上的稽核記錄檔）、稽核資訊會傳送至外部 Syslog 伺服器並儲存在本機節點上(`/var/local/log/localaudit.log`）。傳送的資訊類型取決於您設定外部syslog伺服器的方式。只有在設定外部syslog伺服器之後、才會啟用此選項。
 
 |===
 . 選擇*保存*。

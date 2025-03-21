@@ -25,6 +25,12 @@ summary: 稽核訊息可協助您更深入瞭解StorageGRID 您的作業系統�
 
 為了輕鬆存取稽核記錄、您可以 link:../admin/configuring-audit-client-access.html["設定 NFS 的稽核用戶端存取"]。您也可以直接從管理節點的命令列存取稽核記錄檔。
 
-您也可以變更稽核記錄的目的地、並將稽核資訊傳送至外部syslog伺服器。設定外部syslog伺服器時、仍會繼續產生及儲存稽核記錄的本機記錄。請參閱 link:../monitor/configure-audit-messages.html["設定稽核訊息和記錄目的地"]。
+StorageGRID 預設可以傳送稽核資訊、也可以變更目的地：
+
+* 根據您的安裝， StorageGRID 預設為本機節點或管理節點稽核目的地。
+* Grid Manager 和 Tenant Manager 稽核記錄項目可能會傳送至儲存節點。
+* 您也可以變更稽核記錄的目的地、並將稽核資訊傳送至外部syslog伺服器。設定外部syslog伺服器時、仍會繼續產生及儲存稽核記錄的本機記錄。
+* link:../monitor/configure-audit-messages.html["瞭解如何設定稽核訊息和記錄目的地"]。
+
 
 如需稽核記錄檔、稽核訊息格式、稽核訊息類型、以及可用於分析稽核訊息的工具的詳細資訊、請參閱 link:../audit/index.html["檢閱稽核記錄"]。

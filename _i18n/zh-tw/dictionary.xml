@@ -781,7 +781,6 @@
   <block id="47ee1ebf35c423b283c4bb80f8b514e9" category="list-text">從管理節點搜尋稽核記錄、找出可能的物件位置：</block>
   <block id="7cc28340acdd775c05e6ecc2a704b5c0" category="list-text">輸入中所列的密碼<block ref="28325afa13c532a62489ef0d7bee3061" prefix=" " category="inline-code"></block> 檔案：
 當您以root登入時、提示會從變更<block ref="c3e97dd6e97fb5125688c97f36720cbe" prefix=" " category="inline-code"></block> 至<block ref="01abfc750a0c942167651c40d088531d" prefix=" " category="inline-code"></block>。</block>
-  <block id="79d10507d1eb578753c760fc95e12b82" category="list-text">變更至稽核記錄所在的目錄：<block ref="deb122ad627cb486d581056e71282741" prefix=" " category="inline-code"></block></block>
   <block id="2d50451d1ed99088cac1a292a038e693" category="inline-link-macro">稽核與潛在遺失物件相關的訊息</block>
   <block id="426d738fee44d6a6555919a8b96a1e9d" category="list-text">使用 Grep 擷取 <block ref="22bb5241ff31e71b2705e48e57c4b0fe" category="inline-link-macro-rx"></block> 並將其傳送至輸出檔案。輸入：<block ref="63c809629b1c74ea124c6ac6b469909e" prefix=" " category="inline-code"></block></block>
   <block id="8a5de422d7c0ef16acdca149cb923f24" category="list-text">使用Grep擷取此輸出檔案中的「位置遺失（LLST）」稽核訊息。輸入：<block ref="77f8923361a2e09749aba63083dc7827" prefix=" " category="inline-code"></block></block>
@@ -896,7 +895,6 @@
   <block id="8a763c715195c6c30b293013c82e2126" category="list-text">轉至 * 配置 * &gt; * 監控 * &gt; * 審計和系統日誌服務器 * 。</block>
   <block id="1fa458d6f22f9317d191067ad9c73bf0" category="list-text">如果用戶端寫入為正常、請存取稽核記錄：</block>
   <block id="df7e94e88d7e541515db8cc819ccf8dc" category="list-text">輸入<block ref="23e554a8303c5e2f2a814b91356f9c72" prefix=" " category="inline-code"></block></block>
-  <block id="0fd8dcbac62e03fa4b1e1fdc26c128c7" category="list-text">輸入<block ref="8128b9e658ca83ca63b6a74f47c237a2" prefix=" " category="inline-code"></block></block>
   <block id="a7d635c518fe86efe6bb9ffee7e4c791" category="list-text">識別哪些租戶使用的物件大於 5 GiB 。</block>
   <block id="303cf1c42b3a6db6db18e3cc05a8cdf7" category="list-text">針對結果中的每個稽核訊息、請參閱<block ref="93177f657f533dfc6f27715fdc3ad840" prefix=" " category="inline-code"></block> 欄位以決定租戶帳戶 ID 。使用訊息中的其他欄位來判斷用戶端、貯體和物件使用的 IP 位址：</block>
   <block id="ca0dbad92a874b2f69b549293387925e" category="cell">程式碼</block>
@@ -927,7 +925,6 @@
   <block id="b249b823efa220cdc92c155f83791484" category="image-alt">節點儲存節點物件頁面遺失物件</block>
   <block id="d0c60358e5ae5e5778829519414b99ce" category="inline-link-macro">存取稽核記錄</block>
   <block id="ba95293a64f96f2cebf7d9e4076d0c67" category="list-text">從管理節點、 <block ref="851cdae78f4ca792157b09646614b3ca" category="inline-link-macro-rx"></block> 若要判斷觸發「 * 物件遺失 * 」警示的物件的唯一識別碼（ UUID ）：</block>
-  <block id="2652ea5b6eed80528235dd1a655ffc12" category="list-text">變更至稽核記錄所在的目錄。輸入：<block ref="deb122ad627cb486d581056e71282741" prefix=" " category="inline-code"></block></block>
   <block id="bed0f95aae778342ff2aff4af6b18c52" category="list-text">使用Grep擷取物件遺失（OLST）稽核訊息。輸入：<block ref="8d2ee8fb12c31c209ae2e841a6659e03" prefix=" " category="inline-code"></block></block>
   <block id="e296ae2c06db7d039be70a412b2c22a7" category="list-text">請注意訊息中包含的UUID值。</block>
   <block id="7a9ff12f88af18b0bd23124ab09acd1f" category="list-text">使用<block ref="3b5f2a3c0a1edc31b7f0b8b0585091f3" prefix=" " category="inline-code"></block> 命令、依物件識別碼（UUID）尋找物件、然後判斷資料是否有風險。</block>
@@ -5505,7 +5502,6 @@ HA 群組是每個節點包含 StorageGRID 負載平衡器服務的集合。HA �
   <block id="5eaa0fb201a8440d17e19d30e77c0c77" category="list-text">登入擴充管理節點：</block>
   <block id="a6fa59a0255002431fba6a46d5ea52f1" category="list-text">輸入下列命令：<block ref="429751287ceacef5be558909dd3700e8" prefix=" " category="inline-code"></block></block>
   <block id="072ef37b447cac236379a387c8ebb96a" category="list-text">更新稽核記錄檔的使用者和群組設定：</block>
-  <block id="84d54dccb51332fa23a4399b443d918c" category="paragraph"><block ref="8128b9e658ca83ca63b6a74f47c237a2" prefix="" category="inline-code"></block> +<block ref="abee3d65b7b57cee8c94fded57a55207" prefix=" " category="inline-code"></block></block>
   <block id="dd2a065fb261e525830f85844976e790" category="summary">如果儲存節點包含少於16個儲存磁碟區、您可以新增區塊儲存設備、讓Linux主機看到這些儲存設備、並將新的區塊裝置對應新增至StorageGRID 用於儲存節點的更新組態檔、藉此增加容量。</block>
   <block id="1f607e36bfae0ed8067e84e06ffaf6bc" category="list-text">您可以取得安裝StorageGRID 適用於Linux平台的功能介紹。</block>
   <block id="b0880c1b676e67050270238d3222c66f" category="admonition">當軟體升級、還原程序或其他擴充程序處於作用中狀態時、請勿嘗試將儲存磁碟區新增至儲存節點。</block>
@@ -12473,7 +12469,6 @@ NetApp.storagegrid</block>
   <block id="60971ee036fc828a7f3f011d017e0050" category="section-title">[[use-external -syslog-server]] 使用外部 Syslog 伺服器</block>
   <block id="6b0ec1175ef3fb75de2f76b033681e95" category="paragraph">您可以選擇性地設定外部 Syslog 伺服器、將稽核記錄、應用程式記錄和安全性事件記錄儲存到網格外的位置。</block>
   <block id="9dbccc9978bf7a6cd6f61454ca3dd73d" category="inline-xref">選取稽核資訊目的地</block>
-  <block id="d276b907c7b72a30241bacdfbe772515" category="admonition">如果您不想使用外部 Syslog 伺服器、請跳過此步驟並前往 <block ref="87072221f37d4bc0cc02a909f99f56e5" category="inline-xref-macro-rx"></block>。</block>
   <block id="61b5c38b18f3820f2f4c8e30c5cafd11" category="admonition">如果此程序中可用的組態選項不夠靈活、無法滿足您的需求、則可使用套用其他組態選項<block ref="ea765f48f100619936ccdcd0b683c049" prefix=" " category="inline-code"></block> 端點、位於的私有 API 區段 <block ref="cc49cdce4b10453bb923896a29379c6d" category="inline-link-macro-rx"></block>。例如、如果您想要將不同的 Syslog 伺服器用於不同的節點群組、可以使用 API 。</block>
   <block id="fbbf2d5cf773415c1e9cf5eeb281df85" category="section-title">輸入系統記錄資訊</block>
   <block id="ab205850007617ac9bc8ca5a91f57cf7" category="paragraph">存取「設定外部系統記錄伺服器」精靈、並提供 StorageGRID 存取外部系統記錄伺服器所需的資訊。</block>
@@ -12582,17 +12577,12 @@ NetApp.storagegrid</block>
   <block id="799e3f91ddd03b7a49e275dd8011bc44" category="paragraph">您將返回到* Audit和syslog server*頁面。綠色橫幅表示系統記錄伺服器組態已儲存。</block>
   <block id="b3ebc08545d522d257f962592c0c4ff7" category="admonition">除非您選取包含外部 Syslog 伺服器的目的地、否則 StorageGRID 稽核資訊不會傳送至外部 Syslog 伺服器。</block>
   <block id="88a94edacd8faca5352fd96948895a5d" category="paragraph">您可以指定稽核記錄檔、安全性事件記錄檔和的位置 <block ref="62a46aba536e97d2036ebe496a8f38d6" category="inline-link-macro-rx"></block> 已傳送。</block>
-  <block id="d88853528fd56c72f54f04de9e9fba69" category="admonition">某些目的地只有在您已設定外部 Syslog 伺服器時才可使用。</block>
   <block id="2f6e8bdc6346bb032a4b780d4060113c" category="list-text">在「稽核與系統記錄伺服器」頁面上、選取稽核資訊的目的地。</block>
   <block id="5f3372598a7e4ea4cd6e98baab645ff4" category="admonition">* 僅限本機節點 * 和 * 外部系統記錄伺服器 * 通常可提供更好的效能。</block>
-  <block id="e8aa24b17c01c7f281b3c456e7820c8f" category="paragraph">稽核訊息、安全性事件記錄和應用程式記錄不會傳送至管理節點。而是僅儲存在產生這些節點的節點上（「本機節點」）。在每個本機節點上產生的稽核資訊都儲存在中<block ref="bc9191d963b550670854df9485545416" prefix=" " category="inline-code"></block></block>
   <block id="3b8093e965fbf0247bee9e19ad740bc4" category="paragraph">* 注意 * ： StorageGRID 會定期移除輪替中的本機記錄檔、以釋放空間。當節點的記錄檔達到1 GB時、會儲存現有檔案、並啟動新的記錄檔。記錄檔的旋轉限制為21個檔案。建立22版記錄檔時、會刪除最舊的記錄檔。每個節點平均儲存約20 GB的記錄資料。</block>
   <block id="38319ee01166f2ff92e525904d7b73a0" category="paragraph">管理節點 / 本機節點</block>
-  <block id="0cb4cdff1ef4a0426f582a8488ed4ae3" category="paragraph">稽核訊息會傳送至稽核記錄 <block ref="e674b907872c88ac8370567f44423638" prefix="(" category="inline-code"></block>）在管理節點上、安全事件記錄和應用程式記錄會儲存在產生它們的節點上。</block>
   <block id="50ea2454931a155c2505f19e549486ff" category="paragraph">外部syslog伺服器</block>
-  <block id="4ff0f7ad14a01f5f42ad118c3f6956cb" category="paragraph">稽核資訊會傳送至外部 Syslog 伺服器、並儲存在本機節點上。傳送的資訊類型取決於您設定外部syslog伺服器的方式。只有在設定外部syslog伺服器之後、才會啟用此選項。</block>
   <block id="b43d00e439104a2a74c665f36b98b78d" category="paragraph">管理節點和外部syslog伺服器</block>
-  <block id="7151fbde83e72ba04d476948e5ac9c0a" category="paragraph">稽核訊息會傳送至稽核記錄 <block ref="e674b907872c88ac8370567f44423638" prefix="(" category="inline-code"></block>）並將稽核資訊傳送至外部 Syslog 伺服器、並儲存在本機節點上。傳送的資訊類型取決於您設定外部syslog伺服器的方式。只有在設定外部syslog伺服器之後、才會啟用此選項。</block>
   <block id="65bce8d0d49681062f71ae98a99361a4" category="paragraph">出現警告訊息。</block>
   <block id="561e21cf9538d868eb70547550555ff6" category="list-text">選取 * 確定 * 以確認您要變更稽核資訊的目的地。</block>
   <block id="d838bea8988184a382f2c15e0d3c2050" category="paragraph">綠色橫幅表示稽核組態已儲存。</block>
@@ -23871,4 +23861,30 @@ VM_API_Gateway</block>
   <block id="4ec1c04b72c04679e2ae15cab0a5e471" category="list-text">使用 SSH 登入任何儲存節點。然後輸入「 telnet 0 1402 」來存取 LDR 主控台。</block>
   <block id="27a5fc98d432133572f8dd4b135b3de1" category="sidebar">舊版</block>
   <block id="30be66bcfef2e328f8fadba5f17d7d53" category="sidebar">StorageGRID 11.8 文件</block>
+  <block id="f46d78b08f1c5cf231ca39ca2b04235f" category="paragraph">稽核記錄目錄和適用的節點取決於您的稽核目的地設定。</block>
+  <block id="5d6fa84951bfdac1838890ed410b565c" category="paragraph">本機節點（預設）</block>
+  <block id="965b88e4fba786c4d838d8e718a8c9a1" category="paragraph"><block ref="bc9191d963b550670854df9485545416" prefix="" category="inline-code"></block></block>
+  <block id="28a5123644d0679ae4e5fe468e64fa34" category="list-text">管理節點（主要和非主要）：<block ref="0477507f10899867b87b3565143dff3c" prefix=" " category="inline-code"></block></block>
+  <block id="b4308347865e1fe28b4753d9e5b6c2b7" category="list-text">所有節點：<block ref="bc9191d963b550670854df9485545416" prefix=" " category="inline-code"></block>此模式中的檔案通常是空的或遺失的。</block>
+  <block id="b81e2d67c823582696bdc4eff4dece56" category="paragraph">視稽核目的地設定而定，請輸入：<block ref="8128b9e658ca83ca63b6a74f47c237a2" prefix=" " category="inline-code"></block>或<block ref="a655d8961c5b4cfeb6723fdad7f92b75" prefix=" " category="inline-code"></block></block>
+  <block id="b738d97a5b00611155b5049fa75dea6a" category="paragraph">若要深入瞭解、請 <block ref="212e000c31180041ea825ba2d7153b6f" category="inline-link-macro-rx"></block>參閱。</block>
+  <block id="ffab9a0a8e7cbc9105212711d425611f" category="admonition">如果您不想使用外部 Syslog 伺服器、請跳過此步驟並前往<block ref="c22ee8789664414489cd7977c16dd738" category="inline-xref-macro-rx"></block>。</block>
+  <block id="f2b300f3407bc87b6c582b581c2dfc65" category="paragraph">StorageGRID 預設為本機節點稽核目的地、並將稽核資訊儲存在<block ref="bc9191d963b550670854df9485545416" prefix=" " category="inline-code"></block>中。</block>
+  <block id="fd3c53d264d60287a8e859978a04698b" category="paragraph">使用<block ref="bc9191d963b550670854df9485545416" prefix=" " category="inline-code"></block>時、 Grid Manager 和 Tenant Manager 稽核記錄項目可能會傳送至儲存節點。您可以使用命令來尋找哪些節點具有最近的項目<block ref="105f8b3c897c5eecffb70df428293ab7" prefix=" " category="inline-code"></block>。</block>
+  <block id="098aba5222c41c87d02af6a949f1598f" category="paragraph">某些目的地只有在您已設定外部 Syslog 伺服器時才可使用。</block>
+  <block id="46e49782eee1e579b810d1c52f5f95ad" category="paragraph">稽核訊息、安全性事件記錄和應用程式記錄不會傳送至管理節點。而是僅儲存在產生這些節點的節點上（「本機節點」）。在每個本機節點上產生的稽核資訊都儲存在<block ref="bc9191d963b550670854df9485545416" prefix=" " category="inline-code"></block>中。</block>
+  <block id="e710d60f947a90a78295308311fa2815" category="paragraph">稽核訊息會傳送至管理節點上的稽核記錄、安全性事件記錄和應用程式記錄會儲存在產生這些記錄的節點上。稽核資訊會儲存在下列檔案中：</block>
+  <block id="82dbe249450f8784310da2e8815da133" category="list-text">所有節點：<block ref="bc9191d963b550670854df9485545416" prefix=" " category="inline-code"></block>檔案通常是空的或遺失的。它可能包含次要資訊、例如某些訊息的額外複本。</block>
+  <block id="7714a5f277da3088ccf1aeec5fbc59e0" category="paragraph">稽核資訊會傳送到外部 Syslog 伺服器、並儲存在本機節點上<block ref="bc9191d963b550670854df9485545416" prefix="(" category="inline-code"></block>）。傳送的資訊類型取決於您設定外部syslog伺服器的方式。只有在設定外部syslog伺服器之後、才會啟用此選項。</block>
+  <block id="899f474bfc7e40b76060770d754b57f1" category="paragraph">稽核訊息會傳送至<block ref="0477507f10899867b87b3565143dff3c" prefix="(" category="inline-code"></block>管理節點上的稽核記錄檔）、稽核資訊會傳送至外部 Syslog 伺服器並儲存在本機節點上<block ref="bc9191d963b550670854df9485545416" prefix="(" category="inline-code"></block>）。傳送的資訊類型取決於您設定外部syslog伺服器的方式。只有在設定外部syslog伺服器之後、才會啟用此選項。</block>
+  <block id="3fb29eb79422ba280dfd5c35e336d5f0" category="paragraph">StorageGRID 預設可以傳送稽核資訊、也可以變更目的地：</block>
+  <block id="a2bc7d77d31290edd3b02350c7f4ec1b" category="list-text">根據您的安裝， StorageGRID 預設為本機節點或管理節點稽核目的地。</block>
+  <block id="649be60954ddd880945fbe6669cbeadb" category="list-text">Grid Manager 和 Tenant Manager 稽核記錄項目可能會傳送至儲存節點。</block>
+  <block id="4345c07eaba3ed61281d0fde2e0a1314" category="list-text">您也可以變更稽核記錄的目的地、並將稽核資訊傳送至外部syslog伺服器。設定外部syslog伺服器時、仍會繼續產生及儲存稽核記錄的本機記錄。</block>
+  <block id="139faffc402fa84e7e76e6a461cbc526" category="inline-link-macro">瞭解如何設定稽核訊息和記錄目的地</block>
+  <block id="c8ede56dab8848581960d6fff53fb0dc" category="list-text"><block ref="1ee396bdf4eb99d9ffb872e2ad584eba" category="inline-link-macro-rx"></block>。</block>
+  <block id="16d41abb9d77f3e37b5a909333c79d85" category="list-text">變更至稽核記錄所在的目錄。</block>
+  <block id="34e0c51b0645847e93351125647002d5" category="list-text">[[substep - 1b]] 變更至稽核記錄所在的目錄。</block>
+  <block id="7c03f41530726ffda9e064ae1132bf05" category="inline-xref">子步驟 1. B</block>
+  <block id="8d2596b8fc055620ab4703a4b76e1538" category="list-text">變更至稽核記錄所在的目錄。請參閱 <block ref="b1b12721c28875151da1012031aa105a" category="inline-xref-macro-rx"></block>。</block>
 </blocks>

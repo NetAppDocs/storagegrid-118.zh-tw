@@ -86,7 +86,9 @@ mv audit.log _new_name_.txt
 
 . 更新稽核記錄檔的使用者和群組設定：
 +
-`cd /var/local/log` +
+`cd /var/local/log`
+
++
 `chown ams-user:bycast *`
 
 . 從伺服器登出：
