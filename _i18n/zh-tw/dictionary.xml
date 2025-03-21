@@ -23878,7 +23878,6 @@ VM_API_Gateway</block>
   <block id="7714a5f277da3088ccf1aeec5fbc59e0" category="paragraph">稽核資訊會傳送到外部 Syslog 伺服器、並儲存在本機節點上<block ref="bc9191d963b550670854df9485545416" prefix="(" category="inline-code"></block>）。傳送的資訊類型取決於您設定外部syslog伺服器的方式。只有在設定外部syslog伺服器之後、才會啟用此選項。</block>
   <block id="899f474bfc7e40b76060770d754b57f1" category="paragraph">稽核訊息會傳送至<block ref="0477507f10899867b87b3565143dff3c" prefix="(" category="inline-code"></block>管理節點上的稽核記錄檔）、稽核資訊會傳送至外部 Syslog 伺服器並儲存在本機節點上<block ref="bc9191d963b550670854df9485545416" prefix="(" category="inline-code"></block>）。傳送的資訊類型取決於您設定外部syslog伺服器的方式。只有在設定外部syslog伺服器之後、才會啟用此選項。</block>
   <block id="3fb29eb79422ba280dfd5c35e336d5f0" category="paragraph">StorageGRID 預設可以傳送稽核資訊、也可以變更目的地：</block>
-  <block id="a2bc7d77d31290edd3b02350c7f4ec1b" category="list-text">根據您的安裝， StorageGRID 預設為本機節點或管理節點稽核目的地。</block>
   <block id="649be60954ddd880945fbe6669cbeadb" category="list-text">Grid Manager 和 Tenant Manager 稽核記錄項目可能會傳送至儲存節點。</block>
   <block id="4345c07eaba3ed61281d0fde2e0a1314" category="list-text">您也可以變更稽核記錄的目的地、並將稽核資訊傳送至外部syslog伺服器。設定外部syslog伺服器時、仍會繼續產生及儲存稽核記錄的本機記錄。</block>
   <block id="139faffc402fa84e7e76e6a461cbc526" category="inline-link-macro">瞭解如何設定稽核訊息和記錄目的地</block>
@@ -23887,4 +23886,5 @@ VM_API_Gateway</block>
   <block id="34e0c51b0645847e93351125647002d5" category="list-text">[[substep - 1b]] 變更至稽核記錄所在的目錄。</block>
   <block id="7c03f41530726ffda9e064ae1132bf05" category="inline-xref">子步驟 1. B</block>
   <block id="8d2596b8fc055620ab4703a4b76e1538" category="list-text">變更至稽核記錄所在的目錄。請參閱 <block ref="b1b12721c28875151da1012031aa105a" category="inline-xref-macro-rx"></block>。</block>
+  <block id="d64a6bcdda65708c9f5f9461c48d170a" category="list-text">StorageGRID 預設為本機節點稽核目的地。</block>
 </blocks>
