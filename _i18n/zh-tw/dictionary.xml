@@ -7927,19 +7927,10 @@ S3 用戶端可發出 GetObject 或 HeadObject 要求、以驗證物件的複寫
   <block id="2a6e5780fcff0602fba8fa405d1b367a" category="list-text">使用「管理外部存取」索引標籤來封鎖所有連接埠。</block>
   <block id="dbd9d88338148240f1f0f6e833f9a986" category="admonition">在封鎖連接埠 443 和 8443 之前、請先新增權限 IP 位址。目前連線至封鎖連接埠的任何使用者（包括您）將無法存取 Grid Manager 、除非他們的 IP 位址已新增至「貴賓」位址清單。</block>
   <block id="3aa93329bb12b545acf4112432362615" category="paragraph">儲存組態之後、除了跳躍主機之外、所有主機都會封鎖網格中管理節點上的所有外部連接埠。然後、您可以使用跳躍主機更安全地在網格上執行維護工作。</block>
-  <block id="1b80cc5863eec11b5be78de24401eed7" category="section-title">範例 2 ：限制存取 Grid Manager 和 Tenant Manager</block>
-  <block id="ab418b2aa8bd029edbdeaec4e8069fc1" category="paragraph">假設基於安全考量、您想要限制對 Grid Manager 和 Tenant Manager （預設連接埠）的存取。您可以使用下列一般步驟：</block>
-  <block id="5338f9069cca40b53c2d3e53fff0024b" category="list-text">使用「管理外部存取」索引標籤上的切換開關來封鎖連接埠 443 。</block>
-  <block id="e45024969383b92fba46de3511d791e6" category="list-text">使用「管理外部存取」索引標籤上的切換開關、即可存取連接埠 8443 。</block>
-  <block id="ccff3a0cd95fb642d69edff920b8a235" category="list-text">使用「管理外部存取」索引標籤上的切換開關、即可存取連接埠 9443 。</block>
-  <block id="59e9ff020f38125b4a1f1042d9d63f05" category="paragraph">儲存組態後、主機將無法存取連接埠 443 、但仍可透過連接埠 8443 存取 Grid Manager 、並透過連接埠 9443 存取 Tenant Manager 。</block>
-  <block id="47821618b74fff7da40bea36a0ef947a" category="admonition">連接埠 443 、 8443 和 9443 是 Grid Manager 和 Tenant Manager 的預設連接埠。您可以切換任何連接埠、以限制對特定 Grid Manager 或 Tenant Manager 的存取。</block>
-  <block id="1756723d8e2dd45f2b65867bceff3cfc" category="section-title">範例 3 ：鎖定敏感連接埠</block>
   <block id="3b6fe72b0283728287223e0436304198" category="paragraph">假設您想要鎖定敏感連接埠和該連接埠上的服務（例如、連接埠 22 上的 SSH ）。您可以使用下列一般步驟：</block>
   <block id="92cd2bdd11c8731d761c44b8390c9fef" category="list-text">使用「貴賓」位址清單標籤、僅授予需要存取服務的主機存取權。</block>
   <block id="0ae9ad13d9b1384f4df986f1a479769d" category="admonition">在您封鎖存取任何指派給存取 Grid Manager 和 Tenant Manager 的連接埠（預設連接埠為 443 和 8443 ）之前、請先新增特權 IP 位址。目前連線至封鎖連接埠的任何使用者（包括您）將無法存取 Grid Manager 、除非他們的 IP 位址已新增至「貴賓」位址清單。</block>
   <block id="b7649713f96394d40fd14bfe661cc32e" category="paragraph">儲存組態後、連接埠 22 和 SSH 服務將可用於權限位址清單上的主機。無論要求來自哪個介面、所有其他主機都將無法存取服務。</block>
-  <block id="00e3b8a05abe355bf56261b2f8257b22" category="section-title">範例 4 ：停用對未使用服務的存取</block>
   <block id="6cc7e0b97f53ce313b0f885db6211bd2" category="paragraph">在網路層級、您可以停用一些不想使用的服務。例如、如果您不提供 Swift 存取、請執行下列一般步驟：</block>
   <block id="e4b5b71413c1ed0ae09022bc1a8d0363" category="list-text">使用「管理外部存取」索引標籤上的切換開關來封鎖連接埠 18083 。</block>
   <block id="9665aae1b951caed3b411692676dc9b3" category="list-text">使用「管理外部存取」索引標籤上的切換開關來封鎖連接埠 18085 。</block>
@@ -23898,4 +23889,6 @@ VM_API_Gateway</block>
   <block id="7dc5983e9de89ec2bcacf21aec6d8399" category="list-text">192.168.130.0/24，因為此子網路範圍包含 IP 位址 192.168.130.101 和 192.168.130.102</block>
   <block id="f3289a31e39c1161c9f3351ba19a4562" category="list-text">192.168.131.0/24，因為此子網路範圍包含 IP 位址 192.168.131.101 和 192.168.131.102</block>
   <block id="1deaf9237f4171a62975b6710d5432b8" category="list-text">198.51.100.0/24，因為此子網路範圍包含 IP 位址 198.51.100.2 和 198.51.100.4</block>
+  <block id="73481daa309b095a9aa27f202e41db43" category="section-title">範例 2：鎖定敏感端口</block>
+  <block id="67e66a8fc5de2d4b0e456dfdb9b3d6f8" category="section-title">範例 3：停用對未使用的服務的訪問</block>
 </blocks>
