@@ -191,11 +191,18 @@ Cassandra可以有多個項目；您必須找出最近的項目。
 如果Cassandra資料庫發生記憶體不足錯誤、就會建立堆傾印、觸發「事件總數（SMT）」警示、而Cassandra堆積記憶體不足錯誤數則遞增1。
 
 .步驟
-. 若要檢視事件、請選取*支援*>*工具*>*網格拓撲*>*組態*。
+. 查看活動：
++
+.. 選取*支援*>*工具*>*網格拓撲*。
+.. 展開站點，然後選擇*_grid_node_*。
+.. 選擇 *SSM*，然後選擇 *事件* > *配置*。
+
+
 . 確認Cassandra堆積記憶體不足錯誤數為1或更高。
 +
 您可以 link:../monitor/running-diagnostics.html["執行診斷"] 以取得有關網格目前狀態的其他資訊。
 
+. 使用 SSH 以「admin」身分登入選定節點，並切換到本機 root 使用者。
 . 前往 `/var/local/core/`、壓縮 `Cassandra.hprof` 歸檔、然後傳送給技術支援部門。
 . 備份 `Cassandra.hprof` 檔案、然後將其從刪除 `/var/local/core/ directory`。
 +

@@ -882,7 +882,6 @@
   <block id="7f187fbfb3cc374df5654c19d1b29094" category="section-title">Cassandra 記憶體不足錯誤（ SMTT 警報）</block>
   <block id="fd73c5b19eb71a21b9e039279608b7c0" category="paragraph">當Cassandra資料庫發生記憶體不足錯誤時、會觸發「事件總數」（SMT）警示。如果發生此錯誤、請聯絡技術支援部門以解決此問題。</block>
   <block id="e9b0dabe78a40351d7b0a637c79de6e7" category="paragraph">如果Cassandra資料庫發生記憶體不足錯誤、就會建立堆傾印、觸發「事件總數（SMT）」警示、而Cassandra堆積記憶體不足錯誤數則遞增1。</block>
-  <block id="9e20710df153e393c701eda5b1d2fbcf" category="list-text">若要檢視事件、請選取*支援*&gt;*工具*&gt;*網格拓撲*&gt;*組態*。</block>
   <block id="b832676c17270cdd35801ee9b893738c" category="list-text">確認Cassandra堆積記憶體不足錯誤數為1或更高。</block>
   <block id="bed4eac46ec43dc854496c7fd503d700" category="list-text">前往<block ref="6bb54d6ab7d662a825eefc9b3e9f13f4" prefix=" " category="inline-code"></block>、壓縮<block ref="af8530f757388fb61806648b02b0be32" prefix=" " category="inline-code"></block> 歸檔、然後傳送給技術支援部門。</block>
   <block id="28f7e2793e7b4bef50320fd5f1b0811d" category="list-text">備份<block ref="af8530f757388fb61806648b02b0be32" prefix=" " category="inline-code"></block> 檔案、然後將其從刪除<block ref="e59739a1dff6d57beead9b6b52427349" prefix=" " category="inline-code"></block>。</block>
@@ -23891,4 +23890,8 @@ VM_API_Gateway</block>
   <block id="1deaf9237f4171a62975b6710d5432b8" category="list-text">198.51.100.0/24，因為此子網路範圍包含 IP 位址 198.51.100.2 和 198.51.100.4</block>
   <block id="73481daa309b095a9aa27f202e41db43" category="section-title">範例 2：鎖定敏感端口</block>
   <block id="67e66a8fc5de2d4b0e456dfdb9b3d6f8" category="section-title">範例 3：停用對未使用的服務的訪問</block>
+  <block id="2fea3b847de8a9b6640281d2b38d94d5" category="list-text">查看活動：</block>
+  <block id="110b64c7904843edcb89b0d6c1dffc04" category="list-text">展開站點，然後選擇*_grid_node_*。</block>
+  <block id="0e755cbdf2a855a3d997100bcaecddef" category="list-text">選擇 *SSM*，然後選擇 *事件* &gt; *配置*。</block>
+  <block id="b12f2da592fdf5c6561f6893a79992c8" category="list-text">使用 SSH 以「admin」身分登入選定節點，並切換到本機 root 使用者。</block>
 </blocks>
