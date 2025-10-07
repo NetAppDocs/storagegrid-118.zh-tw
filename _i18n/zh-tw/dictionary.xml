@@ -12557,7 +12557,6 @@ NetApp.storagegrid</block>
   <block id="dab3ba0e522124ad8e9204bf6cc154fe" category="paragraph">綠色橫幅表示已儲存組態。</block>
   <block id="14403baa10acafb6e62d469ec84440c5" category="list-text">否則、請選取 * 傳送測試訊息 * （建議）。</block>
   <block id="e07ce98c3766168a9fd3eeb752877a2b" category="paragraph">測試結果會持續顯示在頁面上、直到您停止測試為止。測試進行中時、您的稽核訊息會繼續傳送至先前設定的目的地。</block>
-  <block id="e01fdde207f00711eebaba75b922ec92" category="list-text">如果您收到任何錯誤、請更正錯誤、然後再次選取*傳送測試訊息*。</block>
   <block id="f8c958f79fe4b5ec31ff8cffef1f49cb" category="paragraph">請參閱 <block ref="48812e49f2d5fbd4d691436466a81515" category="inline-link-macro-rx"></block> 協助您解決任何錯誤。</block>
   <block id="b008046231acad7871c3399e71761ec3" category="list-text">請等到看到綠色橫幅、表示所有節點都已通過測試。</block>
   <block id="af44eb623b875d9f3c733b5debd98184" category="list-text">請檢查您的syslog伺服器、確定是否收到測試訊息、並按照預期處理。</block>
@@ -23819,11 +23818,6 @@ VM_API_Gateway</block>
   <block id="dc6774fa8560c050e29c019ef5f6960d" category="list-text">關閉控制器機櫃上的兩個電源開關、並等待控制器機櫃上的所有 LED 燈熄滅。</block>
   <block id="f3d66eb150682e2a60af093e5d16adc7" category="inline-link">SG5800 儲存設備</block>
   <block id="d3a11ed12eda956eb456e5ddb9b08abe" category="paragraph"><block ref="d3a11ed12eda956eb456e5ddb9b08abe" category="inline-link-rx"></block></block>
-  <block id="4ececd4faa0ee1692a44e0e76c58a432" category="summary">瞭解如何使用 Grid Manager 從 BlueXP  管理您的 StorageGRID 系統、並使用 BlueXP 的資料服務來進行備份、資料分層等。</block>
-  <block id="f0a859d6d1882a29d9e151a82ea1bdce" category="doc">如何使用 BlueXP  管理 StorageGRID</block>
-  <block id="e49fe84ab9de0d0293be60cd1cd89c71" category="inline-link">使用 BlueXP 進行 StorageGRID 管理</block>
-  <block id="68fca0b5ebd1ba543c02e3996102d3a7" category="paragraph">請移至<block ref="153e89292eececc83574f107181d8262" category="inline-link-rx"></block> 以瞭解如何使用 Grid Manager 從 BlueXP  管理您的 StorageGRID 系統、並使用 BlueXP 的資料服務來進行備份、資料分層等。</block>
-  <block id="0bbd35506c5fd92ca668359a77366235" category="sidebar">StorageGRID 與 BlueXP </block>
   <block id="6057254a4d5677aac904869e476324a4" category="paragraph">僅限本機節點（預設）</block>
   <block id="a2e27e1c9f8243051979f9a4ccf48fe5" category="list-text">預設稽核目的地</block>
   <block id="279ad737122edf40bbd3d46715424816" category="list-text">StorageGRID 11.8 的全新安裝預設為本機節點稽核目的地。以前，<block ref="e674b907872c88ac8370567f44423638" prefix="(" category="inline-code"></block>僅將審計消息發送到管理節點上的審計日誌）。</block>
@@ -23894,4 +23888,17 @@ VM_API_Gateway</block>
   <block id="110b64c7904843edcb89b0d6c1dffc04" category="list-text">展開站點，然後選擇*_grid_node_*。</block>
   <block id="0e755cbdf2a855a3d997100bcaecddef" category="list-text">選擇 *SSM*，然後選擇 *事件* &gt; *配置*。</block>
   <block id="b12f2da592fdf5c6561f6893a79992c8" category="list-text">使用 SSH 以「admin」身分登入選定節點，並切換到本機 root 使用者。</block>
+  <block id="512f343d76e2b4d6698626bbe3bdc364" category="list-text">如果您在 syslog 伺服器設定期間或執行時收到任何錯誤，請修正它們並再次選擇*傳送測試訊息*。</block>
+  <block id="68dce4b2994b1d7fafe72155134e7425" category="summary">了解如何使用 Grid Manager 從NetApp Console 管理您的StorageGRID系統，以及如何使用NetApp Console 的資料服務進行備份、資料分層等。</block>
+  <block id="fc4df0fb45c3464916668c4f4d5047cd" category="doc">如何使用NetApp控制台管理StorageGRID</block>
+  <block id="833d7a06da5bfcaa98ebc4b04bcbe43e" category="inline-link">使用NetApp控制台進行StorageGRID管理</block>
+  <block id="08a86c122a16574c68ee2add17edebf3" category="paragraph">前往<block ref="02da84de3e0587664de030a7d130d7eb" category="inline-link-rx"></block>了解如何使用 Grid Manager 從NetApp Console 管理您的StorageGRID系統，以及如何使用NetApp Console 的資料服務進行備份、資料分層等。</block>
+  <block id="d75e5c078ed9088e9acd95eaa7e2bce0" category="paragraph">* BlueXP現在是NetApp控制台*</block>
+  <block id="995c8f79a8e07fbd8d519e45d03d6004" category="paragraph">NetApp控制台建立在增強和重組的BlueXP基礎之上，可在企業級內部和雲端環境中集中管理NetApp儲存和NetApp資料服務，提供即時洞察、更快的工作流程和簡化的管理，並且高度安全且合規。</block>
+  <block id="2ef9d641d45afe99b74ad6f9a9f797ad" category="inline-link-macro">NetApp控制台發行說明</block>
+  <block id="9fad6bb6d30ac060d7377371e39b12c0" category="paragraph">有關更改的詳細信息，請參閱<block ref="a3987562479f1a66db4eec298b79e00c" category="inline-link-macro-rx"></block>。</block>
+  <block id="8bfc79faef42bd05515078d27fadc14a" category="paragraph">如果您在傳送測試訊息以驗證外部系統日誌伺服器是否正確設定時遇到問題，則設定外部系統日誌伺服器精靈會顯示這些錯誤。</block>
+  <block id="c27fd735b4380af7ab57542ae39e16aa" category="paragraph">運行時問題可能會由<block ref="29c74c3b7244d6099f188726dde18748" category="inline-link-macro-rx"></block>警報。如果您收到此警報，請按照警報中的指示重新發送測試訊息，以便您可以獲得詳細的錯誤訊息。</block>
+  <block id="7b63e3ab012c50052cf80c91528ad009" category="sidebar">使用NetApp Console 進行StorageGRID管理</block>
+  <block id="2532828f944a69834b500cafd1abc57b" category="sidebar">StorageGRID和NetApp控制台</block>
 </blocks>
