@@ -1,5 +1,9 @@
 ---
 indexpage:
+  title: 恢復或更換節點
+  summary: 如果網格節點發生故障、您可以更換故障的實體或虛擬伺服器、重新安裝StorageGRID 還原軟體、以及還原可恢復的資料、來還原節點。
+  keywords: recover, replace, warnings, grid, node, storagegrid systems
+  lead: 如果網格節點發生故障、您可以更換故障的實體或虛擬伺服器、重新安裝StorageGRID 還原軟體、以及還原可恢復的資料、來還原節點。
   tiles:
   - title: 開始使用
     links:

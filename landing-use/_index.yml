@@ -1,5 +1,9 @@
 ---
 indexpage:
+  title: 使用 StorageGRID 租戶和用戶端
+  summary: 完成初始設定後、 StorageGRID 租戶帳戶可以建立貯體、並使用 S3 用戶端應用程式來擷取、擷取及刪除物件。
+  keywords: applications, tenant, ingest, storagegrid systems, monitor, api, management
+  lead: 完成初始設定後、 StorageGRID 租戶帳戶可以建立貯體、並使用 S3 用戶端應用程式來擷取、擷取及刪除物件。
   tiles:
   - title: 瞭解租戶
     links:

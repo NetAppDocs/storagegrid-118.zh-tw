@@ -1,5 +1,10 @@
 ---
 indexpage:
+  title: 設定及管理 StorageGRID 系統
+  summary: 您需要為新的 StorageGRID 系統執行的組態工作、取決於您使用網格的方式。您至少需要設定系統存取、使用 FabricPool 和 S3
+    精靈、以及管理各種儲存和安全性設定。
+  keywords: storagegrid system, configure, manage, security, settings, admin, group
+  lead: 您需要為新的 StorageGRID 系統執行的組態工作、取決於您使用網格的方式。您至少需要設定系統存取、使用 FabricPool 和 S3 精靈、以及管理各種儲存和安全性設定。
   tiles:
   - title: 開始使用
     links:

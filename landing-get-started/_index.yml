@@ -1,5 +1,9 @@
 ---
 indexpage:
+  title: 開始使用 StorageGRID 系統
+  summary: 在安裝和使用 StorageGRID 系統之前、請先花點時間瞭解 StorageGRID 是什麼。
+  keywords: storagegrid system, install, network, topology, data, manage
+  lead: 在安裝和使用 StorageGRID 系統之前、請先花點時間瞭解 StorageGRID 是什麼。
   tiles:
   - title: 學習與探索
     links:

@@ -1,5 +1,9 @@
 ---
 indexpage:
+  title: 展開網格
+  summary: 您可以擴充 StorageGRID 系統的容量或功能、而不會中斷系統作業。
+  keywords: storagegrid system, capacity, grid, capabilities, operations, expansion
+  lead: 您可以擴充 StorageGRID 系統的容量或功能、而不會中斷系統作業。
   tiles:
   - title: 開始使用
     links:

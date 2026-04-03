@@ -1,5 +1,9 @@
 ---
 indexpage:
+  title: 監控 StorageGRID 系統並進行疑難排解
+  summary: 當系統啟動並執行時、您應該定期監控其活動、並疑難排解及解決任何警示。您可能也想要設定外部 Syslog 伺服器、使用 SNMP 監控或收集其他資料。
+  keywords: monitor, troubleshoot, storagegrid system, dashboard, audit, message
+  lead: 當系統啟動並執行時、您應該定期監控其活動、並疑難排解及解決任何警示。您可能也想要設定外部 Syslog 伺服器、使用 SNMP 監控或收集其他資料。
   tiles:
   - title: 監控您的系統
     links:
