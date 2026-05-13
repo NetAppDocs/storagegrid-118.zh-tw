@@ -81,7 +81,7 @@ CloudMirror複寫
 
  a| 
 * link:configuring-cloudmirror-replication.html["CloudMirror複寫"]
-* link:../s3/operations-on-buckets.htmll["在貯體上作業"]
+* link:../s3/operations-on-buckets.html["在貯體上作業"]
 
 
 
@@ -94,7 +94,7 @@ CloudMirror複寫
 
  a| 
 * link:configuring-event-notifications.html["通知"]
-* link:../s3/s3/operations-on-buckets.html["在貯體上作業"]
+* link:../s3/operations-on-buckets.html["在貯體上作業"]
 
 
 
